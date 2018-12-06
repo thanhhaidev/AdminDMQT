@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace DienMayQuyetTien.Models
+namespace dienmayquyettien.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
