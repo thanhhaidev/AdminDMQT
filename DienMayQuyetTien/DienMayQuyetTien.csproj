@@ -1,0 +1,505 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F795A5BF-7B43-419B-91FA-BF1485D6324D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DienMayQuyetTien</RootNamespace>
+    <AssemblyName>DienMayQuyetTien</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <ApplicationInsightsResourceId>/subscriptions/8151c724-b03c-4e52-8cdd-4173119c8b93/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/DienMayQuyetTien</ApplicationInsightsResourceId>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=1.0.0.4220, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.1.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights.Extensibility.DependencyCollector, Version=1.0.0.4227, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.1.0.0\lib\net45\Microsoft.ApplicationInsights.Extensibility.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector, Version=1.0.0.4231, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.1.0.0\lib\net45\Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights.Extensibility.Web, Version=1.0.0.4227, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.1.0.0\lib\net45\Microsoft.ApplicationInsights.Extensibility.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights.Web.TelemetryChannel, Version=1.0.0.4227, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.TelemetryChannel.1.0.0\lib\net45\Microsoft.ApplicationInsights.Web.TelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Diagnostics.Instrumentation.Extensions.Intercept, Version=0.17.0.194, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.0.17.0\lib\net45\Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Admin\Models\DienMayQuyetTien.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DienMayQuyetTien.Context.cs</LastGenOutput>
+      <DependentUpon>DienMayQuyetTien.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Models\DienMayQuyetTien.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DienMayQuyetTien.edmx</DependentUpon>
+      <LastGenOutput>DienMayQuyetTien.cs</LastGenOutput>
+    </Content>
+    <Content Include="Assets\Admin\css\accordions.css" />
+    <Content Include="Assets\Admin\css\adminpro-custon-icon.css" />
+    <Content Include="Assets\Admin\css\alerts.css" />
+    <Content Include="Assets\Admin\css\animate.css" />
+    <Content Include="Assets\Admin\css\bootstrap-editable.css" />
+    <Content Include="Assets\Admin\css\bootstrap.min.css" />
+    <Content Include="Assets\Admin\css\buttons.css" />
+    <Content Include="Assets\Admin\css\c3.min.css" />
+    <Content Include="Assets\Admin\css\charts.css" />
+    <Content Include="Assets\Admin\css\chosen\bootstrap-chosen.css" />
+    <Content Include="Assets\Admin\css\chosen\chosen-sprite.png" />
+    <Content Include="Assets\Admin\css\chosen\chosen.jquery.js" />
+    <Content Include="Assets\Admin\css\code-editor\ambiance.css" />
+    <Content Include="Assets\Admin\css\code-editor\codemirror.css" />
+    <Content Include="Assets\Admin\css\colorpicker\colorpicker.css" />
+    <Content Include="Assets\Admin\css\cropper\cropper.min.css" />
+    <Content Include="Assets\Admin\css\data-table\bootstrap-editable.css" />
+    <Content Include="Assets\Admin\css\data-table\bootstrap-table.css" />
+    <Content Include="Assets\Admin\css\datapicker\datepicker3.css" />
+    <Content Include="Assets\Admin\css\datetimepicker.css" />
+    <Content Include="Assets\Admin\css\dropzone.css" />
+    <Content Include="Assets\Admin\css\duallistbox\bootstrap-duallistbox.min.css" />
+    <Content Include="Assets\Admin\css\font-awesome.min.css" />
+    <Content Include="Assets\Admin\css\form.css" />
+    <Content Include="Assets\Admin\css\form\all-type-forms.css" />
+    <Content Include="Assets\Admin\css\form\themesaller-forms.css" />
+    <Content Include="Assets\Admin\css\ionRangeSlider\ion.rangeSlider.css" />
+    <Content Include="Assets\Admin\css\ionRangeSlider\ion.rangeSlider.skinFlat.css" />
+    <Content Include="Assets\Admin\css\ionRangeSlider\sprite-skin-flat.png" />
+    <Content Include="Assets\Admin\css\jquery.mCustomScrollbar.min.css" />
+    <Content Include="Assets\Admin\css\jvectormap\jquery-jvectormap-2.0.3.css" />
+    <Content Include="Assets\Admin\css\Lobibox.min.css" />
+    <Content Include="Assets\Admin\css\main.css" />
+    <Content Include="Assets\Admin\css\mCSB_buttons.png" />
+    <Content Include="Assets\Admin\css\meanmenu.min.css" />
+    <Content Include="Assets\Admin\css\modals.css" />
+    <Content Include="Assets\Admin\css\normalize.css" />
+    <Content Include="Assets\Admin\css\notifications.css" />
+    <Content Include="Assets\Admin\css\preloader\preloader-style.css" />
+    <Content Include="Assets\Admin\css\responsive.css" />
+    <Content Include="Assets\Admin\css\select2-bootstrap.css" />
+    <Content Include="Assets\Admin\css\select2.css" />
+    <Content Include="Assets\Admin\css\select2.png" />
+    <Content Include="Assets\Admin\css\select2\select2.min.css" />
+    <Content Include="Assets\Admin\css\style.css" />
+    <Content Include="Assets\Admin\css\summernote.css" />
+    <Content Include="Assets\Admin\css\switcher\color-eight.css" />
+    <Content Include="Assets\Admin\css\switcher\color-five.css" />
+    <Content Include="Assets\Admin\css\switcher\color-four.css" />
+    <Content Include="Assets\Admin\css\switcher\color-nine.css" />
+    <Content Include="Assets\Admin\css\switcher\color-one.css" />
+    <Content Include="Assets\Admin\css\switcher\color-seven.css" />
+    <Content Include="Assets\Admin\css\switcher\color-six.css" />
+    <Content Include="Assets\Admin\css\switcher\color-switcher.css" />
+    <Content Include="Assets\Admin\css\switcher\color-ten.css" />
+    <Content Include="Assets\Admin\css\switcher\color-three.css" />
+    <Content Include="Assets\Admin\css\switcher\color-two.css" />
+    <Content Include="Assets\Admin\css\tab-menus.css" />
+    <Content Include="Assets\Admin\css\tabs.css" />
+    <Content Include="Assets\Admin\css\touchspin\jquery.bootstrap-touchspin.min.css" />
+    <Content Include="Assets\Admin\css\tree-viewer\32px.png" />
+    <Content Include="Assets\Admin\css\tree-viewer\throbber.gif" />
+    <Content Include="Assets\Admin\css\tree-viewer\tree-viewer.css" />
+    <Content Include="Assets\Admin\css\typeahead.js-bootstrap.css" />
+    <Content Include="Assets\Admin\css\x-editor-style.css" />
+    <Content Include="Assets\Admin\img\clear.png" />
+    <Content Include="Assets\Admin\img\cropper\1.jpg" />
+    <Content Include="Assets\Admin\img\favicon.ico" />
+    <Content Include="Assets\Admin\img\googlemap\1.png" />
+    <Content Include="Assets\Admin\img\green1.png" />
+    <Content Include="Assets\Admin\img\loading.gif" />
+    <Content Include="Assets\Admin\img\logo\log.png" />
+    <Content Include="Assets\Admin\img\logo\logo.png" />
+    <Content Include="Assets\Admin\img\logo\logo_QT.png" />
+    <Content Include="Assets\Admin\img\message\1.jpg" />
+    <Content Include="Assets\Admin\img\message\2.jpg" />
+    <Content Include="Assets\Admin\img\message\3.jpg" />
+    <Content Include="Assets\Admin\img\message\4.jpg" />
+    <Content Include="Assets\Admin\img\notification\1.jpg" />
+    <Content Include="Assets\Admin\img\notification\2.jpg" />
+    <Content Include="Assets\Admin\img\notification\3.jpg" />
+    <Content Include="Assets\Admin\img\notification\4.jpg" />
+    <Content Include="Assets\Admin\img\notification\5.jpg" />
+    <Content Include="Assets\Admin\img\notification\6.jpg" />
+    <Content Include="Assets\Admin\img\profile\1.jpg" />
+    <Content Include="Assets\Admin\js\bootstrap-datetimepicker.js" />
+    <Content Include="Assets\Admin\js\bootstrap-editable.js" />
+    <Content Include="Assets\Admin\js\bootstrap.min.js" />
+    <Content Include="Assets\Admin\js\c3-charts\c3-active.js" />
+    <Content Include="Assets\Admin\js\c3-charts\c3.min.js" />
+    <Content Include="Assets\Admin\js\c3-charts\d3.min.js" />
+    <Content Include="Assets\Admin\js\charts\area-chart.js" />
+    <Content Include="Assets\Admin\js\charts\bar-chart.js" />
+    <Content Include="Assets\Admin\js\charts\Chart.js" />
+    <Content Include="Assets\Admin\js\charts\line-chart.js" />
+    <Content Include="Assets\Admin\js\charts\rounded-chart.js" />
+    <Content Include="Assets\Admin\js\chat-active\jquery.chat.js" />
+    <Content Include="Assets\Admin\js\chosen\chosen-active.js" />
+    <Content Include="Assets\Admin\js\chosen\chosen.jquery.js" />
+    <Content Include="Assets\Admin\js\code-editor\code-editor-active.js" />
+    <Content Include="Assets\Admin\js\code-editor\code-editor.js" />
+    <Content Include="Assets\Admin\js\code-editor\codemirror.js" />
+    <Content Include="Assets\Admin\js\colorpicker\color-picker-active.js" />
+    <Content Include="Assets\Admin\js\colorpicker\jquery.spectrum.min.js" />
+    <Content Include="Assets\Admin\js\counterup\counterup-active.js" />
+    <Content Include="Assets\Admin\js\counterup\jquery.counterup.min.js" />
+    <Content Include="Assets\Admin\js\counterup\waypoints.min.js" />
+    <Content Include="Assets\Admin\js\cropper\cropper-actice.js" />
+    <Content Include="Assets\Admin\js\cropper\cropper.min.js" />
+    <Content Include="Assets\Admin\js\data-map\bootstrap3-typeahead.min.js" />
+    <Content Include="Assets\Admin\js\data-map\d3.min.js" />
+    <Content Include="Assets\Admin\js\data-map\data-maps-active.js" />
+    <Content Include="Assets\Admin\js\data-map\datamaps.all.min.js" />
+    <Content Include="Assets\Admin\js\data-map\topojson.js" />
+    <Content Include="Assets\Admin\js\data-table\bootstrap-editable.js" />
+    <Content Include="Assets\Admin\js\data-table\bootstrap-table-cookie.js" />
+    <Content Include="Assets\Admin\js\data-table\bootstrap-table-editable.js" />
+    <Content Include="Assets\Admin\js\data-table\bootstrap-table-export.js" />
+    <Content Include="Assets\Admin\js\data-table\bootstrap-table-key-events.js" />
+    <Content Include="Assets\Admin\js\data-table\bootstrap-table-resizable.js" />
+    <Content Include="Assets\Admin\js\data-table\bootstrap-table.js" />
+    <Content Include="Assets\Admin\js\data-table\colResizable-1.5.source.js" />
+    <Content Include="Assets\Admin\js\data-table\data-table-active.js" />
+    <Content Include="Assets\Admin\js\data-table\tableExport.js" />
+    <Content Include="Assets\Admin\js\datapicker\bootstrap-datepicker.js" />
+    <Content Include="Assets\Admin\js\datapicker\datepicker-active.js" />
+    <Content Include="Assets\Admin\js\datepicker-active.js" />
+    <Content Include="Assets\Admin\js\dropzone.js" />
+    <Content Include="Assets\Admin\js\duallistbox\duallistbox.active.js" />
+    <Content Include="Assets\Admin\js\duallistbox\jquery.bootstrap-duallistbox.js" />
+    <Content Include="Assets\Admin\js\flot\Chart.min.js" />
+    <Content Include="Assets\Admin\js\flot\dashtwo-flot-active.js" />
+    <Content Include="Assets\Admin\js\flot\flot-active.js" />
+    <Content Include="Assets\Admin\js\flot\jquery.flot.js" />
+    <Content Include="Assets\Admin\js\flot\jquery.flot.pie.js" />
+    <Content Include="Assets\Admin\js\flot\jquery.flot.resize.js" />
+    <Content Include="Assets\Admin\js\flot\jquery.flot.spline.js" />
+    <Content Include="Assets\Admin\js\flot\jquery.flot.symbol.js" />
+    <Content Include="Assets\Admin\js\flot\jquery.flot.time.js" />
+    <Content Include="Assets\Admin\js\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="Assets\Admin\js\flot\widget-flot-chart-active.js" />
+    <Content Include="Assets\Admin\js\form-active.js" />
+    <Content Include="Assets\Admin\js\google.maps\google.maps-active.js" />
+    <Content Include="Assets\Admin\js\icheck\icheck-active.js" />
+    <Content Include="Assets\Admin\js\icheck\icheck.min.js" />
+    <Content Include="Assets\Admin\js\input-mask\jasny-bootstrap.min.js" />
+    <Content Include="Assets\Admin\js\ionRangeSlider\ion.rangeSlider.active.js" />
+    <Content Include="Assets\Admin\js\ionRangeSlider\ion.rangeSlider.min.js" />
+    <Content Include="Assets\Admin\js\jquery-ui.min.js" />
+    <Content Include="Assets\Admin\js\jquery.form.min.js" />
+    <Content Include="Assets\Admin\js\jquery.maskedinput.min.js" />
+    <Content Include="Assets\Admin\js\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="Assets\Admin\js\jquery.meanmenu.js" />
+    <Content Include="Assets\Admin\js\jquery.mockjax.js" />
+    <Content Include="Assets\Admin\js\jquery.scrollUp.min.js" />
+    <Content Include="Assets\Admin\js\jquery.sticky.js" />
+    <Content Include="Assets\Admin\js\jquery.validate.min.js" />
+    <Content Include="Assets\Admin\js\jvectormap\jquery-jvectormap-2.0.2.min.js" />
+    <Content Include="Assets\Admin\js\jvectormap\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="Assets\Admin\js\jvectormap\jvectormap-active.js" />
+    <Content Include="Assets\Admin\js\knob\jquery.knob.js" />
+    <Content Include="Assets\Admin\js\knob\knob-active.js" />
+    <Content Include="Assets\Admin\js\Lobibox.js" />
+    <Content Include="Assets\Admin\js\main.js" />
+    <Content Include="Assets\Admin\js\map\france_departments.js" />
+    <Content Include="Assets\Admin\js\map\jquery.mapael.js" />
+    <Content Include="Assets\Admin\js\map\map-active.js" />
+    <Content Include="Assets\Admin\js\map\raphael.min.js" />
+    <Content Include="Assets\Admin\js\map\usa_states.js" />
+    <Content Include="Assets\Admin\js\map\world_countries.js" />
+    <Content Include="Assets\Admin\js\masking-active.js" />
+    <Content Include="Assets\Admin\js\mock-active.js" />
+    <Content Include="Assets\Admin\js\modal-active.js" />
+    <Content Include="Assets\Admin\js\moment.min.js" />
+    <Content Include="Assets\Admin\js\multiple-email\multiple-email-active.js" />
+    <Content Include="Assets\Admin\js\notification-active.js" />
+    <Content Include="Assets\Admin\js\password-meter\password-meter-active.js" />
+    <Content Include="Assets\Admin\js\password-meter\pwstrength-bootstrap.min.js" />
+    <Content Include="Assets\Admin\js\password-meter\zxcvbn.js" />
+    <Content Include="Assets\Admin\js\pdf\jquery.media.js" />
+    <Content Include="Assets\Admin\js\pdf\pdf-active.js" />
+    <Content Include="Assets\Admin\js\peity\jquery.peity.min.js" />
+    <Content Include="Assets\Admin\js\peity\peity-active.js" />
+    <Content Include="Assets\Admin\js\rangle-slider\jquery-ui-1.10.4.custom.min.js" />
+    <Content Include="Assets\Admin\js\rangle-slider\jquery-ui-touch-punch.min.js" />
+    <Content Include="Assets\Admin\js\rangle-slider\rangle-active.js" />
+    <Content Include="Assets\Admin\js\rounded-counter\jquery.appear.js" />
+    <Content Include="Assets\Admin\js\rounded-counter\jquery.countdown.min.js" />
+    <Content Include="Assets\Admin\js\rounded-counter\jquery.knob.js" />
+    <Content Include="Assets\Admin\js\rounded-counter\knob-active.js" />
+    <Content Include="Assets\Admin\js\select2.js" />
+    <Content Include="Assets\Admin\js\select2\select2-active.js" />
+    <Content Include="Assets\Admin\js\select2\select2.full.min.js" />
+    <Content Include="Assets\Admin\js\skycons\skycons.active.js" />
+    <Content Include="Assets\Admin\js\skycons\skycons.min.js" />
+    <Content Include="Assets\Admin\js\sparkline\jquery.sparkline.min.js" />
+    <Content Include="Assets\Admin\js\sparkline\sparkline-active.js" />
+    <Content Include="Assets\Admin\js\summernote-active.js" />
+    <Content Include="Assets\Admin\js\summernote.min.js" />
+    <Content Include="Assets\Admin\js\switcher\styleswitch.js" />
+    <Content Include="Assets\Admin\js\switcher\switch-active.js" />
+    <Content Include="Assets\Admin\js\todo\jquery.todo.js" />
+    <Content Include="Assets\Admin\js\touchspin\jquery.bootstrap-touchspin.min.js" />
+    <Content Include="Assets\Admin\js\touchspin\touchspin-active.js" />
+    <Content Include="Assets\Admin\js\tree-line\jstree.active.js" />
+    <Content Include="Assets\Admin\js\tree-line\jstree.min.js" />
+    <Content Include="Assets\Admin\js\typeahead.js" />
+    <Content Include="Assets\Admin\js\typeaheadjs.js" />
+    <Content Include="Assets\Admin\js\vendor\jquery-1.11.3.min.js" />
+    <Content Include="Assets\Admin\js\vendor\modernizr-2.8.3.min.js" />
+    <Content Include="Assets\Admin\js\wow\wow.min.js" />
+    <Content Include="Assets\Admin\js\xediable-active.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Assets\Admin\fonts\adminpro-icon.svg" />
+    <Content Include="Assets\Admin\fonts\adminpro-icon.ttf" />
+    <Content Include="Assets\Admin\fonts\adminpro-icon.woff" />
+    <Content Include="Assets\Admin\fonts\fontawesome-webfont.eot" />
+    <Content Include="Assets\Admin\fonts\fontawesome-webfont.svg" />
+    <Content Include="Assets\Admin\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Assets\Admin\fonts\fontawesome-webfont.woff" />
+    <Content Include="Assets\Admin\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Assets\Admin\fonts\FontAwesome.otf" />
+    <Content Include="Assets\Admin\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\Admin\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Assets\Admin\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\Admin\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Assets\Admin\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Assets\Admin\fonts\summernote.eot" />
+    <Content Include="Assets\Admin\fonts\summernote.ttf" />
+    <Content Include="Assets\Admin\fonts\summernote.woff" />
+    <Content Include="Assets\Admin\img\cropper\Thumbs.db" />
+    <Content Include="Assets\Admin\img\googlemap\Thumbs.db" />
+    <Content Include="Assets\Admin\img\message\Thumbs.db" />
+    <Content Include="Assets\Admin\img\notification\Thumbs.db" />
+    <Content Include="Assets\Admin\img\profile\Thumbs.db" />
+    <Content Include="Assets\Admin\img\Thumbs.db" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Models\Account.cs">
+      <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Models\CashBill.cs">
+      <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Models\CashBillDetail.cs">
+      <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Models\Customer.cs">
+      <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Models\DienMayQuyetTien.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DienMayQuyetTien.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Models\DienMayQuyetTien.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Models\DienMayQuyetTien.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DienMayQuyetTien.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Models\InstallmentBill.cs">
+      <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Models\InstallmentBillDetail.cs">
+      <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Models\Product.cs">
+      <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Models\ProductType.cs">
+      <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config" />
+    <Content Include="Service References\Application Insights\ConnectedService.json" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <EntityDeploy Include="Areas\Admin\Models\DienMayQuyetTien.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DienMayQuyetTien.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Areas\Admin\Models\DienMayQuyetTien.edmx.diagram">
+      <DependentUpon>DienMayQuyetTien.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Login\Login.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Assets\Client\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1352</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1352/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.Agent.Intercept.0.17.0\build\Microsoft.ApplicationInsights.Agent.Intercept.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.Agent.Intercept.0.17.0\build\Microsoft.ApplicationInsights.Agent.Intercept.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.ApplicationInsights.Agent.Intercept.0.17.0\build\Microsoft.ApplicationInsights.Agent.Intercept.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.Agent.Intercept.0.17.0\build\Microsoft.ApplicationInsights.Agent.Intercept.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
