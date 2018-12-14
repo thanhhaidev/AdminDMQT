@@ -46,8 +46,15 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
         // GET: Admin/Home/Create
         public ActionResult Create()
         {
-            ViewBag.ProductTypeID = new SelectList(db.ProductTypes, "ID", "ProductTypeCode");
-            return View();
+            if (Session["UserName"] != null)
+            {
+                ViewBag.ProductTypeID = new SelectList(db.ProductTypes, "ID", "ProductTypeCode");
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
 
         // POST: Admin/Home/Create

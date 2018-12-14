@@ -63,7 +63,7 @@ padding: 0
   font-weight: normal;
   font-style: normal;
 }
-@font-face{font-family:"summernote";font-style:normal;font-weight:normal;src:url("fonts/summernote.eot?0d0d5fac99cc8774d89eb08b1a8323c4");src:url("fonts/summernote.eot?#iefix") format("embedded-opentype"),url("fonts/summernote.woff?0d0d5fac99cc8774d89eb08b1a8323c4") format("woff"),url("fonts/summernote.ttf?0d0d5fac99cc8774d89eb08b1a8323c4") format("truetype")}
+@font-face{font-family:"summernote";font-style:normal;font-weight:normal;src:url("../fonts/summernote.eot?0d0d5fac99cc8774d89eb08b1a8323c4");src:url("../fonts/summernote.eot?#iefix") format("embedded-opentype"),url("../fonts/summernote.woff?0d0d5fac99cc8774d89eb08b1a8323c4") format("woff"),url("../fonts/summernote.ttf?0d0d5fac99cc8774d89eb08b1a8323c4") format("truetype")}
 .mg-tb-40{
 	margin:40px 0px;
 }
@@ -3018,7 +3018,7 @@ ul.profile-contact-menu {
     padding: 0;
     width: 22px;
     height: 22px;
-    background: url(img/green1.png) no-repeat;
+    background: url(../img/green1.png) no-repeat;
     border: none;
     cursor: pointer;
 }
