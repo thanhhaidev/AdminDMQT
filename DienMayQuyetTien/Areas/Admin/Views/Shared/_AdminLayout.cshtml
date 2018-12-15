@@ -77,7 +77,11 @@
                 <div class="left-custom-menu-adp-wrap">
                     <ul class="nav navbar-nav left-sidebar-menu-pro">
                         <li class="nav-item">
-                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-product-hunt"></i> <span class="mini-dn">Product</span></a>
+                            <a href="@Url.Action("Index", "Home")" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-money"></i> <span class="mini-dn">Product</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                            <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                <a href="@Url.Action("Index", "Home")" class="dropdown-item">List</a>
+                                <a href="@Url.Action("Create", "Home")" class="dropdown-item">Create</a>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-money"></i> <span class="mini-dn">Cash Bill</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
@@ -155,7 +159,15 @@
                                 <nav id="dropdown">
                                     <ul class="mobile-menu-nav">
                                         <li>
-                                            <a data-toggle="collapse" data-target="#Charts" href="#">Product </a>
+                                            <a data-toggle="collapse" data-target="#others" href="@Url.Action("Index", "Home")">Product <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                            <ul id="others" class="collapse dropdown-header-top">
+                                                <li>
+                                                    <a href="@Url.Action("Index", "Home")">List</a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("Create", "Home")">Create</a>
+                                                </li>
+                                            </ul>
                                         </li>
                                         <li>
                                             <a data-toggle="collapse" data-target="#others" href="#">Cash Bill <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
@@ -293,6 +305,7 @@
     <!-- main JS
         ============================================ -->
     <script src="~/Assets/Admin/js/main.js"></script>
+    @RenderSection("scripts", required: false)
 </body>
 
 </html>

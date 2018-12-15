@@ -4,85 +4,7 @@
     ViewBag.Title = "Home";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SalePrice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OriginPrice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.InstallmentPrice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Quantity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Avatar)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductType.ProductTypeCode)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SalePrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OriginPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.InstallmentPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quantity)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Avatar)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductType.ProductTypeCode)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
-
-</table>
-
-
-<!-- Data table area Start-->
+            <!-- Data table area Start-->
 <div class="admin-dashone-data-table-area">
     <div class="container-fluid">
         <div class="row">
@@ -95,6 +17,9 @@
                     </div>
                     <div class="sparkline8-graph">
                         <div class="datatable-dashv1-list custom-datatable-overright">
+                            <div id="toolbar">
+                                <a href="@Url.Action("Create", "Home")" class="btn btn-custon-four btn-primary">Add Product New</a>
+                            </div>
                             <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="false" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar">
                                 <thead>
                                     <tr>
@@ -106,27 +31,50 @@
                                         <th data-field="quantity">Quantity</th>
                                         <th data-field="avatar">Avatar</th>
                                         <th data-field="status">Status</th>
-                                        <th data-field="type">Type</th>
                                         <th data-field="action">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Web Development</td>
-                                        <td>admin@uttara.com</td>
-                                        <td>+8801962067309</td>
-                                        <td>Aber Ltd.</td>
-                                        <td class="datatable-ct">
-                                            <span class="pie">1/6</span>
-                                        </td>
-                                        <td>10%</td>
-                                        <td>Jul 14, 2018</td>
-                                        <td>$5455</td>
-                                        <td class="datatable-ct">
-                                            <i class="fa fa-check"></i>
-                                        </td>
-                                    </tr>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@Html.DisplayFor(modelItem => item.ProductCode)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.ProductName)</td>
+                                            <td>@String.Format("{0:0,0} VND", item.SalePrice)</td>
+                                            <td>@String.Format("{0:0,0} VND", item.OriginPrice)</td>
+                                            <td>@String.Format("{0:0,0} VND", item.InstallmentPrice)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.Quantity)</td>
+                                            <td>
+                                                <img src="@item.Avatar" width="100" />
+                                            </td>
+                                            <td>
+                                                @if (item.Status == null)
+                                                {
+                                                    <div class="btn-group project-list-ad-rd">
+                                                        <button class="btn btn-white btn-xs">Not set</button>
+                                                    </div>
+                                                }
+                                                else if (item.Status == true)
+                                                {
+                                                    <div class="btn-group project-list-ad">
+                                                        <button class="btn btn-white btn-xs">True</button>
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="btn-group project-list-ad-bl">
+                                                        <button class="btn btn-white btn-xs">False</button>
+                                                    </div>
+                                                }
+                                            </td>
+                                            <td>
+                                                <div class="btn-group project-list-action">
+                                                    <a style="color: #fff" href="@Url.Action("Edit", "Home", new { id = item.ID })" class="btn btn-white btn-action btn-xs"><i class="fa fa-pencil"></i> Edit</a>
+                                                    <a class="btn btn-white btn-xs" style="color: #fff" href="@Url.Action("Delete", "Home", new { id = item.ID })"><i class="fa fa-trash"></i> Delete</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
                                 </tbody>
                             </table>
                         </div>

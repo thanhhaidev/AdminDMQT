@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DienMayQuyetTien.Areas.Admin.Models;
+using System.IO;
 
 namespace DienMayQuyetTien.Areas.Admin.Controllers
 {
@@ -62,10 +63,18 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,ProductCode,ProductName,ProductTypeID,SalePrice,OriginPrice,InstallmentPrice,Quantity,Avatar,Status")] Product product)
+        public ActionResult Create(Product product)
         {
+            CheckValidationProduct(product);
             if (ModelState.IsValid)
             {
+                string fileName = Path.GetFileNameWithoutExtension(product.ImageFile.FileName);
+                string extension = Path.GetExtension(product.ImageFile.FileName);
+                fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+
+                product.Avatar = "/Assets/Admin/img/products/" + fileName;
+                fileName = Path.Combine(Server.MapPath("/Assets/Admin/img/products/"), fileName);
+                product.ImageFile.SaveAs(fileName);
                 db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -75,20 +84,37 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
             return View(product);
         }
 
+        private void CheckValidationProduct(Product model)
+        {
+            if (model.OriginPrice < 0)
+                ModelState.AddModelError("OriginPrice", "Giá gốc phải lớn hơn 0!");
+            if (model.SalePrice < model.OriginPrice)
+                ModelState.AddModelError("SalePrice", "Giá bán phải lớn hơn giá gốc!");
+            if (model.InstallmentPrice < model.OriginPrice)
+                ModelState.AddModelError("InstallmentPrice", "Giá góp phải lớn hơn giá gốc!");
+        }
+
         // GET: Admin/Home/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["UserName"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Product product = db.Products.Find(id);
+                if (product == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.ProductTypeID = new SelectList(db.ProductTypes, "ID", "ProductTypeCode", product.ProductTypeID);
+                return View(product);
             }
-            Product product = db.Products.Find(id);
-            if (product == null)
+            else
             {
-                return HttpNotFound();
+                return RedirectToAction("Login", "Login");
             }
-            ViewBag.ProductTypeID = new SelectList(db.ProductTypes, "ID", "ProductTypeCode", product.ProductTypeID);
-            return View(product);
         }
 
         // POST: Admin/Home/Edit/5
@@ -96,10 +122,16 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,ProductCode,ProductName,ProductTypeID,SalePrice,OriginPrice,InstallmentPrice,Quantity,Avatar,Status")] Product product)
+        public ActionResult Edit(Product product)
         {
             if (ModelState.IsValid)
             {
+                string fileName = Path.GetFileNameWithoutExtension(product.ImageFile.FileName);
+                string extension = Path.GetExtension(product.ImageFile.FileName);
+                fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                product.Avatar = "/Assets/Admin/img/products/" + fileName;
+                fileName = Path.Combine(Server.MapPath("/Assets/Admin/img/products/"), fileName);
+                product.ImageFile.SaveAs(fileName);
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
