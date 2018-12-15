@@ -438,11 +438,11 @@
     </Content>
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Login\Login.cshtml" />
+    <None Include="Properties\PublishProfiles\dmquyettien - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

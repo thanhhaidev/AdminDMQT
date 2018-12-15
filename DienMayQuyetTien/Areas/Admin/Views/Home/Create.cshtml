@@ -113,6 +113,7 @@
                                                         <div class="file-upload-inner ts-forms">
                                                             @Html.TextBox("ImageFile", null, new { @type = "file", onChange = "readURL(this);", @class = "form-control", accept = "image/gif, image/jpeg, image/png" })
                                                             @Html.ValidationMessageFor(model => model.Avatar, "", new { @class = "pull-left text-danger" })
+                                                            @Html.ValidationMessage("ImageFile", new { @class = "pull-left text-danger" })
                                                             <img id="image" src="" class="pull-left mg-t-10"/>
                                                         </div>
                                                     </div>

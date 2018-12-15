@@ -54,7 +54,6 @@ namespace DienMayQuyetTien.Areas.Admin.Models
         [StringLength(255, MinimumLength = 0)]
         public string Avatar { get; set; }
 
-        [Required(ErrorMessage = "Please select file.")]
         public HttpPostedFileBase ImageFile { get; set; }
 
         public Nullable<bool> Status { get; set; }

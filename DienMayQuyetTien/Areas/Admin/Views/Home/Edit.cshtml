@@ -124,6 +124,7 @@
                                                     </div>
                                                     <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
                                                         <div class="file-upload-inner ts-forms">
+                                                            @Html.HiddenFor(model => model.Avatar)
                                                             @Html.TextBox("ImageFile", null, new { @type = "file", onChange = "readURL(this);", @class = "form-control", accept = "image/gif, image/jpeg, image/png" })
                                                             @Html.ValidationMessageFor(model => model.Avatar, "", new { @class = "pull-left text-danger" })
                                                             <img id="image" src="@Model.Avatar" class="pull-left mg-t-10" width="150"/>
