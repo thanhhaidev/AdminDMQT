@@ -41,7 +41,7 @@
                                                     </div>
                                                     <div class="col-lg-9">
                                                         <div class="form-select-list">
-                                                            @Html.DropDownList("ProductTypeID", null, htmlAttributes: new { @class = "form-control custom-select-value" })
+                                                            @Html.DropDownList("ProductTypeID", new SelectList(ViewBag.ProductType, "ID", "ProductTypeName"), htmlAttributes: new { @class = "form-control custom-select-value" })
                                                             @Html.ValidationMessageFor(model => model.ProductName, "", new { @class = "pull-left text-danger" })
                                                         </div>
                                                     </div>

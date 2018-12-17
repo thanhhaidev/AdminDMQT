@@ -34,6 +34,7 @@
                                     <tr>
                                         <th data-field="code">Code</th>
                                         <th data-field="name">Name</th>
+                                        <th data-field="type">Type</th>
                                         <th data-field="sale">Sale</th>
                                         <th data-field="origin">Origin</th>
                                         <th data-field="installment">Installment</th>
@@ -50,6 +51,7 @@
                                         <tr>
                                             <td><b>@Html.DisplayFor(modelItem => item.ProductCode)</b></td>
                                             <td>@Html.DisplayFor(modelItem => item.ProductName)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.ProductType.ProductTypeName)</td>
                                             <td>@String.Format("{0:0,0} VND", item.SalePrice)</td>
                                             <td>@String.Format("{0:0,0} VND", item.OriginPrice)</td>
                                             <td>@String.Format("{0:0,0} VND", item.InstallmentPrice)</td>

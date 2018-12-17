@@ -50,7 +50,7 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
         {
             if (Session["UserName"] != null)
             {
-                ViewBag.ProductTypeID = new SelectList(db.ProductTypes, "ID", "ProductTypeCode");
+                ViewBag.ProductType = db.ProductTypes.OrderByDescending(x => x.ID).ToList();
                 return View();
             }
             else
@@ -110,7 +110,7 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
                 {
                     return HttpNotFound();
                 }
-                ViewBag.ProductTypeID = new SelectList(db.ProductTypes, "ID", "ProductTypeCode", product.ProductTypeID);
+                ViewBag.ProductType = db.ProductTypes.OrderByDescending(x => x.ID).ToList();
                 return View(product);
             }
             else
