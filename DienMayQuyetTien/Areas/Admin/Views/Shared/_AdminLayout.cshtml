@@ -38,12 +38,10 @@
     <!-- normalize CSS
         ============================================ -->
     <link rel="stylesheet" href="~/Assets/Admin/css/normalize.css">
-    <!-- charts C3 CSS
-        ============================================ -->
-    <link rel="stylesheet" href="~/Assets/Admin/css/c3.min.css">
     <!-- forms CSS
         ============================================ -->
     <link rel="stylesheet" href="~/Assets/Admin/css/form/all-type-forms.css">
+    <link rel="stylesheet" href="~/Assets/Admin/css/form.css">
     <!-- style CSS
         ============================================ -->
     <link rel="stylesheet" href="~/Assets/Admin/css/style.css">
@@ -79,22 +77,22 @@
                         <li class="nav-item">
                             <a href="@Url.Action("Index", "Home")" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-product-hunt"></i> <span class="mini-dn">Product</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
                             <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-                                <a href="@Url.Action("Index", "Home")" class="dropdown-item">List</a>
-                                <a href="@Url.Action("Create", "Home")" class="dropdown-item">Create</a>
+                                <a href="@Url.Action("Index", "Home")" class="dropdown-item"><i class="fa big-icon fa-list"></i> List</a>
+                                <a href="@Url.Action("Create", "Home")" class="dropdown-item"><i class="fa big-icon fa-plus"></i> Create</a>
                             </div>
                         </li>
                         <li class="nav-item">
                             <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-money"></i> <span class="mini-dn">Cash Bill</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
                             <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-                                <a href="inbox.html" class="dropdown-item">List</a>
-                                <a href="inbox.html" class="dropdown-item">Create</a>
+                                <a href="inbox.html" class="dropdown-item"><i class="fa big-icon fa-list"></i> List</a>
+                                <a href="inbox.html" class="dropdown-item"><i class="fa big-icon fa-plus"></i> Create</a>
                             </div>
                         </li>
                         <li class="nav-item">
                             <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-file-text-o"></i> <span class="mini-dn">Installment Bill</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
                             <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-                                <a href="inbox.html" class="dropdown-item">List</a>
-                                <a href="google-map.html" class="dropdown-item">Create</a>
+                                <a href="inbox.html" class="dropdown-item"><i class="fa big-icon fa-list"></i> List</a>
+                                <a href="google-map.html" class="dropdown-item"><i class="fa big-icon fa-plus"></i> Create</a>
                             </div>
                         </li>
                     </ul>
@@ -159,35 +157,35 @@
                                 <nav id="dropdown">
                                     <ul class="mobile-menu-nav">
                                         <li>
-                                            <a data-toggle="collapse" data-target="#others" href="@Url.Action("Index", "Home")">Product <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                            <a data-toggle="collapse" data-target="#others" href="@Url.Action("Index", "Home")"><i class="fa big-icon fa-product-hunt"></i> Product <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                             <ul id="others" class="collapse dropdown-header-top">
                                                 <li>
-                                                    <a href="@Url.Action("Index", "Home")">List</a>
+                                                    <a href="@Url.Action("Index", "Home")"><i class="fa big-icon fa-list"></i> List</a>
                                                 </li>
                                                 <li>
-                                                    <a href="@Url.Action("Create", "Home")">Create</a>
+                                                    <a href="@Url.Action("Create", "Home")"><i class="fa big-icon fa-plus"></i> Create</a>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <a data-toggle="collapse" data-target="#others" href="#">Cash Bill <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                            <a data-toggle="collapse" data-target="#others" href="#"><i class="fa big-icon fa-money"></i> Cash Bill <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                             <ul id="others" class="collapse dropdown-header-top">
                                                 <li>
-                                                    <a href="inbox.html">List</a>
+                                                    <a href="inbox.html"><i class="fa big-icon fa-list"></i> List</a>
                                                 </li>
                                                 <li>
-                                                    <a href="profile.html">Create</a>
+                                                    <a href="profile.html"><i class="fa big-icon fa-plus"></i> Create</a>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <a data-toggle="collapse" data-target="#others" href="#">Installment Bill <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                            <a data-toggle="collapse" data-target="#others" href="#"><i class="fa big-icon fa-file-text-o"></i> Installment Bill <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                             <ul id="others" class="collapse dropdown-header-top">
                                                 <li>
-                                                    <a href="inbox.html">List</a>
+                                                    <a href="inbox.html"><i class="fa big-icon fa-list"></i> List</a>
                                                 </li>
                                                 <li>
-                                                    <a href="profile.html">Create</a>
+                                                    <a href="profile.html"><i class="fa big-icon fa-plus"></i> Create</a>
                                                 </li>
                                             </ul>
                                         </li>
@@ -284,14 +282,6 @@
         ============================================ -->
     <script src="~/Assets/Admin/js/sparkline/jquery.sparkline.min.js"></script>
     <script src="~/Assets/Admin/js/sparkline/sparkline-active.js"></script>
-    <!-- map JS
-        ============================================ -->
-    <script src="~/Assets/Admin/js/map/raphael.min.js"></script>
-    <script src="~/Assets/Admin/js/map/jquery.mapael.js"></script>
-    <script src="~/Assets/Admin/js/map/france_departments.js"></script>
-    <script src="~/Assets/Admin/js/map/world_countries.js"></script>
-    <script src="~/Assets/Admin/js/map/usa_states.js"></script>
-    <script src="~/Assets/Admin/js/map/map-active.js"></script>
     <!-- data table JS
         ============================================ -->
     <script src="~/Assets/Admin/js/data-table/bootstrap-table.js"></script>
@@ -302,6 +292,9 @@
     <script src="~/Assets/Admin/js/data-table/bootstrap-table-resizable.js"></script>
     <script src="~/Assets/Admin/js/data-table/colResizable-1.5.source.js"></script>
     <script src="~/Assets/Admin/js/data-table/bootstrap-table-export.js"></script>
+    <!-- datepicker JS
+        ============================================ -->
+    <script src="~/Assets/Admin/js/datepicker-active.js"></script>
     <!-- main JS
         ============================================ -->
     <script src="~/Assets/Admin/js/main.js"></script>

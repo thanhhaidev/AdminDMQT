@@ -4,8 +4,8 @@
     ViewBag.Title = "Home";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-            <!-- Data table area Start-->
-<div class="admin-dashone-data-table-area mg-b-15">
+<!-- Data table area Start-->
+<div class="admin-dashone-data-table-area">
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
@@ -27,7 +27,7 @@
                     <div class="sparkline8-graph">
                         <div class="datatable-dashv1-list custom-datatable-overright">
                             <div id="toolbar">
-                                <a href="@Url.Action("Create", "Home")" class="btn btn-custon-four btn-primary">Add Product New</a>
+                                <a href="@Url.Action("Create", "Home")" class="btn btn-custon-four btn-primary"><i class="fa big-icon fa-plus"></i> Add Product New</a>
                             </div>
                             <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="false" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar">
                                 <thead>
@@ -48,7 +48,7 @@
                                     {
                                         var myModal = "myModal" + item.ID;
                                         <tr>
-                                            <td>@Html.DisplayFor(modelItem => item.ProductCode)</td>
+                                            <td><b>@Html.DisplayFor(modelItem => item.ProductCode)</b></td>
                                             <td>@Html.DisplayFor(modelItem => item.ProductName)</td>
                                             <td>@String.Format("{0:0,0} VND", item.SalePrice)</td>
                                             <td>@String.Format("{0:0,0} VND", item.OriginPrice)</td>
@@ -93,7 +93,7 @@
                                                                     <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    Are you sure you want to delete: <span><b>@item.ProductName</b></span>
+                                                                    Bạn có chắc chắn muốn xóa: <span><b>@item.ProductName?</b></span>
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

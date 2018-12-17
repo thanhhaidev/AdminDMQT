@@ -377,6 +377,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CashBillsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Models\Account.cs">
@@ -442,6 +443,11 @@
     <Content Include="Areas\Admin\Views\Home\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Login\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\CashBills\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\CashBills\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\CashBills\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\CashBills\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\CashBills\Index.cshtml" />
     <None Include="Properties\PublishProfiles\dmquyettien - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
