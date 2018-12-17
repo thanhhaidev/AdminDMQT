@@ -1,0 +1,597 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>
+        QuyetTienStore.VN | Cùng mua sắm trực tuyến tại Quyết Tiến Store
+    </title>
+    <link href="~/Assets/Client/images/favicon.png" rel="shortcut icon" type="image/png">
+    <link href="~/Assets/Client/css/bootstrap.css" rel="stylesheet">
+    <link href="~/Assets/Client/css/font-awesome.css" rel="stylesheet">
+    <link href="~/Assets/Client/css/lte.css" rel="stylesheet">
+    <link href="~/Assets/Client/css/AdminLTE.min.css" rel="stylesheet">
+    <link href="~/Assets/Client/css/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/Assets/Client/css/owl.theme.default.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/Assets/Client/css/style-jc.css">
+    <link href="~/Assets/Client/css/menu-tab.css" rel="stylesheet">
+    <link href="~/Assets/Client/css/jquery.bxslider.css" rel="stylesheet" />
+    <link href="~/Assets/Client/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- TOPBAR -->
+    <section id="header">
+        <nav class="navbar navbar-inverse" style="z-index: 9999">
+            <div class="container">
+                <div class="col-md-12 col-lg-12">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed pull-right" data-toggle="collapse"
+                                data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="icon-cart-mobile hidden-md hidden-lg">
+                            <a href="#">
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                <span>0</span>
+                            </a>
+                        </div>
+                        <!-- <div class="site-container">
+                                <a href="#"class="header__icon pull-left"id="header__icon"></a>
+                                </div> -->
+                    </div>
+                    <div id="navbar" class="collapse navbar-collapse">
+                        <ul class="nav navbar navbar-nav" id="nav1">
+                            <li><a href="index.html">Trang chủ</a></li>
+                            <li><a href="khuyen-mai.html">Khuyến mãi</a></li>
+                            <li><a href="tin-tuc.html">Tin tức</a></li>
+                            <li><a href="gioi-thieu.html">Giới thiệu</a></li>
+                            <li><a href="lien-he.html">Liên hệ</a></li>
+                            <li><a href="dang-ky">Đăng ký</a></li>
+                            <li><a href="dang-nhap">Đăng nhập</a></li>
+                            <!-- <li><a href="dang-ky">Đăng ký</a></li>
+                                <li><a href="dang-nhap">Đăng nhập</a></li>
+                                <li><a href="thong-tin-tai-khoan">Tài khoản</a></li> -->
+                        </ul>
+                        <ul class="nav navbar navbar-nav pull-right" id="nav2">
+                            <li><a href="dang-ky">Đăng ký</a></li>
+                            <li><a href="dang-nhap">Đăng nhập</a></li>
+                            <!-- <li><a href="thong-tin-tai-khoan">Tài khoản</a></li>
+                                <li><a href="dang-ky">Đăng ký</a></li>
+                                <li><a href="dang-nhap">Đăng nhập</a></li> -->
+                        </ul>
+                    </div>
+                    <!--  <div class="site-pusher">
+                            <nav class="menu">
+                                <a href="#"class="text-center">Trang chủ</a>
+                                <a href="san-pham/1"class="text-center">Sản phẩm</a>
+                                <a href="tin-tuc/1"class="text-center">Tin tức</a>
+                                <a href="#"class="text-center">Giới thiệu</a>
+                                <a href="#"class="text-center">Liên hệ</a>
+                            </nav>
+                            </div> -->
+                </div>
+            </div>
+        </nav>
+    </section>
+    <!-- LOGO + SEARCH -->
+    <section class="logo-search">
+        <div class="container">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 logo">
+                <a href=""><img src="~/Assets/Client/images/logo.png" alt="Quyết Tiến Store"></a>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 search">
+                <form action="search" method="get" role="form">
+                    <div class="input-search">
+                        <input type="text" class="form-control" name="search" placeholder="Nhập từ khóa để tìm kiếm...">
+                        <button>
+                            <i class="fa fa-search"></i>
+                        </button>
+                        <!-- <form action="search"method="get">
+                                <input type="text"placeholder="Tìm kiếm..."name="search"id="autocomplete"required>
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                                </form> -->
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-2 cart hidden-xs hidden-sm">
+                <a href="gio-hang">
+                    <img src="~/Assets/Client/images/cart.png" alt="Cart">
+                    <span>
+                        0
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section id="menu-slider">
+        <div class="menu-pri">
+            <div class="container">
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 panel-left">
+                    <!--MOBILE-->
+                    <nav class="navbar navbar-default hidden-md hidden-lg" role="navigation">
+                        <div class="container-fluid">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                                    <span class="icon-bar primary-color"></span>
+                                    <span class="icon-bar primary-color"></span>
+                                    <span class="icon-bar primary-color"></span>
+                                    <span class="icon-bar primary-color"></span>
+                                </button>
+                                <a class="navbar-brand primary-color" href="#">Danh mục sản phẩm</a>
+                            </div>
+                            <div class="collapse navbar-collapse navbar-ex1-collapse hidden-md hidden-lg">
+                                <ul class="nav navbar-nav">
+                                    <li class="dropdown">
+                                        <a href="san-pham/dien-thoai" title="Điện thoại" class="dropdown-toggle"
+                                           data-toggle="dropdown">
+                                            Điện thoại<i class="fa fa-angle-right pull-right"
+                                                         aria-hidden="true"></i>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="san-pham/khac" title="Khác"> Khác</a></li>
+                                            <li><a href="san-pham/sony" title="Sony"> Sony</a></li>
+                                            <li><a href="san-pham/lg" title="LG"> LG</a></li>
+                                            <li><a href="san-pham/oppo" title="Oppo"> Oppo</a></li>
+                                            <li><a href="san-pham/samsung" title="Samsung"> Samsung</a></li>
+                                            <li><a href="san-pham/asus-dt" title="Asus ( ĐT )"> Asus ( ĐT )</a></li>
+                                            <li><a href="san-pham/huawei" title="Huawei"> Huawei</a></li>
+                                            <li><a href="san-pham/iphone" title="Iphone"> Iphone</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="san-pham/may-tinh-bang" title="Máy tính bảng" class="dropdown-toggle"
+                                           data-toggle="dropdown">Máy tính bảng</a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="san-pham/laptop" title="Laptop" class="dropdown-toggle" data-toggle="dropdown">
+                                            Laptop<i class="fa fa-angle-right pull-right" aria-hidden="true"></i>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="san-pham/asus-lt" title="Asus (LT)"> Asus (LT)</a></li>
+                                            <li><a href="san-pham/acer" title="Acer"> Acer</a></li>
+                                            <li><a href="san-pham/lenovo" title="Lenovo"> Lenovo</a></li>
+                                            <li><a href="san-pham/dell" title="Dell"> Dell</a></li>
+                                            <li><a href="san-pham/hp" title="HP"> HP</a></li>
+                                            <li><a href="san-pham/macbook" title="Macbook"> Macbook</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="san-pham/ky-thuat-so" title="Kỹ thuật số" class="dropdown-toggle"
+                                           data-toggle="dropdown">Kỹ thuật số</a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="san-pham/may-cu" title="Máy cũ" class="dropdown-toggle"
+                                           data-toggle="dropdown">Máy cũ</a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="san-pham/thiet-bi-van-phong" title="Thiết bị văn phòng"
+                                           class="dropdown-toggle" data-toggle="dropdown">Thiết bị văn phòng</a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="san-pham/phu-kien" title="Phụ kiện" class="dropdown-toggle"
+                                           data-toggle="dropdown">
+                                            Phụ kiện<i class="fa fa-angle-right pull-right"
+                                                       aria-hidden="true"></i>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="san-pham/phu-kien-khac" title="Phụ kiện khác">
+                                                    Phụ kiện
+                                                    khác
+                                                </a>
+                                            </li>
+                                            <li><a href="san-pham/hang-sony" title="Hãng Sony"> Hãng Sony</a></li>
+                                            <li><a href="san-pham/hang-sony" title="Hãng Sony"> Hãng Sony</a></li>
+                                            <li><a href="san-pham/hang-apple" title="Hãng Apple"> Hãng Apple</a></li>
+                                            <li>
+                                                <a href="san-pham/mieng-dan-man-hinh" title="Miếng dán màn hình">
+                                                    Miếng dán màn hình
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="san-pham/op-lung-may-tinh-ban" title="Ốp lưng máy tính bản">
+                                                    Ốp lưng máy tính bản
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="san-pham/op-lung-dien-thoai" title="Ốp lưng điện thoại">
+                                                    Ốp
+                                                    lưng điện thoại
+                                                </a>
+                                            </li>
+                                            <li><a href="san-pham/dong-ho" title="Đồng hồ"> Đồng hồ</a></li>
+                                            <li><a href="san-pham/loa" title="Loa"> Loa</a></li>
+                                            <li><a href="san-pham/chuot" title="Chuột"> Chuột</a></li>
+                                            <li><a href="san-pham/usb" title="USB"> USB</a></li>
+                                            <li><a href="san-pham/tai-nghe" title="Tai nghe"> Tai nghe</a></li>
+                                            <li><a href="san-pham/the-nho" title="Thẻ nhớ"> Thẻ nhớ</a></li>
+                                            <li><a href="san-pham/cap-sac" title="Cáp sạc"> Cáp sạc</a></li>
+                                            <li>
+                                                <a href="san-pham/pin-sac-du-phong" title="Pin sạc dự phòng">
+                                                    Pin
+                                                    sạc dự phòng
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="san-pham/thiet-bi-am-thanh" title="Thiết bị âm thanh"
+                                           class="dropdown-toggle" data-toggle="dropdown">Thiết bị âm thanh</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- /.navbar-collapse -->
+                        </div>
+                    </nav>
+                    <!--MD LG-->
+                    <div class="panel-left-md-768">
+                        <div class="header-768">
+                            <i class="fa fa-bars fa-1x primary-color"></i>
+                            <h4 class="primary-color">Danh mục sản phẩm</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9 col-lg-9 panel-right">
+                    <ul class="menu-right pull-right">
+                        <li class="pull-left"><a href="/">Trang chủ</a></li>
+                        <li class="pull-left"><a href="khuyen-mai.html">Khuyến mãi</a></li>
+                        <li class="pull-left"><a href="tin-tuc.html">Tin tức</a></li>
+                        <li class="pull-left"><a href="gioi-thieu.html">Giới thiệu</a></li>
+                        <li class="pull-left"><a href="lien-he.html">Liên hệ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--PRODUCT-->
+    <section id="content">
+        <div class="row wraper">
+            <div class="container">
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 list-menu pull-left">
+                        <ul class="main-ul">
+                            <li>
+                                <a href="san-pham/dien-thoai" title=" Điện thoại">
+                                    Điện thoại<i class="fa fa-angle-right pull-right"
+                                                 aria-hidden="true"></i>
+                                </a>
+                                <ul class="sub">
+                                    <li><a href="san-pham/khac" title=" Khác"> Khác</a></li>
+                                    <li><a href="san-pham/sony" title=" Sony"> Sony</a></li>
+                                    <li><a href="san-pham/lg" title=" LG"> LG</a></li>
+                                    <li><a href="san-pham/oppo" title=" Oppo"> Oppo</a></li>
+                                    <li><a href="san-pham/samsung" title=" Samsung"> Samsung</a></li>
+                                    <li><a href="san-pham/asus-dt" title=" Asus ( ĐT )"> Asus ( ĐT )</a></li>
+                                    <li><a href="san-pham/huawei" title=" Huawei"> Huawei</a></li>
+                                    <li><a href="san-pham/iphone" title=" Iphone"> Iphone</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="san-pham/may-tinh-bang" title=" Máy tính bảng">Máy tính bảng</i></a></li>
+                            <li>
+                                <a href="san-pham/laptop" title=" Laptop">
+                                    Laptop<i class="fa fa-angle-right pull-right"
+                                             aria-hidden="true"></i>
+                                </a>
+                                <ul class="sub">
+                                    <li><a href="san-pham/asus-lt" title=" Asus (LT)"> Asus (LT)</a></li>
+                                    <li><a href="san-pham/acer" title=" Acer"> Acer</a></li>
+                                    <li><a href="san-pham/lenovo" title=" Lenovo"> Lenovo</a></li>
+                                    <li><a href="san-pham/dell" title=" Dell"> Dell</a></li>
+                                    <li><a href="san-pham/hp" title=" HP"> HP</a></li>
+                                    <li><a href="san-pham/macbook" title=" Macbook"> Macbook</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="san-pham/ky-thuat-so" title=" Kỹ thuật số">Kỹ thuật số</i></a></li>
+                            <li><a href="san-pham/may-cu" title=" Máy cũ">Máy cũ</i></a></li>
+                            <li><a href="san-pham/thiet-bi-van-phong" title=" Thiết bị văn phòng">Thiết bị văn phòng</i></a></li>
+                            <li>
+                                <a href="san-pham/phu-kien" title=" Phụ kiện">
+                                    Phụ kiện<i class="fa fa-angle-right pull-right"
+                                               aria-hidden="true"></i>
+                                </a>
+                                <ul class="sub">
+                                    <li><a href="san-pham/phu-kien-khac" title=" Phụ kiện khác"> Phụ kiện khác</a></li>
+                                    <li><a href="san-pham/hang-sony" title=" Hãng Sony"> Hãng Sony</a></li>
+                                    <li><a href="san-pham/hang-apple" title=" Hãng Apple"> Hãng Apple</a></li>
+                                    <li>
+                                        <a href="san-pham/mieng-dan-man-hinh" title=" Miếng dán màn hình">
+                                            Miếng dán
+                                            màn hình
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="san-pham/op-lung-may-tinh-ban" title=" Ốp lưng máy tính bản">
+                                            Ốp
+                                            lưng máy tính bản
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="san-pham/op-lung-dien-thoai" title=" Ốp lưng điện thoại">
+                                            Ốp lưng
+                                            điện thoại
+                                        </a>
+                                    </li>
+                                    <li><a href="san-pham/dong-ho" title=" Đồng hồ"> Đồng hồ</a></li>
+                                    <li><a href="san-pham/loa" title=" Loa"> Loa</a></li>
+                                    <li><a href="san-pham/chuot" title=" Chuột"> Chuột</a></li>
+                                    <li><a href="san-pham/usb" title=" USB"> USB</a></li>
+                                    <li><a href="san-pham/tai-nghe" title=" Tai nghe"> Tai nghe</a></li>
+                                    <li><a href="san-pham/the-nho" title=" Thẻ nhớ"> Thẻ nhớ</a></li>
+                                    <li><a href="san-pham/cap-sac" title=" Cáp sạc"> Cáp sạc</a></li>
+                                    <li>
+                                        <a href="san-pham/pin-sac-du-phong" title=" Pin sạc dự phòng">
+                                            Pin sạc dự
+                                            phòng
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="san-pham/thiet-bi-am-thanh" title=" Thiết bị âm thanh">Thiết bị âm thanh</i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                @RenderBody()
+            </div>
+        </div>
+    </section>
+    <section id="demos">
+        <div class="container">
+            <div class="brands">
+                <div class="col-md-3">
+                    <h2>Nhãn hiệu</h2>
+                    <p class="desc">Những nhãn hiểu nổi tiếng với độ bền cao đã được chúng tôi lựa chọn liên kết.</p>
+                </div>
+                <div class="col-md-9">
+                    <div class="large-12 columns">
+                        <div class="owl-brands owl-carousel owl-theme owl-loaded owl-drag" style="opacity: 1; display: block;">
+
+
+
+
+
+
+
+                            <div class="owl-stage-outer">
+                                <div class="owl-stage" style="left: -973px; width: 3650px;">
+                                    <div class="owl-item cloned" style="width: 233.333px; margin-right: 10px;">
+                                        <div class="item">
+                                            <div class="col-xs-12">
+                                                <div class="item-brand">
+                                                    <img src="~/Assets/Client/images/brand04.png" class="img-fix" alt="sati">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><div class="owl-item cloned" style="width: 233.333px; margin-right: 10px;">
+                                        <div class="item">
+                                            <div class="col-xs-12">
+                                                <div class="item-brand">
+                                                    <img src="~/Assets/Client/images/brand05.png" class="img-fix" alt="sati">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><div class="owl-item cloned" style="width: 233.333px; margin-right: 10px;">
+                                        <div class="item">
+                                            <div class="col-xs-12">
+                                                <div class="item-brand">
+                                                    <img src="~/Assets/Client/images/brand06.png" class="img-fix" alt="sati">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><div class="owl-item cloned" style="width: 233.333px; margin-right: 10px;">
+                                        <div class="item">
+                                            <div class="col-xs-12">
+                                                <div class="item-brand">
+                                                    <img src="~/Assets/Client/images/brand07.png" class="img-fix" alt="sati">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><div class="owl-item active" style="width: 233.333px; margin-right: 10px;">
+                                        <div class="item">
+                                            <div class="col-xs-12">
+                                                <div class="item-brand">
+                                                    <img src="~/Assets/Client/images/brand01.png" class="img-fix" alt="sati">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><div class="owl-item active" style="width: 233.333px; margin-right: 10px;">
+                                        <div class="item">
+                                            <div class="col-xs-12">
+                                                <div class="item-brand">
+                                                    <img src="~/Assets/Client/images/brand02.png" class="img-fix" alt="sati">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><div class="owl-item active" style="width: 233.333px; margin-right: 10px;">
+                                        <div class="item">
+                                            <div class="col-xs-12">
+                                                <div class="item-brand">
+                                                    <img src="~/Assets/Client/images/brand03.png" class="img-fix" alt="sati">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><div class="owl-item" style="width: 233.333px; margin-right: 10px;">
+                                        <div class="item">
+                                            <div class="col-xs-12">
+                                                <div class="item-brand">
+                                                    <img src="~/Assets/Client/images/brand04.png" class="img-fix" alt="sati">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><div class="owl-item" style="width: 233.333px; margin-right: 10px;">
+                                        <div class="item">
+                                            <div class="col-xs-12">
+                                                <div class="item-brand">
+                                                    <img src="~/Assets/Client/images/brand05.png" class="img-fix" alt="sati">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><div class="owl-item" style="width: 233.333px; margin-right: 10px;">
+                                        <div class="item">
+                                            <div class="col-xs-12">
+                                                <div class="item-brand">
+                                                    <img src="~/Assets/Client/images/brand06.png" class="img-fix" alt="sati">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><div class="owl-item" style="width: 233.333px; margin-right: 10px;">
+                                        <div class="item">
+                                            <div class="col-xs-12">
+                                                <div class="item-brand">
+                                                    <img src="~/Assets/Client/images/brand07.png" class="img-fix" alt="sati">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><div class="owl-item cloned" style="width: 233.333px; margin-right: 10px;">
+                                        <div class="item">
+                                            <div class="col-xs-12">
+                                                <div class="item-brand">
+                                                    <img src="~/Assets/Client/images/brand01.png" class="img-fix" alt="sati">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><div class="owl-item cloned" style="width: 233.333px; margin-right: 10px;">
+                                        <div class="item">
+                                            <div class="col-xs-12">
+                                                <div class="item-brand">
+                                                    <img src="~/Assets/Client/images/brand02.png" class="img-fix" alt="sati">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><div class="owl-item cloned" style="width: 233.333px; margin-right: 10px;">
+                                        <div class="item">
+                                            <div class="col-xs-12">
+                                                <div class="item-brand">
+                                                    <img src="~/Assets/Client/images/brand03.png" class="img-fix" alt="sati">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><div class="owl-item cloned" style="width: 233.333px; margin-right: 10px;">
+                                        <div class="item">
+                                            <div class="col-xs-12">
+                                                <div class="item-brand">
+                                                    <img src="~/Assets/Client/images/brand04.png" class="img-fix" alt="sati">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="modal fade" id="getCodeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel"> API CODE </h4>
+                </div>
+                <div class="modal-body" id="getCode" style="overflow-x: scroll;">
+                    //ajax success content here.
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--FOOTER-->
+    <footer id="footer">
+        <div class="news-social">
+            <div class="container">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <ul class="list-unstyled social pull-right">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="top-footer">
+            <div class="container">
+                <div class="col-xs-12 col-sm-12 col-md-6">
+                    <div class="col-xs-12 col-sm-6">
+                        <a href="/">
+                            <img src="~/Assets/Client/images/logo.png" class="img-fix f-logo" alt="Quyết Tiến Store">
+                        </a>
+                        <div class="about-store">
+                            Quyết Tiến Store là cửa hàng chuyên bán các thiết bị điện tử và đồ gia dụng.
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="f-contact">
+                            <h3>Thông tin liên hệ</h3>
+                            <ul class="list-unstyled">
+                                <li class="clearfix">
+                                    <i class="fa fa-map-marker"></i>
+                                    <span>45 Nguyễn Khắc Nhu, phường Cô Giang, Quận 1, TP Hồ Chí Minh</span>
+                                </li>
+                                <li class="clearfix">
+                                    <i class="fa fa-phone"></i>
+                                    <span>0773322489</span>
+                                </li>
+                                <li class="clearfix">
+                                    <i class="fa fa-envelope"></i>
+                                    <span><a href="mailto:hai2571998@gmail.com">hai2571998@gmail.com</a></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6">
+                    <div class="col-xs-12 col-sm-6">
+                        <h3 class="footer-title">Chính sách</h3>
+                        <ul class="list-unstyled linklists">
+                            <li><a href="chinh-sach">Chính sách thanh toán</a></li>
+                            <li><a href="chinh-sach">Chính sách vận chuyển</a></li>
+                            <li><a href="chinh-sach">Chính sách đổi trả</a></li>
+                            <li><a href="chinh-sach">Chính sách bảo hành</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <h3 class="footer-title">Điều khoản</h3>
+                        <ul class="list-unstyled linklists">
+                            <li><a href="dieu-khoan">Điều khoản sử dụng</a></li>
+                            <li><a href="dieu-khoan">Điều khoản giao dịch</a></li>
+                            <li><a href="dieu-khoan">Dịch vụ tiện ích</a></li>
+                            <li><a href="dieu-khoan">Quyền sở hữu trí tuệ</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="payments">
+            <div class="container">
+                <img src="~/Assets/Client/images/payment.png" alt="Phương thức thanh toán" class="img-fix">
+            </div>
+        </div>
+        <div class="copyright">
+            © Bản quyền thuộc về Quyết Tiến Store | Cung cấp bởi
+            <a href="https://www.facebook.com/thanhhai.dev" class="primary-color">Team 3 Winners</a>.
+        </div>
+    </footer>
+    <script src="~/Assets/Client/js/jquery-2.2.3.min.js"></script>
+    <script src="~/Assets/Client/js/bootstrap.js"></script>
+    <script src="~/Assets/Client/js/app.min.js"></script>
+    <script src="~/Assets/Client/js/owl.carousel.js"></script>
+    <script src="~/Assets/Client/js/jquery.jcarousel.js"></script>
+    <script src="~/Assets/Client/js/jquery.bxslider.js"></script>
+    <script src="~/Assets/Client/js/jcarousel.connected-carousels.js"></script>
+    <script src="~/Assets/Client/js/menu-tab.js"></script>
+</body>
+</html>
+
+
+
+
+
