@@ -29,6 +29,7 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(Account objUser)
         {
+            CheckValidationAccount(objUser);
             if (ModelState.IsValid)
             {
                 using (DmQT03Entities db = new DmQT03Entities())
@@ -47,6 +48,14 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
                 }
             }
             return View(objUser);
+        }
+
+        public void CheckValidationAccount(Account account)
+        {
+            if (account.Username == null || account.Username.Equals("") || account.Username.StartsWith(" ") || account.Username.EndsWith(" "))
+                ModelState.AddModelError("Username", "Username không được bỏ trống hoặc khoảng trống");
+            if (account.Password == null || account.Password.Equals("") || account.Password.StartsWith(" ") || account.Password.EndsWith(" "))
+                ModelState.AddModelError("Password", "Password không được bỏ trống hoặc khoảng trốnghoặc khoảng trống");
         }
 
         public ActionResult Logout()

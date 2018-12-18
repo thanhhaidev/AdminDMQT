@@ -105,19 +105,6 @@
                                             </div>
                                             <div class="form-group-inner">
                                                 <div class="row">
-                                                    <div class="col-lg-3">
-                                                        <label class="login2 pull-right pull-right-pro">Status</label>
-                                                    </div>
-                                                    <div class="col-lg-9">
-                                                        <div class="form-select-list">
-                                                            @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
-                                                            @Html.ValidationMessageFor(model => model.Status, "", new { @class = "pull-left text-danger" })
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group-inner">
-                                                <div class="row">
                                                     <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                                                         <label class="login2 pull-right pull-right-pro">Avatar</label>
                                                     </div>
@@ -125,7 +112,7 @@
                                                         <div class="file-upload-inner ts-forms">
                                                             @Html.HiddenFor(model => model.Avatar)
                                                             @Html.TextBox("ImageFile", null, new { @type = "file", onChange = "readURL(this);", @class = "form-control", accept = "image/gif, image/jpeg, image/png" })
-                                                            @Html.ValidationMessageFor(model => model.Avatar, "", new { @class = "pull-left text-danger" })
+                                                            @Html.ValidationMessageFor(model => model.Avatar, "", new { @class = "pull-left text-danger" })<br />
                                                             <img id="image" src="@Model.Avatar" class="pull-left mg-t-10" width="150"/>
                                                         </div>
                                                     </div>

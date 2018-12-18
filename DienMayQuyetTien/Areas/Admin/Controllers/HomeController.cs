@@ -113,6 +113,10 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
                 ModelState.AddModelError("InstallmentPrice", "Giá góp phải lớn hơn giá gốc!");
             if(model.ImageFile == null && model.Avatar == null)
                 ModelState.AddModelError("Avatar", "Hình ảnh không được bỏ trống");
+            if (model.ProductName == null || model.ProductName.Equals("") || model.ProductName.StartsWith(" ") || model.ProductName.EndsWith(" "))
+                ModelState.AddModelError("ProductName", "ProductName không được bỏ trống hoặc khoảng trống hoặc khoảng trống");
+            if (model.ImageFile != null && model.ImageFile.ContentLength > 2097152)
+                ModelState.AddModelError("Avatar", "Hình ảnh phải nhỏ hơn 2MB");
         }
 
         // GET: Admin/Home/Edit/5

@@ -40,7 +40,6 @@
                                         <th data-field="installment">Installment</th>
                                         <th data-field="quantity">Quantity</th>
                                         <th data-field="avatar">Avatar</th>
-                                        <th data-field="status">Status</th>
                                         <th data-field="action">Action</th>
                                     </tr>
                                 </thead>
@@ -58,26 +57,6 @@
                                             <td>@Html.DisplayFor(modelItem => item.Quantity)</td>
                                             <td>
                                                 <img src="@item.Avatar" width="100" />
-                                            </td>
-                                            <td>
-                                                @if (item.Status == null)
-                                                {
-                                                    <div class="btn-group project-list-ad-rd">
-                                                        <button class="btn btn-white btn-xs">Not set</button>
-                                                    </div>
-                                                }
-                                                else if (item.Status == true)
-                                                {
-                                                    <div class="btn-group project-list-ad">
-                                                        <button class="btn btn-white btn-xs">True</button>
-                                                    </div>
-                                                }
-                                                else
-                                                {
-                                                    <div class="btn-group project-list-ad-bl">
-                                                        <button class="btn btn-white btn-xs">False</button>
-                                                    </div>
-                                                }
                                             </td>
                                             <td>
                                                 <div class="btn-group project-list-action">

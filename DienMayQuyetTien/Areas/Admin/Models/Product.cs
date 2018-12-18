@@ -13,7 +13,7 @@ namespace DienMayQuyetTien.Areas.Admin.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Web;
-    
+
     public partial class Product
     {
         public Product()
@@ -21,7 +21,7 @@ namespace DienMayQuyetTien.Areas.Admin.Models
             this.CashBillDetails = new HashSet<CashBillDetail>();
             this.InstallmentBillDetails = new HashSet<InstallmentBillDetail>();
         }
-    
+
         public int ID { get; set; }
         public string ProductCode { get; set; }
 
@@ -57,7 +57,7 @@ namespace DienMayQuyetTien.Areas.Admin.Models
         public HttpPostedFileBase ImageFile { get; set; }
 
         public Nullable<bool> Status { get; set; }
-    
+
         public virtual ICollection<CashBillDetail> CashBillDetails { get; set; }
         public virtual ICollection<InstallmentBillDetail> InstallmentBillDetails { get; set; }
         public virtual ProductType ProductType { get; set; }
