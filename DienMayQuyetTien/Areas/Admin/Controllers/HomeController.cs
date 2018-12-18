@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using DienMayQuyetTien.Areas.Admin.Models;
 using System.IO;
+using System.Text;
 
 namespace DienMayQuyetTien.Areas.Admin.Controllers
 {
@@ -50,7 +51,7 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
         {
             if (Session["UserName"] != null)
             {
-                ViewBag.ProductType = db.ProductTypes.OrderByDescending(x => x.ID).ToList();
+                ViewBag.ProductTypeID = new SelectList(db.ProductTypes, "ID", "ProductTypeName");
                 return View();
             }
             else
@@ -69,9 +70,9 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
             CheckValidationProduct(product);
             if (ModelState.IsValid)
             {
-                string fileName = Path.GetFileNameWithoutExtension(product.ImageFile.FileName);
+                //string fileName = Path.GetFileNameWithoutExtension(product.ImageFile.FileName);
                 string extension = Path.GetExtension(product.ImageFile.FileName);
-                fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                string fileName = RandomString(5,true) + DateTime.Now.ToString("yymmssfff") + extension;
 
                 product.Avatar = "/Assets/Admin/img/products/" + fileName;
                 fileName = Path.Combine(Server.MapPath("/Assets/Admin/img/products/"), fileName);
@@ -82,8 +83,24 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ProductTypeID = new SelectList(db.ProductTypes, "ID", "ProductTypeCode", product.ProductTypeID);
+            ViewBag.ProductTypeID = new SelectList(db.ProductTypes, "ID", "ProductTypeName", product.ProductTypeID);
             return View(product);
+        }
+
+        private string RandomString(int size, bool lowerCase)
+        {
+            StringBuilder sb = new StringBuilder();
+            char c;
+            Random rand = new Random();
+            for (int i = 0; i < size; i++)
+            {
+                c = Convert.ToChar(Convert.ToInt32(rand.Next(65, 87)));
+                sb.Append(c);
+            }
+            if (lowerCase)
+                return sb.ToString().ToLower();
+            return sb.ToString();
+
         }
 
         private void CheckValidationProduct(Product model)
@@ -94,6 +111,8 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
                 ModelState.AddModelError("SalePrice", "Giá bán phải lớn hơn giá gốc!");
             if (model.InstallmentPrice < model.OriginPrice)
                 ModelState.AddModelError("InstallmentPrice", "Giá góp phải lớn hơn giá gốc!");
+            if(model.ImageFile == null && model.Avatar == null)
+                ModelState.AddModelError("Avatar", "Hình ảnh không được bỏ trống");
         }
 
         // GET: Admin/Home/Edit/5
@@ -110,7 +129,8 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
                 {
                     return HttpNotFound();
                 }
-                ViewBag.ProductType = db.ProductTypes.OrderByDescending(x => x.ID).ToList();
+                //ViewBag.ProductType = db.ProductTypes.OrderByDescending(x => x.ID).ToList();
+                ViewBag.ProductTypeID = new SelectList(db.ProductTypes, "ID", "ProductTypeName", product.ProductTypeID);
                 return View(product);
             }
             else
@@ -136,9 +156,9 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
                     {
                         System.IO.File.Delete(fileNameOld);
                     }
-                    string fileName = Path.GetFileNameWithoutExtension(product.ImageFile.FileName);
+                    //string fileName = Path.GetFileNameWithoutExtension(product.ImageFile.FileName);
                     string extension = Path.GetExtension(product.ImageFile.FileName);
-                    fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                    string fileName = RandomString(5, true) + DateTime.Now.ToString("yymmssfff") + extension;
                     product.Avatar = "/Assets/Admin/img/products/" + fileName;
                     fileName = Path.Combine(Server.MapPath("/Assets/Admin/img/products/"), fileName);
                     product.ImageFile.SaveAs(fileName);
@@ -148,7 +168,7 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
                 TempData["message"] = "Chỉnh sửa sản phẩm thành công.";
                 return RedirectToAction("Index");
             }
-            ViewBag.ProductTypeID = new SelectList(db.ProductTypes, "ID", "ProductTypeCode", product.ProductTypeID);
+            ViewBag.ProductTypeID = new SelectList(db.ProductTypes, "ID", "ProductTypeName", product.ProductTypeID);
             return View(product);
         }
         

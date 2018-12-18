@@ -18,8 +18,8 @@ namespace DienMayQuyetTien.Areas.Admin
                 "Admin_default",
                 "Admin/{controller}/{action}/{id}",
                 new {
-                    controller = "Login",
-                    action = "Login",
+                    controller = "Home",
+                    action = "Index",
                     id = UrlParameter.Optional }
             );
         }
