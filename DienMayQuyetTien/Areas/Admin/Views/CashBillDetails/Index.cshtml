@@ -15,8 +15,8 @@
             <tr>
                 <td>@Html.DisplayFor(modelItem => item.Product.ProductName)</td>
                 <td>@Html.DisplayFor(modelItem => item.Quantity)</td>
-                <td>@String.Format("{0:0,0} VND", item.Product.SalePrice)</td>
-                <td>@String.Format("{0:0,0} VND", (item.Quantity * item.Product.SalePrice))</td>
+                <td>@String.Format("{0:0,0} VND", item.SalePrice)</td>
+                <td>@String.Format("{0:0,0} VND", (item.Quantity * item.SalePrice))</td>
                 <td><a href="@Url.Action("Delete", "CashBillDetails", new { id = item.ID })" class="btn btn-white btn-xs" style="color: #fff"><i class="fa fa-trash"></i> Delete</a></td>
             </tr>
         }
@@ -24,7 +24,7 @@
     <tfoot>
         <tr>
             @{
-                var total = Model.Sum(m => m.Product.SalePrice * m.Quantity);
+                var total = Model.Sum(m => m.SalePrice * m.Quantity);
             }
             <th colspan="4" style="text-align:right">Total: @String.Format("{0:0,0} VND", total)</th>
             <th></th>

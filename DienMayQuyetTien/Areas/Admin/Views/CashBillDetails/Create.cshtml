@@ -16,11 +16,12 @@
                 <div class="input-knob-dial-wrap">
                     @Html.ValidationSummary(true)
                     @Html.HiddenFor(model => model.BillID)
+                    @Html.HiddenFor(model => model.SalePrice)
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="chosen-select-single mg-b-20">
                                 <label>Sản phẩm</label>
-                                @Html.DropDownListFor(model => model.ProductID, (SelectList)ViewData["ProductID"], new { placeholder = "Choose a product..." , @class="chosen-select", tabindex="-1" })
+                                @Html.DropDownListFor(model => model.ProductID, (SelectList)ViewData["ProductID"], new { @class="chosen-select"})
                                 @Html.ValidationMessageFor(model => model.ProductID)
                             </div>
                         </div>

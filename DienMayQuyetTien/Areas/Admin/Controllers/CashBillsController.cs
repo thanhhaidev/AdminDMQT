@@ -80,7 +80,7 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
                     foreach (var chiTiet in CTHoaDon)
                     {
                         chiTiet.BillID = cashBill.ID;
-                        chiTiet.CashBill = null;
+                        chiTiet.Product = null;
                         db.CashBillDetails.Add(chiTiet);
                     }
                     db.SaveChanges();

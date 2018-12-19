@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using DienMayQuyetTien.Areas.Admin.Models;
 using System.IO;
 using System.Text;
+using System.Transactions;
 
 namespace DienMayQuyetTien.Areas.Admin.Controllers
 {
@@ -70,17 +71,21 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
             CheckValidationProduct(product);
             if (ModelState.IsValid)
             {
-                //string fileName = Path.GetFileNameWithoutExtension(product.ImageFile.FileName);
-                string extension = Path.GetExtension(product.ImageFile.FileName);
-                string fileName = RandomString(5,true) + DateTime.Now.ToString("yymmssfff") + extension;
+                using (var scope = new TransactionScope())
+                {
+                    //string fileName = Path.GetFileNameWithoutExtension(product.ImageFile.FileName);
+                    string extension = Path.GetExtension(product.ImageFile.FileName);
+                    string fileName = RandomString(5, true) + DateTime.Now.ToString("yymmssfff") + extension;
 
-                product.Avatar = "/Assets/Admin/img/products/" + fileName;
-                fileName = Path.Combine(Server.MapPath("/Assets/Admin/img/products/"), fileName);
-                product.ImageFile.SaveAs(fileName);
-                db.Products.Add(product);
-                db.SaveChanges();
-                TempData["message"] = "Tạo sản phẩm thành công.";
-                return RedirectToAction("Index");
+                    product.Avatar = "/Assets/Admin/img/products/" + fileName;
+                    fileName = Path.Combine(Server.MapPath("/Assets/Admin/img/products/"), fileName);
+                    product.ImageFile.SaveAs(fileName);
+                    db.Products.Add(product);
+                    db.SaveChanges();
+                    scope.Complete();
+                    TempData["message"] = "Tạo sản phẩm thành công.";
+                    return RedirectToAction("Index");
+                }
             }
 
             ViewBag.ProductTypeID = new SelectList(db.ProductTypes, "ID", "ProductTypeName", product.ProductTypeID);
@@ -153,24 +158,28 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
             CheckValidationProduct(product);
             if (ModelState.IsValid)
             {
-                if(product.ImageFile != null)
+                using (var scope = new TransactionScope())
                 {
-                    var fileNameOld = Server.MapPath(product.Avatar);
-                    if (System.IO.File.Exists(fileNameOld))
+                    if (product.ImageFile != null)
                     {
-                        System.IO.File.Delete(fileNameOld);
+                        var fileNameOld = Server.MapPath(product.Avatar);
+                        if (System.IO.File.Exists(fileNameOld))
+                        {
+                            System.IO.File.Delete(fileNameOld);
+                        }
+                        //string fileName = Path.GetFileNameWithoutExtension(product.ImageFile.FileName);
+                        string extension = Path.GetExtension(product.ImageFile.FileName);
+                        string fileName = RandomString(5, true) + DateTime.Now.ToString("yymmssfff") + extension;
+                        product.Avatar = "/Assets/Admin/img/products/" + fileName;
+                        fileName = Path.Combine(Server.MapPath("/Assets/Admin/img/products/"), fileName);
+                        product.ImageFile.SaveAs(fileName);
                     }
-                    //string fileName = Path.GetFileNameWithoutExtension(product.ImageFile.FileName);
-                    string extension = Path.GetExtension(product.ImageFile.FileName);
-                    string fileName = RandomString(5, true) + DateTime.Now.ToString("yymmssfff") + extension;
-                    product.Avatar = "/Assets/Admin/img/products/" + fileName;
-                    fileName = Path.Combine(Server.MapPath("/Assets/Admin/img/products/"), fileName);
-                    product.ImageFile.SaveAs(fileName);
-                } 
-                db.Entry(product).State = EntityState.Modified;
-                db.SaveChanges();
-                TempData["message"] = "Chỉnh sửa sản phẩm thành công.";
-                return RedirectToAction("Index");
+                    db.Entry(product).State = EntityState.Modified;
+                    db.SaveChanges();
+                    scope.Complete();
+                    TempData["message"] = "Chỉnh sửa sản phẩm thành công.";
+                    return RedirectToAction("Index");
+                }
             }
             ViewBag.ProductTypeID = new SelectList(db.ProductTypes, "ID", "ProductTypeName", product.ProductTypeID);
             return View(product);

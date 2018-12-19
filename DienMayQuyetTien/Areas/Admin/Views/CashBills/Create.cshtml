@@ -132,3 +132,14 @@
         }
     </div>
 </div>
+@section Scripts {
+    <script>
+    $('#ProductID').change(function () {
+        var url = '@Url.Action("SalePrice", "CashBillDetails")';
+        url = url + '?ProductID=' + $(this).val();
+        $.get(url, function (data) {
+            $('#SalePrice').val(data);
+        });
+    });
+    </script>
+}
