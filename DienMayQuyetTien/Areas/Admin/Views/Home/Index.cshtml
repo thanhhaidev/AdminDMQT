@@ -7,7 +7,7 @@
 <!-- Data table area Start-->
 <div class="admin-dashone-data-table-area">
     <div class="container-fluid">
-        <div class="row">
+        <div class="row mg-t-10">
             <div class="col-lg-12">
                 @if (ViewBag.Message != null)
                 {
@@ -29,7 +29,7 @@
                             <div id="toolbar">
                                 <a href="@Url.Action("Create", "Home")" class="btn btn-custon-four btn-primary"><i class="fa big-icon fa-plus"></i> Add Product New</a>
                             </div>
-                            <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="false" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar">
+                            <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="false" data-key-events="true" data-show-toggle="false" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar">
                                 <thead>
                                     <tr>
                                         <th data-field="code">Code</th>

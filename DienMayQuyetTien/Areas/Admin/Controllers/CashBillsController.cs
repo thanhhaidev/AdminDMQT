@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DienMayQuyetTien.Areas.Admin.Models;
+using System.Transactions;
 
 namespace DienMayQuyetTien.Areas.Admin.Controllers
 {
@@ -38,7 +39,14 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
         // GET: Admin/CashBills/Create
         public ActionResult Create()
         {
-            return View();
+            if (Session["UserName"] != null)
+            {
+                return View(Session["CashBill"]);
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
 
         // POST: Admin/CashBills/Create
@@ -46,16 +54,47 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,BillCode,CustomerName,PhoneNumber,Address,Date,Shipper,Note,GrandTotal")] CashBill cashBill)
+        public ActionResult Create(CashBill cashBill)
         {
             if (ModelState.IsValid)
             {
-                db.CashBills.Add(cashBill);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                Session["CashBill"] = cashBill;
             }
-
+            
             return View(cashBill);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create2()
+        {
+            using (var scope = new TransactionScope())
+                try
+                {
+                    var cashBill = Session["CashBill"] as CashBill;
+                    var CTHoaDon = Session["CashBillDetail"] as List<CashBillDetail>;
+
+                    db.CashBills.Add(cashBill);
+                    db.SaveChanges();
+
+                    foreach (var chiTiet in CTHoaDon)
+                    {
+                        chiTiet.BillID = cashBill.ID;
+                        chiTiet.CashBill = null;
+                        db.CashBillDetails.Add(chiTiet);
+                    }
+                    db.SaveChanges();
+                    scope.Complete();
+
+                    Session["CashBill"] = null;
+                    Session["CashBillDetail"] = null;
+                    return RedirectToAction("Index");
+                }
+                catch (Exception e)
+                {
+                    ModelState.AddModelError("", e.Message);
+                }
+            return View("Create");
         }
 
         // GET: Admin/CashBills/Edit/5

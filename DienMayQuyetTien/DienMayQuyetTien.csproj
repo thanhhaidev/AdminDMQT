@@ -127,8 +127,8 @@
   <ItemGroup>
     <Content Include="Areas\Admin\Models\DienMayQuyetTien.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DienMayQuyetTien.Context.cs</LastGenOutput>
       <DependentUpon>DienMayQuyetTien.edmx</DependentUpon>
+      <LastGenOutput>DienMayQuyetTien.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Areas\Admin\Models\DienMayQuyetTien.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -284,6 +284,7 @@
     <Content Include="Assets\Admin\js\ionRangeSlider\ion.rangeSlider.active.js" />
     <Content Include="Assets\Admin\js\ionRangeSlider\ion.rangeSlider.min.js" />
     <Content Include="Assets\Admin\js\jquery-ui.min.js" />
+    <Content Include="Assets\Admin\js\jquery.blockUI.js" />
     <Content Include="Assets\Admin\js\jquery.form.min.js" />
     <Content Include="Assets\Admin\js\jquery.maskedinput.min.js" />
     <Content Include="Assets\Admin\js\jquery.mCustomScrollbar.concat.min.js" />
@@ -722,6 +723,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CashBillDetailsController.cs" />
     <Compile Include="Areas\Admin\Controllers\CashBillsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
@@ -764,6 +766,9 @@
     <Compile Include="Areas\Admin\Models\ProductType.cs">
       <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
     </Compile>
+    <Compile Include="Areas\Admin\Models\sysdiagram.cs">
+      <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\HouseController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -776,13 +781,6 @@
     <Content Include="ApplicationInsights.config" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <Content Include="Areas\Admin\Views\web.config" />
-    <EntityDeploy Include="Areas\Admin\Models\DienMayQuyetTien.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DienMayQuyetTien.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Areas\Admin\Models\DienMayQuyetTien.edmx.diagram">
-      <DependentUpon>DienMayQuyetTien.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Details.cshtml" />
@@ -806,6 +804,18 @@
     <Content Include="Assets\Client\fonts\ionicons.eot" />
     <Content Include="Assets\Client\fonts\ionicons.ttf" />
     <Content Include="Assets\Client\fonts\ionicons.woff" />
+    <Content Include="Areas\Admin\Views\CashBillDetails\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\CashBillDetails\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\CashBillDetails\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\CashBillDetails\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\CashBillDetails\Delete.cshtml" />
+    <EntityDeploy Include="Areas\Admin\Models\DienMayQuyetTien.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DienMayQuyetTien.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Areas\Admin\Models\DienMayQuyetTien.edmx.diagram">
+      <DependentUpon>DienMayQuyetTien.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\dmquyettien - Web Deploy.pubxml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />

@@ -96,10 +96,10 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-money"></i> <span class="mini-dn">Cash Bill</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                            <a href="@Url.Action("Index", "CashBills")" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-money"></i> <span class="mini-dn">Cash Bill</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
                             <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-                                <a href="inbox.html" class="dropdown-item"><i class="fa big-icon fa-list"></i> List</a>
-                                <a href="inbox.html" class="dropdown-item"><i class="fa big-icon fa-plus"></i> Create</a>
+                                <a href="@Url.Action("Index", "CashBills")" class="dropdown-item"><i class="fa big-icon fa-list"></i> List</a>
+                                <a href="@Url.Action("Create", "CashBills")" class="dropdown-item"><i class="fa big-icon fa-plus"></i> Create</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -123,7 +123,7 @@
                                     <i class="fa fa-bars"></i>
                                 </button>
                                 <div class="admin-logo logo-wrap-pro">
-                                    <a href="#">
+                                    <a href="@Url.Action("Index", "Home")">
                                         <img src="~/Assets/Admin/img/logo/log.png" alt="" />
                                     </a>
                                 </div>
@@ -182,13 +182,13 @@
                                             </ul>
                                         </li>
                                         <li>
-                                            <a data-toggle="collapse" data-target="#others" href="#"><i class="fa big-icon fa-money"></i> Cash Bill <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                            <a data-toggle="collapse" data-target="#others" href="@Url.Action("Index", "CashBills")"><i class="fa big-icon fa-money"></i> Cash Bill <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                             <ul id="others" class="collapse dropdown-header-top">
                                                 <li>
-                                                    <a href="inbox.html"><i class="fa big-icon fa-list"></i> List</a>
+                                                    <a href="@Url.Action("Index", "CashBills")"><i class="fa big-icon fa-list"></i> List</a>
                                                 </li>
                                                 <li>
-                                                    <a href="profile.html"><i class="fa big-icon fa-plus"></i> Create</a>
+                                                    <a href="@Url.Action("Create", "CashBills")"><i class="fa big-icon fa-plus"></i> Create</a>
                                                 </li>
                                             </ul>
                                         </li>

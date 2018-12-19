@@ -1,0 +1,34 @@
+﻿@model IEnumerable<DienMayQuyetTien.Areas.Admin.Models.CashBillDetail>
+<table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="false" data-key-events="false" data-show-toggle="false" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar">
+    <thead>
+        <tr>
+            <th data-field="name">Product Name</th>
+            <th data-field="quantity">Quantity</th>
+            <th data-field="saleprice">Sale Price</th>
+            <th data-field="grandtotal">Grand Total</th>
+            <th data-field="action">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Product.ProductName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Quantity)</td>
+                <td>@String.Format("{0:0,0} VND", item.Product.SalePrice)</td>
+                <td>@String.Format("{0:0,0} VND", (item.Quantity * item.Product.SalePrice))</td>
+                <td><a href="@Url.Action("Delete", "CashBillDetails", new { id = item.ID })" class="btn btn-white btn-xs" style="color: #fff"><i class="fa fa-trash"></i> Delete</a></td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            @{
+                var total = Model.Sum(m => m.Product.SalePrice * m.Quantity);
+            }
+            <th colspan="4" style="text-align:right">Total: @String.Format("{0:0,0} VND", total)</th>
+            <th></th>
+        </tr>
+    </tfoot>
+</table>
+

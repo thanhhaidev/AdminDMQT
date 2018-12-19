@@ -1,0 +1,44 @@
+﻿@model DienMayQuyetTien.Areas.Admin.Models.CashBillDetail
+@using (Html.BeginForm("Create2", "CashBillDetails"))
+{
+    @Html.AntiForgeryToken()
+    <div class="col-lg-5">
+        <div class="sparkline10-list shadow-reset mg-t-30">
+            <div class="sparkline10-hd">
+                <div class="main-sparkline10-hd">
+                    <h1>Thêm sản phẩm</h1>
+                    <div class="sparkline10-outline-icon">
+                        <span class="sparkline10-collapse-link"><i class="fa fa-chevron-up"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="sparkline10-graph">
+                <div class="input-knob-dial-wrap">
+                    @Html.ValidationSummary(true)
+                    @Html.HiddenFor(model => model.BillID)
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="chosen-select-single mg-b-20">
+                                <label>Sản phẩm</label>
+                                @Html.DropDownListFor(model => model.ProductID, (SelectList)ViewData["ProductID"], new { placeholder = "Choose a product..." , @class="chosen-select", tabindex="-1" })
+                                @Html.ValidationMessageFor(model => model.ProductID)
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="touchspin-inner">
+                                <label>Số lượng</label>
+                                @Html.TextBoxFor(model => model.Quantity, new { @class = "touchspin3 form-control" })
+                                @Html.ValidationMessageFor(model => model.Quantity)
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="touchspin-inner" style="margin-top:25px">
+                                <input type="submit" class="btn btn-custon-four btn-primary" value="Add">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}  
