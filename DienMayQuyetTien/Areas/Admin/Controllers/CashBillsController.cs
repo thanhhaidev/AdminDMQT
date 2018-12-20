@@ -56,12 +56,23 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CashBill cashBill)
         {
+            checkValidator(cashBill);
             if (ModelState.IsValid)
             {
                 Session["CashBill"] = cashBill;
             }
             
             return View(cashBill);
+        }
+
+        private void checkValidator(CashBill cashBill)
+        {
+            if (cashBill.CustomerName == null || cashBill.CustomerName.Equals(""))
+                ModelState.AddModelError("CustomerName", "Tên khách hàng không được bỏ trống");
+            if (cashBill.Address == null || cashBill.Address.Equals(""))
+                ModelState.AddModelError("Address", "Địa chỉ không được bỏ trống");
+            if (cashBill.PhoneNumber == null || cashBill.PhoneNumber.Equals(""))
+                ModelState.AddModelError("PhoneNumber", "Số điện thoại không được bỏ trống");
         }
 
         [HttpPost]
@@ -73,6 +84,7 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
                 {
                     var cashBill = Session["CashBill"] as CashBill;
                     var CTHoaDon = Session["CashBillDetail"] as List<CashBillDetail>;
+                    cashBill.Date = DateTime.Now;
                     cashBill.GrandTotal = (int)Session["total"];
 
                     db.CashBills.Add(cashBill);

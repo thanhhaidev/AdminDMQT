@@ -30,8 +30,8 @@
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                                 @Html.EditorFor(model => model.CustomerName, new { htmlAttributes = new { @class = "form-control", id = "customer" } })
+                                                @Html.ValidationMessageFor(model => model.CustomerName, "", new { @class = "pull-left text-danger" })
                                             </div>
-                                            @Html.ValidationMessageFor(model => model.CustomerName, "", new { @class = "pull-left text-danger" })
                                         </div>
                                     </div>
                                     <div class="date-picker-inner">
@@ -40,16 +40,18 @@
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-phone"></i></span>
                                                 @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", id = "phone" } })
-                                                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "pull-left text-danger" })
+                                                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "pull-left text-danger" })<br />
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group data-custon-pick" id="data_1">
-                                        <label>Simple data input format</label>
-                                        <div class="input-group date">
-                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                            @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", id = "note" } })
-                                            @Html.ValidationMessageFor(model => model.Date, "", new { @class = "pull-left text-danger" })
+                                    <div class="date-picker-inner">
+                                        <div class="form-group data-custon-pick">
+                                            <label>Note</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-comment"></i></span>
+                                                @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control", id = "note" } })
+                                                @Html.ValidationMessageFor(model => model.Note, "", new { @class = "pull-left text-danger" })
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -76,17 +78,7 @@
                                     </div>
                                     <div class="date-picker-inner">
                                         <div class="form-group data-custon-pick">
-                                            <label>Note</label>
-                                            <div class="input-group">
-                                                <span class="input-group-addon"><i class="fa fa-comment"></i></span>
-                                                @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control", id = "note" } })
-                                                @Html.ValidationMessageFor(model => model.Note, "", new { @class = "pull-left text-danger" })
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="date-picker-inner">
-                                        <div class="form-group data-custon-pick">
-                                            <div class="touchspin-inner" style="margin-top:25px">
+                                            <div class="touchspin-inner" style="margin-top:40px">
                                                 <a href="@Url.Action("Index", "CashBills")" class="btn btn-custon-four btn-danger" id="btnCancel"><span class="fa fa-remove"></span> Cancel</a>
                                                 <input type="submit" class="btn btn-custon-four btn-success" id="btnShowPopup" value="Create Information">
                                             </div>
@@ -134,12 +126,20 @@
 </div>
 @section Scripts {
     <script>
-    $('#ProductID').change(function () {
-        var url = '@Url.Action("SalePrice", "CashBillDetails")';
-        url = url + '?ProductID=' + $(this).val();
-        $.get(url, function (data) {
-            $('#SalePrice').val(data);
+        function getSalePrice(ProductID) {
+            var url = '@Url.Action("SalePrice", "CashBillDetails")';
+            url = url + '?ProductID=' + ProductID
+            $.get(url, function (data) {
+                $('#SalePrice').val(data);
+            });
+        }
+        $(document).ready(function () {
+            var ProductID = $("#ProductID").children("option:selected").val();
+            getSalePrice(ProductID);
         });
-    });
+        $('#ProductID').change(function () {
+            getSalePrice($(this).val());
+        });
+
     </script>
 }
