@@ -73,6 +73,7 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
                 {
                     var cashBill = Session["CashBill"] as CashBill;
                     var CTHoaDon = Session["CashBillDetail"] as List<CashBillDetail>;
+                    cashBill.GrandTotal = (int)Session["total"];
 
                     db.CashBills.Add(cashBill);
                     db.SaveChanges();

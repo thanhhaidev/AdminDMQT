@@ -6,7 +6,8 @@
 		keyboardNavigation: false,
 		forceParse: false,
 		calendarWeeks: true,
-		autoclose: true
+		autoclose: true,
+	    format: "dd-mm-yyyy"
 	});
 
 	$('#data_2 .input-group.date').datepicker({
