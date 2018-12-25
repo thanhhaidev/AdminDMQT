@@ -200,11 +200,11 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
                 Product product = db.Products.Find(id);
                 db.Products.Remove(product);
 
-                var fileName = Server.MapPath(product.Avatar);
-                if (System.IO.File.Exists(fileName))
-                {
-                    System.IO.File.Delete(fileName);
-                }
+                //var fileName = Server.MapPath(product.Avatar);
+                //if (System.IO.File.Exists(fileName))
+                //{
+                //    System.IO.File.Delete(fileName);
+                //}
 
                 db.SaveChanges();
                 TempData["message"] = "Xóa sản phẩm thành công.";

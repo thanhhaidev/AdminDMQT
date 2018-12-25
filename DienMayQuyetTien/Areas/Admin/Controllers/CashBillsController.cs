@@ -18,7 +18,14 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
         // GET: Admin/CashBills
         public ActionResult Index()
         {
-            return View(db.CashBills.ToList());
+            if (Session["UserName"] != null)
+            {
+                return View(db.CashBills.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
 
         // GET: Admin/CashBills/Details/5

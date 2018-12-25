@@ -58,36 +58,74 @@ namespace DienMayQuyetTien.Tests
             Assert.IsInstanceOfType(result.ViewData["ProductTypeID"], typeof(SelectList));
         }
 
-        public void DeleteTest()
+        [TestMethod]
+        public void CreatePostTest()
         {
-            ProductAdminController target = new ProductAdminController();
-            //int id = 50;
-
-            var db = new DIENMAYQUYETTIENEntities();
+            var controller = new HomeController();
+            var db = new DmQT03Entities();
+            var context = new Mock<HttpContextBase>();
+            var request = new Mock<HttpRequestBase>();
+            var files = new Mock<HttpFileCollectionBase>();
+            var file = new Mock<HttpPostedFileBase>();
+            context.Setup(c => c.Request).Returns(request.Object);
+            request.Setup(r => r.Files).Returns(files.Object);
+            files.Setup(f => f["ImageFile"]).Returns(file.Object);
+            file.Setup(f => f.ContentLength).Returns(1);
+            file.Setup(c => c.FileName).Returns("image.png");
+            context.Setup(c => c.Server.MapPath("/Assets/Admin/img/products/")).Returns("/Assets/Admin/img/products/");
+            controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
 
             using (var scope = new TransactionScope())
             {
-                var product = new Product
-                {
-                    ProductCode = "Code",
-                    ProductName = "ProductName",
-                    ProductTypeID = db.ProductTypes.First().ID,
-                    SalePrice = 123,
-                    OriginPrice = 123,
-                    InstallmentPrice = 123,
-                    Quantity = 123,
-                    Avatar = ""
-                };
+
+                var model = new Product();
+                model.ProductTypeID = db.ProductTypes.First().ID;
+                model.ProductName = "ProductName";
+                model.OriginPrice = 123;
+                model.SalePrice = 456;
+                model.InstallmentPrice = 789;
+                model.Quantity = 10;
+
+                var result0 = controller.Create(model) as RedirectToRouteResult;
+                //Assert.IsNotNull(result0);
+                file.Verify(f => f.SaveAs(It.Is<string>(s => s.StartsWith("/Assets/Admin/img/products/"))));
+                Assert.AreEqual("Index", result0.RouteValues["action"]);
+
+                file.Setup(f => f.ContentLength).Returns(0);
+                var result1 = controller.Create(model) as ViewResult;
+                Assert.IsNotNull(result1);
+                Assert.IsInstanceOfType(result1.ViewData["ProductTypeID"], typeof(SelectList));
+            }
+        }
+
+        [TestMethod]
+        public void DeleteTest()
+        {
+            var db = new DmQT03Entities();
+            var product = new Product
+            {
+                ProductName = "ProductName",
+                ProductTypeID = db.ProductTypes.First().ID,
+                SalePrice = 123,
+                OriginPrice = 123,
+                InstallmentPrice = 123,
+                Quantity = 123,
+                Avatar = ""
+            };
+
+            var controller = new HomeController();
+            var context = new Mock<HttpContextBase>();
+            var session = new Mock<HttpSessionStateBase>();
+            session.Setup(s => s["UserName"]).Returns("abc");
+            context.Setup(c => c.Session).Returns(session.Object);
+            controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
+
+            using (var scope = new TransactionScope())
+            {
                 db.Products.Add(product);
                 db.SaveChanges();
-                // test view delete
-                var result1 = target.Delete(product.ID) as ViewResult;
-                Assert.IsNotNull(result1);
-                Assert.AreEqual(product.ID, (result1.Model as Product).ID);
-
-                // test delete post
                 var count = db.Products.Count();
-                var result2 = target.De(product.ID) as RedirectToRouteResult;
+                var result2 = controller.DeleteConfirmed(product.ID) as RedirectToRouteResult;
                 Assert.IsNotNull(result2);
                 Assert.AreEqual(count - 1, db.Products.Count());
             }
