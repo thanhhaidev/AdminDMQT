@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DienMayQuyetTien.Models;
+using DienMayQuyetTien.Areas.Admin.Models;
 using System.Transactions;
 
 namespace DienMayQuyetTien.Controllers
@@ -11,10 +12,11 @@ namespace DienMayQuyetTien.Controllers
     public class HouseController : Controller
     {
         private DmQT03EntitiesFrontEnd db = new DmQT03EntitiesFrontEnd();
+        private DmQT03Entities db1 = new DmQT03Entities();
         // GET: House
         public ActionResult Index()
         {
-            return View();
+            return View(db1.Products.ToList());
         }
 
         public ActionResult GioiThieu()
