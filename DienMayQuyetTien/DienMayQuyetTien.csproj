@@ -780,6 +780,7 @@
       <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\HouseController.cs" />
+    <Compile Include="Controllers\ProductTypesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -863,6 +864,8 @@
     <Content Include="Views\House\LienHe.cshtml" />
     <Content Include="Views\House\KhuyenMai.cshtml" />
     <Content Include="Views\House\TinTuc.cshtml" />
+    <Content Include="Views\ProductTypes\Index.cshtml" />
+    <Content Include="Views\ProductTypes\Index1.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,13 @@
+﻿@model IEnumerable<DienMayQuyetTien.Areas.Admin.Models.ProductType>
+
+@{
+    Layout = null;
+}
+<ul class="main-ul">
+    @foreach (var item in Model)
+    {
+        <li>
+            <a href="" title="@item.ProductTypeName">@item.ProductTypeName</a>
+        </li>
+    }
+</ul>

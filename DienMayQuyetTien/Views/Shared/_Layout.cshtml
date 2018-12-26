@@ -124,80 +124,7 @@
                                     <a class="navbar-brand primary-color" href="#">Danh mục sản phẩm</a>
                                 </div>
                                 <div class="collapse navbar-collapse navbar-ex1-collapse hidden-md hidden-lg">
-                                    <ul class="nav navbar-nav">
-                                        <li class="dropdown">
-                                            <a href="san-pham/dien-thoai" title="Điện thoại" class="dropdown-toggle" data-toggle="dropdown">Điện thoại<i class="fa fa-angle-right pull-right" aria-hidden="true"></i></a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="san-pham/khac" title="Khác"> Khác</a></li>
-                                                <li><a href="san-pham/sony" title="Sony"> Sony</a></li>
-                                                <li><a href="san-pham/lg" title="LG"> LG</a></li>
-                                                <li><a href="san-pham/oppo" title="Oppo"> Oppo</a></li>
-                                                <li><a href="san-pham/samsung" title="Samsung"> Samsung</a></li>
-                                                <li><a href="san-pham/asus-dt" title="Asus ( ĐT )"> Asus ( ĐT )</a></li>
-                                                <li><a href="san-pham/huawei" title="Huawei"> Huawei</a></li>
-                                                <li><a href="san-pham/iphone" title="Iphone"> Iphone</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown"><a href="san-pham/may-tinh-bang" title="Máy tính bảng" class="dropdown-toggle" data-toggle="dropdown">Máy tính bảng</a></li>
-                                        <li class="dropdown">
-                                            <a href="san-pham/laptop" title="Laptop" class="dropdown-toggle" data-toggle="dropdown">Laptop<i class="fa fa-angle-right pull-right" aria-hidden="true"></i></a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="san-pham/asus-lt" title="Asus (LT)"> Asus (LT)</a></li>
-                                                <li><a href="san-pham/acer" title="Acer"> Acer</a></li>
-                                                <li><a href="san-pham/lenovo" title="Lenovo"> Lenovo</a></li>
-                                                <li><a href="san-pham/dell" title="Dell"> Dell</a></li>
-                                                <li><a href="san-pham/hp" title="HP"> HP</a></li>
-                                                <li><a href="san-pham/macbook" title="Macbook"> Macbook</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown"><a href="san-pham/ky-thuat-so" title="Kỹ thuật số" class="dropdown-toggle" data-toggle="dropdown">Kỹ thuật số</a></li>
-                                        <li class="dropdown"><a href="san-pham/may-cu" title="Máy cũ" class="dropdown-toggle" data-toggle="dropdown">Máy cũ</a></li>
-                                        <li class="dropdown"><a href="san-pham/thiet-bi-van-phong" title="Thiết bị văn phòng" class="dropdown-toggle" data-toggle="dropdown">Thiết bị văn phòng</a></li>
-                                        <li class="dropdown">
-                                            <a href="san-pham/phu-kien" title="Phụ kiện" class="dropdown-toggle" data-toggle="dropdown">Phụ kiện<i class="fa fa-angle-right pull-right" aria-hidden="true"></i></a>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <a href="san-pham/phu-kien-khac" title="Phụ kiện khác">
-                                                        Phụ kiện
-                                                        khác
-                                                    </a>
-                                                </li>
-                                                <li><a href="san-pham/hang-sony" title="Hãng Sony"> Hãng Sony</a></li>
-                                                <li><a href="san-pham/hang-sony" title="Hãng Sony"> Hãng Sony</a></li>
-                                                <li><a href="san-pham/hang-apple" title="Hãng Apple"> Hãng Apple</a></li>
-                                                <li>
-                                                    <a href="san-pham/mieng-dan-man-hinh" title="Miếng dán màn hình">
-                                                        Miếng dán màn hình
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="san-pham/op-lung-may-tinh-ban" title="Ốp lưng máy tính bản">
-                                                        Ốp lưng máy tính bản
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="san-pham/op-lung-dien-thoai" title="Ốp lưng điện thoại">
-                                                        Ốp
-                                                        lưng điện thoại
-                                                    </a>
-                                                </li>
-                                                <li><a href="san-pham/dong-ho" title="Đồng hồ"> Đồng hồ</a></li>
-                                                <li><a href="san-pham/loa" title="Loa"> Loa</a></li>
-                                                <li><a href="san-pham/chuot" title="Chuột"> Chuột</a></li>
-                                                <li><a href="san-pham/usb" title="USB"> USB</a></li>
-                                                <li><a href="san-pham/tai-nghe" title="Tai nghe"> Tai nghe</a></li>
-                                                <li><a href="san-pham/the-nho" title="Thẻ nhớ"> Thẻ nhớ</a></li>
-                                                <li><a href="san-pham/cap-sac" title="Cáp sạc"> Cáp sạc</a></li>
-                                                <li>
-                                                    <a href="san-pham/pin-sac-du-phong" title="Pin sạc dự phòng">
-                                                        Pin
-                                                        sạc dự phòng
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown"><a href="san-pham/thiet-bi-am-thanh" title="Thiết bị âm thanh" class="dropdown-toggle" data-toggle="dropdown">Thiết bị âm thanh</a></li>
-                                    </ul>
+                                    @Html.Action("Index", "ProductTypes")
                                 </div>
                                 <!-- /.navbar-collapse -->
                             </div>
@@ -227,64 +154,7 @@
             <div class="slider">
                 <div class="container">
                     <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 list-menu pull-left">
-                        <ul class="main-ul">
-                            <li>
-                                <a href="san-pham/dien-thoai" title="Điện thoại">Điện thoại<i class="fa fa-angle-right pull-right" aria-hidden="true"></i></a>
-                                <ul class="sub">
-                                    <li><a href="san-pham/khac" title="Khác"> Khác</a></li>
-                                    <li><a href="san-pham/sony" title="Sony"> Sony</a></li>
-                                    <li><a href="san-pham/lg" title="LG"> LG</a></li>
-                                    <li><a href="san-pham/oppo" title="Oppo"> Oppo</a></li>
-                                    <li><a href="san-pham/samsung" title="Samsung"> Samsung</a></li>
-                                    <li><a href="san-pham/asus-dt" title="Asus ( ĐT )"> Asus ( ĐT )</a></li>
-                                    <li><a href="san-pham/huawei" title="Huawei"> Huawei</a></li>
-                                    <li><a href="san-pham/iphone" title="Iphone"> Iphone</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="san-pham/may-tinh-bang" title="Máy tính bảng">Máy tính bảng</a></li>
-                            <li>
-                                <a href="san-pham/laptop" title="Laptop">Laptop<i class="fa fa-angle-right pull-right" aria-hidden="true"></i></a>
-                                <ul class="sub">
-                                    <li><a href="san-pham/asus-lt" title="Asus (LT)"> Asus (LT)</a></li>
-                                    <li><a href="san-pham/acer" title="Acer"> Acer</a></li>
-                                    <li><a href="san-pham/lenovo" title="Lenovo"> Lenovo</a></li>
-                                    <li><a href="san-pham/dell" title="Dell"> Dell</a></li>
-                                    <li><a href="san-pham/hp" title="HP"> HP</a></li>
-                                    <li><a href="san-pham/macbook" title="Macbook"> Macbook</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="san-pham/ky-thuat-so" title="Kỹ thuật số">Kỹ thuật số</a></li>
-                            <li><a href="san-pham/may-cu" title="Máy cũ">Máy cũ</a></li>
-                            <li><a href="san-pham/thiet-bi-van-phong" title="Thiết bị văn phòng">Thiết bị văn phòng</a></li>
-                            <li>
-                                <a href="san-pham/phu-kien" title="Phụ kiện">Phụ kiện<i class="fa fa-angle-right pull-right" aria-hidden="true"></i></a>
-                                <ul class="sub">
-                                    <li><a href="san-pham/phu-kien-khac" title="Phụ kiện khác"> Phụ kiện khác</a></li>
-                                    <li><a href="san-pham/hang-sony" title="Hãng Sony"> Hãng Sony</a></li>
-                                    <li><a href="san-pham/hang-apple" title="Hãng Apple"> Hãng Apple</a></li>
-                                    <li>
-                                        <a href="san-pham/mieng-dan-man-hinh" title="Miếng dán màn hình"> Miếng dán màn hình</a>
-                                    </li>
-                                    <li>
-                                        <a href="san-pham/op-lung-may-tinh-ban" title="Ốp lưng máy tính bản"> Ốp lưng máy tính bản</a>
-                                    </li>
-                                    <li>
-                                        <a href="san-pham/op-lung-dien-thoai" title="Ốp lưng điện thoại"> Ốp lưng điện thoại</a>
-                                    </li>
-                                    <li><a href="san-pham/dong-ho" title="Đồng hồ"> Đồng hồ</a></li>
-                                    <li><a href="san-pham/loa" title="Loa"> Loa</a></li>
-                                    <li><a href="san-pham/chuot" title="Chuột"> Chuột</a></li>
-                                    <li><a href="san-pham/usb" title="USB"> USB</a></li>
-                                    <li><a href="san-pham/tai-nghe" title="Tai nghe"> Tai nghe</a></li>
-                                    <li><a href="san-pham/the-nho" title="Thẻ nhớ"> Thẻ nhớ</a></li>
-                                    <li><a href="san-pham/cap-sac" title="Cáp sạc"> Cáp sạc</a></li>
-                                    <li><a href="san-pham/pin-sac-du-phong" title="Pin sạc dự phòng"> Pin sạc dự phòng</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="san-pham/thiet-bi-am-thanh" title="Thiết bị âm thanh"> Thiết bị âm thanh</a>
-                            </li>
-                        </ul>
+                        @Html.Action("Index1", "ProductTypes")
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 slider-main pull-left">
                         <div id="carousel-id" class="carousel slide" data-ride="carousel">
@@ -363,13 +233,6 @@
                     <div class="col-md-9">
                         <div class="large-12 columns">
                             <div class="owl-brands owl-carousel owl-theme owl-loaded owl-drag" style="opacity: 1; display: block;">
-
-
-
-
-
-
-
                                 <div class="owl-stage-outer">
                                     <div class="owl-stage" style="left: -973px; width: 3650px;">
                                         <div class="owl-item cloned" style="width: 233.333px; margin-right: 10px;">
