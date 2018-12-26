@@ -1,7 +1,4 @@
-﻿@{
-    ViewBag.Title = "Home";
-}
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -84,7 +81,7 @@
         <section class="logo-search">
             <div class="container">
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 logo">
-                    <a href=""><img src="~/Assets/Client/images/logo.png" alt="Quyết Tiến Store"></a>
+                    <a href="@Url.Action("Index", "House")"><img src="~/Assets/Client/images/logo.png" alt="Quyết Tiến Store"></a>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 search">
                     <form action="search" method="get" role="form">
@@ -535,7 +532,7 @@
                 <div class="container">
                     <div class="col-xs-12 col-sm-12 col-md-6">
                         <div class="col-xs-12 col-sm-6">
-                            <a href="/">
+                            <a href="@Url.Action("Index", "House")">
                                 <img src="~/Assets/Client/images/logo.png" class="img-fix f-logo" alt="Quyết Tiến Store">
                             </a>
                             <div class="about-store">
