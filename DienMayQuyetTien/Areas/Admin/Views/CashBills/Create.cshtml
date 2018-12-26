@@ -79,7 +79,7 @@
                                     <div class="date-picker-inner">
                                         <div class="form-group data-custon-pick">
                                             <div class="touchspin-inner" style="margin-top:40px">
-                                                <a href="@Url.Action("Index", "CashBills")" class="btn btn-custon-four btn-danger" id="btnCancel"><span class="fa fa-remove"></span> Cancel</a>
+                                                <a href="@Url.Action("Cancel", "CashBills")" class="btn btn-custon-four btn-danger" id="btnCancel"><span class="fa fa-remove"></span> Cancel</a>
                                                 <input type="submit" class="btn btn-custon-four btn-success" id="btnShowPopup" value="Create Information">
                                             </div>
                                         </div>
@@ -113,7 +113,7 @@
                             {
                             @Html.AntiForgeryToken()
                                 <div class="touchspin-inner" style="margin-top:25px">
-                                    <a href="@Url.Action("Index", "CashBills")" class="btn btn-custon-four btn-danger"><span class="fa fa-remove"></span> Cancel</a>
+                                    <a href="@Url.Action("Cancel", "CashBills")" class="btn btn-custon-four btn-danger" id="btnCancel"><span class="fa fa-remove"></span> Cancel</a>
                                     <input type="submit" class="btn btn-custon-four btn-info" value="Save">
                                 </div>
                             }
@@ -140,6 +140,5 @@
         $('#ProductID').change(function () {
             getSalePrice($(this).val());
         });
-
     </script>
 }

@@ -29,18 +29,15 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
         }
 
         // GET: Admin/CashBills/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Cancel()
         {
-            if (id == null)
+            if(Session["CashBill"] != null || Session["CashBillDetail"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                Session["CashBill"] = null;
+                Session["CashBillDetail"] = null;
+                return RedirectToAction("Index", "CashBills");
             }
-            CashBill cashBill = db.CashBills.Find(id);
-            if (cashBill == null)
-            {
-                return HttpNotFound();
-            }
-            return View(cashBill);
+            return RedirectToAction("Index", "CashBills");
         }
 
         // GET: Admin/CashBills/Create

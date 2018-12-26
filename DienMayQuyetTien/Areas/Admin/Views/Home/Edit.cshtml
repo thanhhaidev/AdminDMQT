@@ -43,7 +43,8 @@
                                                     <div class="col-lg-9">
                                                         <div class="form-select-list">
                                                             @Html.HiddenFor(model => model.ProductTypeID)
-                                                            @Html.DropDownList("ProductTypeID", (IEnumerable<SelectListItem>)ViewData["ProductTypeID"], new { @class = "form-control", disabled = "true" })
+                                                            @*@Html.DropDownList("ProductTypeID", (IEnumerable<SelectListItem>)ViewData["ProductTypeID"], new { @class = "form-control", disabled = "true" })*@
+                                                            @Html.DropDownList("ProductTypeID", new SelectList(ViewBag.ProductType, "ID", "ProductTypeName", Model.ProductType), new { @class = "form-control", disabled = "true" })
                                                         </div>
                                                     </div>
                                                 </div>

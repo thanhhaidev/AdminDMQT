@@ -138,8 +138,8 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
                 {
                     return HttpNotFound();
                 }
-                //ViewBag.ProductType = db.ProductTypes.OrderByDescending(x => x.ID).ToList();
-                ViewBag.ProductTypeID = new SelectList(db.ProductTypes, "ID", "ProductTypeName", product.ProductTypeID);
+                ViewBag.ProductType = db.ProductTypes.OrderByDescending(x => x.ID).ToList();
+                //ViewBag.ProductTypeID = new SelectList(db.ProductTypes, "ID", "ProductTypeName", product.ProductTypeID);
                 return View(product);
             }
             else
