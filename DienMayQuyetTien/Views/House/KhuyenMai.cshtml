@@ -1,6 +1,6 @@
-﻿
+﻿@model IEnumerable<DienMayQuyetTien.Models.Promotion>
 @{
-    ViewBag.Title = "KhuyenMai";
+    ViewBag.Title = "Khuyến mãi";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -8,94 +8,19 @@
     <div class="info">
         <h1 style="color: black">Thông tin khuyễn mãi</h1>
     </div>
+    @foreach (var item in Model)
+    {
+        <div class="iso-box photoshop branding col-md-4 col-sm-6">
+            <div class="portfolio-thumb">
+                <img width: 100% src="@item.Image" class="img-responsive" alt="Portfolio">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-item">
+                        <a href="sale-23%"><h2 h2 style="font-size: 22px">@item.Name</h2></a>
 
-    <div class="iso-box photoshop branding col-md-4 col-sm-6">
-        <div class="portfolio-thumb">
-            <img width: 100% src="~/Assets/Client/images/khuyenmai/khuyenmai1.jpg" class="img-responsive" alt="Portfolio">
-            <div class="portfolio-overlay">
-                <div class="portfolio-item">
-                    <a href="sale-23%"><h2 h2 style="font-size: 22px">Đồng hành cùng U23 Việt Nam</h2></a>
-
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="iso-box photoshop branding col-md-4 col-sm-6">
-        <div class="portfolio-thumb">
-            <img width: 100% src="~/Assets/Client/images/khuyenmai/khuyenmai5.jpg" class="img-responsive" alt="Portfolio">
-            <div class="portfolio-overlay">
-                <div class="portfolio-item">
-                    <a href="Mừng-giáng-sinh"><h2 h2 style="font-size: 22px">Vui Giáng Sinh,cơ hội trúng Honda AirBlade và Honda Wave RSX</h2></a>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="iso-box photoshop branding col-md-4 col-sm-6">
-        <div class="portfolio-thumb">
-            <img width="580" height="280" src="~/Assets/Client/images/khuyenmai/khuyenmai8.jpg" class="img-responsive" alt="Portfolio">
-            <div class="portfolio-overlay">
-                <div class="portfolio-item">
-                    <a href="sale-tết"><h2 h2 style="font-size: 22px">Mừng năm mới 2019, dồng loạt giảm giá nhiều mặt hàng hấp dẫn</h2></a>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="iso-box photoshop branding col-md-4 col-sm-6">
-        <div class="portfolio-thumb">
-            <img width="580" height="280" src="~/Assets/Client/images/khuyenmai/khuyenmai9.jpg" class="img-responsive" alt="Portfolio">
-            <div class="portfolio-overlay">
-                <div class="portfolio-item">
-                    <a href="ưu-đãi-khi-mua-máy-lạnh"><h2 h2 style="font-size: 22px">Mua máy lạnh nhận ngay nhiều ưu đãi.</h2></a>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="iso-box photoshop branding col-md-4 col-sm-6">
-        <div class="portfolio-thumb">
-            <img width="580" height="280" src="~/Assets/Client/images/khuyenmai/khuyenmai10.png" class="img-responsive" alt="Portfolio">
-            <div class="portfolio-overlay">
-                <div class="portfolio-item">
-                    <a href="mùa-hè-sôi-động"><h2 h2 style="font-size: 22px">Mùa hè sôi động cùng nhiều chương trình giảm giá hấp dẫn.</h2></a>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="iso-box photoshop branding col-md-4 col-sm-6">
-        <div class="portfolio-thumb">
-            <img width="580" height="280" src="~/Assets/Client/images/khuyenmai/khuyenmai12.jpg" class="img-responsive" alt="Portfolio">
-            <div class="portfolio-overlay">
-                <div class="portfolio-item">
-                    <a href="giải-phóng-hàng-tồn"><h2 h2 style="font-size: 22px">Giải phóng hàng tồn, sale 50%</h2></a>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-    <div class="modal fade" id="getCodeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel"> API CODE </h4>
-                </div>
-                <div class="modal-body" id="getCode" style="overflow-x: scroll;">
-                    //ajax success content here.
-                </div>
-            </div>
-        </div>
-    </div>
+    }
 </div>
 

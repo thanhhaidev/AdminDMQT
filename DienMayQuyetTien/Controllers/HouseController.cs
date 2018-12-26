@@ -44,7 +44,7 @@ namespace DienMayQuyetTien.Controllers
 
         public ActionResult KhuyenMai()
         {
-            return View();
+            return View(db.Promotions.ToList());
         }
 
         public ActionResult TinTuc()
