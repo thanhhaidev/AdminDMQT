@@ -26,8 +26,6 @@ namespace DienMayQuyetTien.Models
         }
     
         public virtual DbSet<Contact> Contacts { get; set; }
-        public virtual DbSet<Product> Products { get; set; }
-        public virtual DbSet<ProductType> ProductTypes { get; set; }
         public virtual DbSet<Promotion> Promotions { get; set; }
     }
 }

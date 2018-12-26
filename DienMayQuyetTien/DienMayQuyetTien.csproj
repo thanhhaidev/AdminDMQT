@@ -718,6 +718,16 @@
     <Content Include="Assets\Admin\img\notification\Thumbs.db" />
     <Content Include="Assets\Admin\img\profile\Thumbs.db" />
     <Content Include="Assets\Admin\img\Thumbs.db" />
+    <Content Include="Models\Frontend.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Frontend.edmx</DependentUpon>
+      <LastGenOutput>Frontend.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Frontend.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Frontend.edmx</DependentUpon>
+      <LastGenOutput>Frontend.cs</LastGenOutput>
+    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -773,6 +783,27 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Contact.cs">
+      <DependentUpon>Frontend.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Frontend.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Frontend.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Frontend.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Frontend.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Frontend.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Frontend.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Promotion.cs">
+      <DependentUpon>Frontend.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -816,6 +847,13 @@
     <Content Include="Areas\Admin\Models\DienMayQuyetTien.edmx.diagram">
       <DependentUpon>DienMayQuyetTien.edmx</DependentUpon>
     </Content>
+    <EntityDeploy Include="Models\Frontend.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Frontend.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Frontend.edmx.diagram">
+      <DependentUpon>Frontend.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\dmquyettien - Web Deploy.pubxml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -835,7 +873,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Assets\Admin\img\products\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
