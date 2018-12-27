@@ -37,6 +37,16 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
             return PartialView(cashbillDetail);
         }
 
+        // GET: Admin/CashBillDetails/Create3
+        public PartialViewResult Create3()
+        {
+            ViewBag.ProductID = new SelectList(db.Products, "ID", "ProductName");
+            var cashbillDetail = new CashBillDetail();
+            cashbillDetail.Quantity = 1;
+            cashbillDetail.BillID = 0;
+            return PartialView(cashbillDetail);
+        }
+
         // POST: Admin/CashBillDetails/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -60,21 +70,35 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
             return View("Create", cashBillDetail);
         }
 
-        // GET: Admin/CashBillDetails/Edit/5
-        public ActionResult Edit(int? id)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit2(CashBillDetail cashBillDetail)
         {
-            if (id == null)
+            if (ModelState.IsValid)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                cashBillDetail.ID = Environment.TickCount;
+                cashBillDetail.Product = db.Products.Find(cashBillDetail.ProductID);
+                var CTHoaDon = Session["CashBillDetail"] as List<CashBillDetail>;
+                if (CTHoaDon == null)
+                    CTHoaDon = new List<CashBillDetail>();
+                CTHoaDon.Add(cashBillDetail);
+                Session["CashBillDetail"] = CTHoaDon;
+                return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
             }
-            CashBillDetail cashBillDetail = db.CashBillDetails.Find(id);
-            if (cashBillDetail == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.BillID = new SelectList(db.CashBills, "ID", "BillCode", cashBillDetail.BillID);
-            ViewBag.ProductID = new SelectList(db.Products, "ID", "ProductCode", cashBillDetail.ProductID);
-            return View(cashBillDetail);
+
+            ViewBag.ProductID = new SelectList(db.Products, "ID", "ProductName", cashBillDetail.ProductID);
+            return View("Create", cashBillDetail);
+        }
+
+        // GET: Admin/CashBillDetails/Edit/5
+        public PartialViewResult Edit(int id)
+        {
+            List<CashBillDetail> cbDetails = db.CashBillDetails.Where(c => c.BillID == id).ToList();
+            if (Session["CashBillDetail"] == null)
+                Session["CashBillDetail"] = new List<CashBillDetail>();
+            ViewBag.cbDetails = cbDetails;
+            ViewBag.CashBillDetail = Session["CashBillDetail"];
+            return PartialView();
         }
 
         // POST: Admin/CashBillDetails/Edit/5
@@ -82,7 +106,7 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,BillID,ProductID,Quantity,SalePrice")] CashBillDetail cashBillDetail)
+        public ActionResult Edit(CashBillDetail cashBillDetail)
         {
             if (ModelState.IsValid)
             {
@@ -102,6 +126,22 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
             CTHoaDon = CTHoaDon.Except(CTHoaDon.Where(c => c.ID == id)).ToList();
             Session["CashBillDetail"] = CTHoaDon;
             return RedirectToAction("Create", "CashBills");
+        }
+
+        public ActionResult Delete1(int id, int BillID)
+        {
+            CashBillDetail cashBillDetail = db.CashBillDetails.Find(id);
+            db.CashBillDetails.Remove(cashBillDetail);
+            db.SaveChanges();
+            return RedirectToAction("Edit/"+BillID, "CashBills");
+        }
+
+        public ActionResult Delete2(int id)
+        {
+            var CTHoaDon = Session["CashBillDetail"] as List<CashBillDetail>;
+            CTHoaDon = CTHoaDon.Except(CTHoaDon.Where(c => c.ID == id)).ToList();
+            Session["CashBillDetail"] = CTHoaDon;
+            return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
         }
 
         // POST: Admin/CashBillDetails/Delete/5

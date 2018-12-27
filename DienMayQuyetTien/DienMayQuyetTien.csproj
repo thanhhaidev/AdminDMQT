@@ -693,6 +693,7 @@
     <Content Include="Assets\Client\tintuc\images\tải xuống.htm" />
     <Content Include="Assets\Client\tintuc\images\xiaomi.jpg" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\style.css" />
     <Content Include="Global.asax" />
     <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Assets\Admin\fonts\adminpro-icon.svg" />
@@ -736,6 +737,8 @@
     <Compile Include="Areas\Admin\Controllers\CashBillDetailsController.cs" />
     <Compile Include="Areas\Admin\Controllers\CashBillsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\InstallmentBillDetailsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\InstallmentBillsController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductTypesController.cs" />
     <Compile Include="Areas\Admin\Models\Account.cs">
@@ -747,6 +750,7 @@
     <Compile Include="Areas\Admin\Models\CashBillDetail.cs">
       <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
     </Compile>
+    <Compile Include="Areas\Admin\Models\CBCBDModel.cs" />
     <Compile Include="Areas\Admin\Models\Customer.cs">
       <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
     </Compile>
@@ -777,11 +781,12 @@
     <Compile Include="Areas\Admin\Models\ProductType.cs">
       <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
     </Compile>
+    <Compile Include="Areas\Admin\Models\ReceiptCBModel.cs" />
     <Compile Include="Areas\Admin\Models\sysdiagram.cs">
       <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\HouseController.cs" />
-    <Compile Include="Controllers\ProductTypesController.cs" />
+    <Compile Include="Controllers\ProductTypesFrontEndController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -861,6 +866,18 @@
     <Content Include="Areas\Admin\Views\ProductTypes\Details.cshtml" />
     <Content Include="Areas\Admin\Views\ProductTypes\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ProductTypes\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\InstallmentBills\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\InstallmentBills\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\InstallmentBills\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\InstallmentBills\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\InstallmentBills\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\InstallmentBillDetails\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\InstallmentBillDetails\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\InstallmentBillDetails\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\InstallmentBillDetails\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\InstallmentBillDetails\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\CashBills\Print.cshtml" />
+    <Content Include="Areas\Admin\Views\CashBillDetails\Create3.cshtml" />
     <None Include="Properties\PublishProfiles\dmquyettien - Web Deploy.pubxml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -870,8 +887,8 @@
     <Content Include="Views\House\LienHe.cshtml" />
     <Content Include="Views\House\KhuyenMai.cshtml" />
     <Content Include="Views\House\TinTuc.cshtml" />
-    <Content Include="Views\ProductTypes\Index.cshtml" />
-    <Content Include="Views\ProductTypes\Index1.cshtml" />
+    <Content Include="Views\ProductTypesFrontEnd\Index.cshtml" />
+    <Content Include="Views\ProductTypesFrontEnd\Index1.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

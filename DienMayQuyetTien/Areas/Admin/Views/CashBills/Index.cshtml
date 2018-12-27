@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<DienMayQuyetTien.Areas.Admin.Models.CashBill>
 
 @{
-    ViewBag.Title = "Hóa đơn trả góp";
+    ViewBag.Title = "Hóa đơn tiền mặt";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 <!-- Static Table Start -->
@@ -9,6 +9,15 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
+                @if (ViewBag.Message != null)
+                {
+                    <div class="alert alert-info mg-t-30">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <strong>Thông báo!</strong> @ViewBag.Message
+                    </div>
+                }
                 <div class="sparkline13-list shadow-reset">
                     <div class="sparkline13-hd">
                         <div class="main-sparkline13-hd">
@@ -50,8 +59,8 @@
                                         <td>@String.Format("{0:0,0} VND", item.GrandTotal)</td>
                                         <td>
                                             <div class="btn-group project-list-action">
+                                                <a style="color: #fff"  target="_blank" href="@Url.Action("Print", "CashBills", new { id = item.ID })" class="btn btn-white btn-action btn-xs"><i class="fa fa-print"></i> Print</a>
                                                 <a style="color: #fff" href="@Url.Action("Edit", "CashBills", new { id = item.ID })" class="btn btn-white btn-action btn-xs"><i class="fa fa-pencil"></i> Edit</a>
-                                                <a style="color: #fff" href="@Url.Action("Detail", "CashBills", new { id = item.ID })" class="btn btn-white btn-action btn-xs"><i class="fa fa-info"></i> Detail</a>
                                                 <a data-toggle="modal" data-target="#@myModal" data-whatever="@item.ID" class="btn btn-white btn-xs" style="color: #fff"><i class="fa fa-trash"></i> Delete</a>
                                                 <!-- Modal -->
                                                 @using (Html.BeginForm("Delete", "CashBills", new { id = item.ID }))

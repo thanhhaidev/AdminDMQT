@@ -10,7 +10,7 @@ using DienMayQuyetTien.Areas.Admin.Models;
 
 namespace DienMayQuyetTien.Controllers
 {
-    public class ProductTypesController : Controller
+    public class ProductTypesFrontEndController : Controller
     {
         private DmQT03Entities db = new DmQT03Entities();
 

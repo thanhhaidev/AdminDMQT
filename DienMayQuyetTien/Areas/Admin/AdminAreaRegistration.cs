@@ -22,6 +22,10 @@ namespace DienMayQuyetTien.Areas.Admin
                     action = "Index",
                     id = UrlParameter.Optional }
             );
+            context.MapRoute("CashBillDeleteId",
+                "CashBills/Edit/{id}/{BillID}",
+                new { controller = "CashBills", action = "Delete1" }
+             );
         }
     }
 }
