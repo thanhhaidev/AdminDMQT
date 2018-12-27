@@ -96,6 +96,13 @@
                             </div>
                         </li>
                         <li class="nav-item">
+                            <a href="@Url.Action("Index", "ProductTypes")" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-tag"></i> <span class="mini-dn">Product Types</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                            <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                <a href="@Url.Action("Index", "ProductTypes")" class="dropdown-item"><i class="fa big-icon fa-list"></i> List</a>
+                                <a href="@Url.Action("Create", "ProductTypes")" class="dropdown-item"><i class="fa big-icon fa-plus"></i> Create</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
                             <a href="@Url.Action("Index", "CashBills")" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-money"></i> <span class="mini-dn">Cash Bill</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
                             <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
                                 <a href="@Url.Action("Index", "CashBills")" class="dropdown-item"><i class="fa big-icon fa-list"></i> List</a>
