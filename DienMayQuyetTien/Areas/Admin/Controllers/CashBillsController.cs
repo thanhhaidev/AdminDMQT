@@ -142,6 +142,7 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                cashBill.Date = DateTime.Now;
                 db.Entry(cashBill).State = EntityState.Modified;
                 Session["CashBill"] = cashBill;
                 db.SaveChanges();
@@ -173,7 +174,8 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
                     }
                     db.SaveChanges();
                     scope.Complete();
-                    
+
+                    Session["CashBill"] = null;
                     Session["CashBillDetail"] = null;
                     Session["total"] = null;
                     TempData["message"] = "Chỉnh sửa hóa đơn thành công.";

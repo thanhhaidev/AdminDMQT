@@ -1,88 +1,108 @@
 ﻿@model IEnumerable<DienMayQuyetTien.Areas.Admin.Models.InstallmentBill>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Hóa đơn trả góp";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
+<!-- Static Table Start -->
+<div class="data-table-area mg-b-15">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                @if (ViewBag.Message != null)
+                {
+                    <div class="alert alert-info mg-t-30">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                        <strong>Thông báo!</strong> @ViewBag.Message
+                    </div>
+                }
+                <div class="sparkline13-list shadow-reset">
+                    <div class="sparkline13-hd">
+                        <div class="main-sparkline13-hd">
+                            <h1>Installment Bills <span class="table-project-n">List</span></h1>
+                            <div class="sparkline13-outline-icon">
+                                <span class="sparkline13-collapse-link"><i class="fa fa-chevron-up"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sparkline13-graph">
+                        <div class="datatable-dashv1-list custom-datatable-overright">
+                            <div id="toolbar">
+                                <a href="@Url.Action("Create", "InstallmentBills")" class="btn btn-custon-four btn-primary"><i class="fa big-icon fa-plus"></i> Add Cash Installment New</a>
+                            </div>
+                            <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="false" data-key-events="true" data-show-toggle="false" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="false" data-toolbar="#toolbar">
+                                <thead>
+                                    <tr>
+                                        <th data-field="billcode">Code</th>
+                                        <th data-field="date">Date</th>
+                                        <th data-field="shipper">Shipper</th>
+                                        <th data-field="customer">Customer</th>
+                                        <th data-field="note">Note</th>
+                                        <th data-field="method">Method</th>
+                                        <th data-field="period">Period</th>
+                                        <th data-field="total">Grand Totoal</th>
+                                        <th data-field="taken">Taken</th>
+                                        <th data-field="remain">Remain</th>
+                                        <th data-field="action">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        var myModal = "myModal" + item.ID;
+                                        <tr>
+                                            <td>@Html.DisplayFor(modelItem => item.BillCode)</td>
+                                            <td>@String.Format("{0:d/M/yyyy}", item.Date)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.Shipper)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.Customer.CustomerCode)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.Note)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.Method)</td>
+                                            <td>@Html.DisplayFor(modelItem => item.Period)</td>
+                                            <td>@String.Format("{0:0,0} VND", item.GrandTotal)</td>
+                                            <td>@String.Format("{0:0,0} VND", item.Taken)</td>
+                                            <td>@String.Format("{0:0,0} VND", item.Remain)</td>
+                                            <td>
+                                                <div class="btn-group project-list-action">
+                                                    <a style="color: #fff" target="_blank" href="@Url.Action("Print", "InstallmentBills", new { id = item.ID })" class="btn btn-white btn-action btn-xs"><i class="fa fa-print"></i> Print</a>
+                                                    <a style="color: #fff" href="@Url.Action("Edit", "InstallmentBills", new { id = item.ID })" class="btn btn-white btn-action btn-xs"><i class="fa fa-pencil"></i> Edit</a>
+                                                    <a data-toggle="modal" data-target="#@myModal" data-whatever="@item.ID" class="btn btn-white btn-xs" style="color: #fff"><i class="fa fa-trash"></i> Delete</a>
+                                                    <!-- Modal -->
+                                                    @using (Html.BeginForm("Delete", "InstallmentBills", new { id = item.ID }))
+                                                    {
+                                                        @Html.AntiForgeryToken()
+                                                        <div class="modal fade" id="@myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                                            <div class="modal-dialog modal-sm" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                        <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        Bạn có chắc chắn muốn xóa: <span><b>@item.BillCode?</b></span>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                        <input type="submit" value="Delete" class="btn btn-danger" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </td>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.BillCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Shipper)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Note)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Method)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Period)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GrandTotal)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Taken)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Remain)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Customer.CustomerCode)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.BillCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Shipper)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Note)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Method)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Period)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GrandTotal)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Taken)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Remain)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Customer.CustomerCode)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
-
-</table>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Static Table End -->

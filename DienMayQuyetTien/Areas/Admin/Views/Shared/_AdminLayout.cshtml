@@ -110,10 +110,10 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-file-text-o"></i> <span class="mini-dn">Installment Bill</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                            <a href="@Url.Action("Index", "InstallmentBills")" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-file-text-o"></i> <span class="mini-dn">Installment Bill</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
                             <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-                                <a href="inbox.html" class="dropdown-item"><i class="fa big-icon fa-list"></i> List</a>
-                                <a href="google-map.html" class="dropdown-item"><i class="fa big-icon fa-plus"></i> Create</a>
+                                <a href="@Url.Action("Index", "InstallmentBills")" class="dropdown-item"><i class="fa big-icon fa-list"></i> List</a>
+                                <a href="@Url.Action("Create", "InstallmentBills")" class="dropdown-item"><i class="fa big-icon fa-plus"></i> Create</a>
                             </div>
                         </li>
                     </ul>
@@ -189,6 +189,17 @@
                                             </ul>
                                         </li>
                                         <li>
+                                            <a data-toggle="collapse" data-target="#others" href="@Url.Action("Index", "ProductTypes")"><i class="fa big-icon fa-tag"></i> Product Types <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                            <ul id="others" class="collapse dropdown-header-top">
+                                                <li>
+                                                    <a href="@Url.Action("Index", "ProductTypes")"><i class="fa big-icon fa-list"></i> List</a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("Create", "ProductTypes")"><i class="fa big-icon fa-plus"></i> Create</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
                                             <a data-toggle="collapse" data-target="#others" href="@Url.Action("Index", "CashBills")"><i class="fa big-icon fa-money"></i> Cash Bill <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                             <ul id="others" class="collapse dropdown-header-top">
                                                 <li>
@@ -203,10 +214,10 @@
                                             <a data-toggle="collapse" data-target="#others" href="#"><i class="fa big-icon fa-file-text-o"></i> Installment Bill <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                             <ul id="others" class="collapse dropdown-header-top">
                                                 <li>
-                                                    <a href="inbox.html"><i class="fa big-icon fa-list"></i> List</a>
+                                                    <a href="@Url.Action("Index", "InstallmentBills")"><i class="fa big-icon fa-list"></i> List</a>
                                                 </li>
                                                 <li>
-                                                    <a href="profile.html"><i class="fa big-icon fa-plus"></i> Create</a>
+                                                    <a href="@Url.Action("Create", "InstallmentBills")"><i class="fa big-icon fa-plus"></i> Create</a>
                                                 </li>
                                             </ul>
                                         </li>

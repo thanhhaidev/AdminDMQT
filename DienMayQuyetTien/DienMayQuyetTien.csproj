@@ -750,7 +750,6 @@
     <Compile Include="Areas\Admin\Models\CashBillDetail.cs">
       <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
     </Compile>
-    <Compile Include="Areas\Admin\Models\CBCBDModel.cs" />
     <Compile Include="Areas\Admin\Models\Customer.cs">
       <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
     </Compile>
@@ -782,6 +781,7 @@
       <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Admin\Models\ReceiptCBModel.cs" />
+    <Compile Include="Areas\Admin\Models\ReceiptIBModel.cs" />
     <Compile Include="Areas\Admin\Models\sysdiagram.cs">
       <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
     </Compile>
@@ -878,6 +878,8 @@
     <Content Include="Areas\Admin\Views\InstallmentBillDetails\Index.cshtml" />
     <Content Include="Areas\Admin\Views\CashBills\Print.cshtml" />
     <Content Include="Areas\Admin\Views\CashBillDetails\Create3.cshtml" />
+    <Content Include="Areas\Admin\Views\InstallmentBills\Print.cshtml" />
+    <Content Include="Areas\Admin\Views\InstallmentBillDetails\Create3.cshtml" />
     <None Include="Properties\PublishProfiles\dmquyettien - Web Deploy.pubxml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />

@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DienMayQuyetTien.Areas.Admin.Models;
+using System.Transactions;
 
 namespace DienMayQuyetTien.Areas.Admin.Controllers
 {
@@ -17,30 +18,41 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
         // GET: Admin/InstallmentBills
         public ActionResult Index()
         {
-            var installmentBills = db.InstallmentBills.Include(i => i.Customer);
-            return View(installmentBills.ToList());
+            if (Session["UserName"] != null)
+            {
+                ViewBag.Message = TempData["message"];
+                return View(db.InstallmentBills.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
 
         // GET: Admin/InstallmentBills/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Cancel()
         {
-            if (id == null)
+            if (Session["IBillDetail"] != null || Session["IBillDetail"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                Session["IBill"] = null;
+                Session["IBillDetail"] = null;
+                return RedirectToAction("Index", "InstallmentBills");
             }
-            InstallmentBill installmentBill = db.InstallmentBills.Find(id);
-            if (installmentBill == null)
-            {
-                return HttpNotFound();
-            }
-            return View(installmentBill);
+            return RedirectToAction("Index", "InstallmentBills");
         }
 
         // GET: Admin/InstallmentBills/Create
         public ActionResult Create()
         {
-            ViewBag.CustomerID = new SelectList(db.Customers, "ID", "CustomerCode");
-            return View();
+            if (Session["UserName"] != null)
+            {
+                ViewBag.CustomerID = new SelectList(db.Customers, "ID", "CustomerCode");
+                return View(Session["IBill"]);
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
 
         // POST: Admin/InstallmentBills/Create
@@ -48,18 +60,53 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,BillCode,CustomerID,Date,Shipper,Note,Method,Period,GrandTotal,Taken,Remain")] InstallmentBill installmentBill)
+        public ActionResult Create(InstallmentBill installmentBill)
         {
             if (ModelState.IsValid)
             {
-                db.InstallmentBills.Add(installmentBill);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                Session["IBill"] = installmentBill;
             }
-
             ViewBag.CustomerID = new SelectList(db.Customers, "ID", "CustomerCode", installmentBill.CustomerID);
             return View(installmentBill);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create2()
+        {
+            using (var scope = new TransactionScope())
+                try
+                {
+                    var iBill = Session["IBill"] as InstallmentBill;
+                    var CTHoaDonTG = Session["IBillDetail"] as List<InstallmentBillDetail>;
+                    iBill.Date = DateTime.Now;
+                    iBill.GrandTotal = (int)Session["total"];
+
+                    db.InstallmentBills.Add(iBill);
+                    db.SaveChanges();
+
+                    foreach (var chiTiet in CTHoaDonTG)
+                    {
+                        chiTiet.BillID = iBill.ID;
+                        chiTiet.Product = null;
+                        db.InstallmentBillDetails.Add(chiTiet);
+                    }
+                    db.SaveChanges();
+                    scope.Complete();
+
+                    Session["IBill"] = null;
+                    Session["IBillDetail"] = null;
+                    Session["total"] = null;
+                    TempData["message"] = "Tạo hóa đơn thành công.";
+                    return RedirectToAction("Index");
+                }
+                catch (Exception e)
+                {
+                    ModelState.AddModelError("", e.Message);
+                }
+            return View("Create");
+        }
+
 
         // GET: Admin/InstallmentBills/Edit/5
         public ActionResult Edit(int? id)
@@ -118,6 +165,31 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
             db.InstallmentBills.Remove(installmentBill);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public PartialViewResult Print(int id)
+        {
+            var installment = db.InstallmentBills.FirstOrDefault(o => o.ID == id);
+            if (installment != null)
+            {
+                ReceiptIBModel rp = new ReceiptIBModel();
+                rp.BillCode = installment.BillCode;
+                rp.CustomerID = installment.CustomerID;
+                rp.Date = installment.Date;
+                rp.Shipper = installment.Shipper;
+                rp.Note = installment.Note;
+                rp.Method = installment.Method;
+                rp.Period = installment.Period;
+                rp.GrandTotal = installment.GrandTotal;
+                rp.Taken = installment.Taken;
+                rp.Remain = installment.Remain;
+                rp.installmentBillDetail = installment.InstallmentBillDetails.ToList();
+                return PartialView(rp);
+            }
+            else
+            {
+                return PartialView();
+            }
         }
 
         protected override void Dispose(bool disposing)

@@ -1,0 +1,98 @@
+﻿@model DienMayQuyetTien.Areas.Admin.Models.ReceiptIBModel
+@{
+    ViewBag.Title = "Print";
+    int i = 1;
+}
+
+<h2></h2>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Installment Bill</title>
+    <link rel="stylesheet" href="~/Content/style.css" media="all" />
+    <link rel="shortcut icon" type="image/x-icon" href="~/Assets/Admin/img/favicon.ico" />
+</head>
+<body>
+    <header class="clearfix">
+        <div id="logo">
+            <img src="~/Assets/Admin/img/logo/logo.png">
+        </div>
+        <div id="company">
+            <h2 class="name">Điện Máy Quyết Tiến</h2>
+            <div>45 Nguyễn Khắc Nhu, Q1, HCM</div>
+            <div>0773322489</div>
+            <div><a href="http://DmQuyetTien.AzureWebsites.net">DmQuyetTien.AzureWebsites.Net</a></div>
+        </div>
+    </header>
+    <main>
+        <div id="details" class="clearfix">
+            <div id="client">
+                <div class="to">INVOICE TO:</div>
+                <div class="name">Customer ID: @Model.CustomerID</div>
+                <div class="name">Period: @Model.Period @Model.Method</div>
+            </div>
+            <div id="invoice">
+                <h1>@Model.BillCode</h1>
+                <div class="date">Date of Invoice: @Model.Date</div>
+                <div class="date">Shipper: @Model.Shipper</div>
+            </div>
+        </div>
+
+
+        <table border="0" cellspacing="0" cellpadding="0">
+            <thead>
+                <tr>
+                    <th class="no">#</th>
+                    <th class="desc">Tên SP</th>
+                    <th class="unit">Đơn Giá</th>
+                    <th class="qty">Số Lượng</th>
+                    <th class="total">Thành Tiền</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.installmentBillDetail)
+                {
+                    <tr>
+                        <td class="no">@i</td>
+                        <td class="desc"><h3>@Html.DisplayFor(modelItem => item.Product.ProductName)</h3></td>
+                        <td class="unit">@string.Format("{0:0,0}", item.InstallmentPrice)</td>
+                        <td class="qty">@Html.DisplayFor(modelItem => item.Quantity)</td>
+                        <td class="total">@string.Format("{0:0,0}", item.Quantity * item.InstallmentPrice)</td>
+                    </tr>
+                    i = i + 1;
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2"></td>
+                    <td colspan="2">Tổng Tiền</td>
+                    <td>@string.Format("{0:0,0}", @Model.GrandTotal) VND</td>
+
+                </tr>
+                <tr>
+                    <td colspan="2"></td>
+                    <td colspan="2">Tiền nhận</td>
+                    <td>@string.Format("{0:0,0}", @Model.Taken) VND</td>
+
+                </tr>
+                <tr>
+                    <td colspan="2"></td>
+                    <td colspan="2">Tiền còn lại</td>
+                    <td>@string.Format("{0:0,0}", @Model.Remain) VND</td>
+
+                </tr>
+            </tfoot>
+        </table>
+        <div id="thanks">Thank you!</div>
+        <div id="notices">
+            <div>NOTE:</div>
+            <div class="notice">@Model.Note</div>
+        </div>
+    </main>
+    <footer>
+        Invoice was created on a computer and is valid without the signature and seal.
+    </footer>
+</body>
+</html>
