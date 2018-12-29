@@ -19,7 +19,8 @@ namespace DienMayQuyetTien.Controllers
 
         public ActionResult GioiThieu()
         {
-            return View();
+            Introduction introduction = db.Introductions.Find(1);
+            return View(introduction);
         }
 
 

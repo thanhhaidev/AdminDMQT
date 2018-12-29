@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ab77efcd373a4eeca32aa7ccca0f5bee" Name="Diagram1">
+      <Diagram DiagramId="ab77efcd373a4eeca32aa7ccca0f5bee" Name="Diagram1" ZoomLevel="85">
         <EntityTypeShape EntityType="DmQT03Model.Account" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DmQT03Model.CashBill" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DmQT03Model.CashBillDetail" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
@@ -13,7 +13,6 @@
         <EntityTypeShape EntityType="DmQT03Model.InstallmentBillDetail" Width="1.5" PointX="8.25" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="DmQT03Model.Product" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DmQT03Model.ProductType" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="DmQT03Model.sysdiagram" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
         <AssociationConnector Association="DmQT03Model.FK_CashBillDetail_CashBill" ManuallyRouted="false" />
         <AssociationConnector Association="DmQT03Model.FK_CashBillDetail_Product" ManuallyRouted="false" />
         <AssociationConnector Association="DmQT03Model.FK_InstallmentBill_Customer" ManuallyRouted="false" />
@@ -22,6 +21,7 @@
         <AssociationConnector Association="DmQT03Model.FK_Product_ProductType" ManuallyRouted="false" />
         <EntityTypeShape EntityType="DmQT03Model.Contact" Width="1.5" PointX="8.375" PointY="9.75" />
         <EntityTypeShape EntityType="DmQT03Model.Promotion" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DmQT03Model.Introduction" Width="1.5" PointX="10.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

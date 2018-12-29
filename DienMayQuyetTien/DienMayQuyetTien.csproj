@@ -730,6 +730,7 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\InstallmentBillDetailsController.cs" />
     <Compile Include="Areas\Admin\Controllers\InstallmentBillsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\IntroductionsController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductTypesController.cs" />
     <Compile Include="Areas\Admin\Controllers\PromotionsController.cs" />
@@ -769,6 +770,9 @@
     <Compile Include="Areas\Admin\Models\InstallmentBillDetail.cs">
       <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
     </Compile>
+    <Compile Include="Areas\Admin\Models\Introduction.cs">
+      <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
+    </Compile>
     <Compile Include="Areas\Admin\Models\Product.cs">
       <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
     </Compile>
@@ -780,9 +784,6 @@
     </Compile>
     <Compile Include="Areas\Admin\Models\ReceiptCBModel.cs" />
     <Compile Include="Areas\Admin\Models\ReceiptIBModel.cs" />
-    <Compile Include="Areas\Admin\Models\sysdiagram.cs">
-      <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\HouseController.cs" />
     <Compile Include="Controllers\ProductTypesFrontEndController.cs" />
     <Compile Include="Global.asax.cs">
@@ -860,6 +861,7 @@
     <Content Include="Areas\Admin\Views\Promotions\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Promotions\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Promotions\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Introductions\Index.cshtml" />
     <None Include="Properties\PublishProfiles\dmquyettien - Web Deploy.pubxml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
