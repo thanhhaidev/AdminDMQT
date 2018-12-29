@@ -36,6 +36,7 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
             {
                 Session["CashBill"] = null;
                 Session["CashBillDetail"] = null;
+                Session["total"] = null;
                 return RedirectToAction("Index", "CashBills");
             }
             return RedirectToAction("Index", "CashBills");
@@ -118,19 +119,16 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
         }
 
         // GET: Admin/CashBills/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
+            if(Session["UserName"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                CashBill cashBill = db.CashBills.Find(id);
+                Session["CashBill"] = cashBill;
+                return View(cashBill);
+            } else {
+                return RedirectToAction("Login", "Login");
             }
-            CashBill cashBill = db.CashBills.Find(id);
-            if (cashBill == null)
-            {
-                return HttpNotFound();
-            }
-            Session["CashBill"] = cashBill;
-            return View(cashBill);
         }
 
         // POST: Admin/CashBills/Edit/5

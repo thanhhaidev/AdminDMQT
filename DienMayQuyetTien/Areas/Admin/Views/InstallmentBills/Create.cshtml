@@ -114,7 +114,7 @@
                                 @Html.AntiForgeryToken()
                                 <div class="touchspin-inner" style="margin-top:25px">
                                     <a href="@Url.Action("Cancel", "InstallmentBills")" class="btn btn-custon-four btn-danger" id="btnCancel"><span class="fa fa-remove"></span> Cancel</a>
-                                    <input type="submit" class="btn btn-custon-four btn-info" value="Save">
+                                    <input type="submit" class="btn btn-custon-four btn-info" value="Save" id="btnSave">
                                 </div>
                             }
                         </div>
@@ -140,5 +140,15 @@
         $('#ProductID').change(function () {
             getInstallmentPrice($(this).val());
         });
+
+        $('#taken').change(function () {
+            var taken = $('#taken').val();
+
+            var url = '@Url.Action("setSessionTaken", "InstallmentBills")';
+            url = url + '?taken=' + taken
+            $.get(url, function (data) {
+                $('#remain').val(@Session["total"] - data);
+            });
+        })
     </script>
 }

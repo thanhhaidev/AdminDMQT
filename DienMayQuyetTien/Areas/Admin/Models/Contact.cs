@@ -7,15 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DienMayQuyetTien.Models
+namespace DienMayQuyetTien.Areas.Admin.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Promotion
+    public partial class Contact
     {
         public int ID { get; set; }
-        public string Name { get; set; }
-        public string Image { get; set; }
+        public string Fullname { get; set; }
+        public string Email { get; set; }
+        public Nullable<int> Phone { get; set; }
+        public string Title { get; set; }
+        public string Comment { get; set; }
     }
 }

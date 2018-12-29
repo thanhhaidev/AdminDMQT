@@ -95,7 +95,7 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
         {
             List<InstallmentBillDetail> ibDetails = db.InstallmentBillDetails.Where(c => c.BillID == id).ToList();
             if (Session["IBillDetail"] == null)
-                Session["IBillDetail"] = new List<CashBillDetail>();
+                Session["IBillDetail"] = new List<InstallmentBillDetail>();
             ViewBag.ibDetails = ibDetails;
             ViewBag.IBillDetail = Session["IBillDetail"];
             return PartialView();

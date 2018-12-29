@@ -73,21 +73,24 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
             {
                 using (var scope = new TransactionScope())
                 {
-                    //string fileName = Path.GetFileNameWithoutExtension(product.ImageFile.FileName);
-                    string extension = Path.GetExtension(product.ImageFile.FileName);
-                    string fileName = RandomString(5, true) + DateTime.Now.ToString("yymmssfff") + extension;
-
-                    product.Avatar = "/Assets/Admin/img/products/" + fileName;
-                    fileName = Path.Combine(Server.MapPath("/Assets/Admin/img/products/"), fileName);
-                    product.ImageFile.SaveAs(fileName);
-                    db.Products.Add(product);
-                    db.SaveChanges();
-                    scope.Complete();
-                    TempData["message"] = "Tạo sản phẩm thành công.";
-                    return RedirectToAction("Index");
+                    if (Request.Files["ImageFile"] != null && Request.Files["ImageFile"].ContentLength < 2097152)
+                    {
+                        //string fileName = Path.GetFileNameWithoutExtension(product.ImageFile.FileName);
+                        string extension = Path.GetExtension(Request.Files["ImageFile"].FileName);
+                        string fileName = RandomString(5, true) + DateTime.Now.ToString("yymmssfff") + extension;
+                        product.Avatar = "/Assets/Admin/img/products/" + fileName;
+                        fileName = Path.Combine(Server.MapPath("/Assets/Admin/img/products/"), fileName);
+                        Request.Files["ImageFile"].SaveAs(fileName);
+                        db.Products.Add(product);
+                        db.SaveChanges();
+                        scope.Complete();
+                        TempData["message"] = "Tạo sản phẩm thành công.";
+                        return RedirectToAction("Index");
+                    }
+                    else
+                        ModelState.AddModelError("Avatar", "Chưa có hình sản phẩm hoặc hình ảnh lớn hơn 2MB!");
                 }
             }
-
             ViewBag.ProductTypeID = new SelectList(db.ProductTypes, "ID", "ProductTypeName", product.ProductTypeID);
             return View(product);
         }
@@ -116,30 +119,17 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
                 ModelState.AddModelError("SalePrice", "Giá bán phải lớn hơn giá gốc!");
             if (model.InstallmentPrice < model.OriginPrice)
                 ModelState.AddModelError("InstallmentPrice", "Giá góp phải lớn hơn giá gốc!");
-            if(model.ImageFile == null && model.Avatar == null)
-                ModelState.AddModelError("Avatar", "Hình ảnh không được bỏ trống");
             if (model.ProductName == null || model.ProductName.Equals("") || model.ProductName.StartsWith(" ") || model.ProductName.EndsWith(" "))
                 ModelState.AddModelError("ProductName", "ProductName không được bỏ trống hoặc khoảng trống hoặc khoảng trống");
-            if (model.ImageFile != null && model.ImageFile.ContentLength > 2097152)
-                ModelState.AddModelError("Avatar", "Hình ảnh phải nhỏ hơn 2MB");
         }
 
         // GET: Admin/Home/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
             if (Session["UserName"] != null)
             {
-                if (id == null)
-                {
-                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-                }
                 Product product = db.Products.Find(id);
-                if (product == null)
-                {
-                    return HttpNotFound();
-                }
                 ViewBag.ProductType = db.ProductTypes.OrderByDescending(x => x.ID).ToList();
-                //ViewBag.ProductTypeID = new SelectList(db.ProductTypes, "ID", "ProductTypeName", product.ProductTypeID);
                 return View(product);
             }
             else
@@ -160,7 +150,7 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
             {
                 using (var scope = new TransactionScope())
                 {
-                    if (product.ImageFile != null)
+                    if (Request.Files["ImageFile"] != null && Request.Files["ImageFile"].ContentLength < 2097152)
                     {
                         var fileNameOld = Server.MapPath(product.Avatar);
                         if (System.IO.File.Exists(fileNameOld))
@@ -168,11 +158,11 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
                             System.IO.File.Delete(fileNameOld);
                         }
                         //string fileName = Path.GetFileNameWithoutExtension(product.ImageFile.FileName);
-                        string extension = Path.GetExtension(product.ImageFile.FileName);
+                        string extension = Path.GetExtension(Request.Files["ImageFile"].FileName);
                         string fileName = RandomString(5, true) + DateTime.Now.ToString("yymmssfff") + extension;
                         product.Avatar = "/Assets/Admin/img/products/" + fileName;
                         fileName = Path.Combine(Server.MapPath("/Assets/Admin/img/products/"), fileName);
-                        product.ImageFile.SaveAs(fileName);
+                        Request.Files["ImageFile"].SaveAs(fileName);
                     }
                     db.Entry(product).State = EntityState.Modified;
                     db.SaveChanges();

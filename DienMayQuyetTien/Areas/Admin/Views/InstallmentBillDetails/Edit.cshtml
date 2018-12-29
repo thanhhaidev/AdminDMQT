@@ -3,7 +3,7 @@
         <tr>
             <th data-field="name">Product Name</th>
             <th data-field="quantity">Quantity</th>
-            <th data-field="saleprice">Installment Price</th>
+            <th data-field="saleprice">Sale Price</th>
             <th data-field="grandtotal">Grand Total</th>
             <th data-field="action">Action</th>
         </tr>
@@ -42,8 +42,16 @@
                 var total = sum + sum1;
                 Session["total"] = total;
             }
-            <th colspan="4" style="text-align:right">Total: @String.Format("{0:0,0} VND", total)</th>
-            <th></th>
+            <th colspan="4" style="text-align:right">Total:</th>
+            <th>@String.Format("{0:0,0} VND", total)</th>
+        </tr>
+        <tr>
+            <th colspan="4" style="text-align:right; margin-right:10px;">Taken: </th>
+            <th><input type="number" value="" class="form-control" id="taken" required/></th>
+        </tr>
+        <tr>
+            <th colspan="4" style="text-align:right">Remain: </th>
+            <th><input type="text" id="remain" value="" disabled class="form-control" required /></th>
         </tr>
     </tfoot>
 </table>

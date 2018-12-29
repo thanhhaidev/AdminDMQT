@@ -4,107 +4,150 @@
     ViewBag.Title = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-
-<h2>Edit</h2>
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>InstallmentBill</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID)
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.BillCode, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.BillCode, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.BillCode, "", new { @class = "text-danger" })
-            </div>
+<div class="project-details-area mg-b-15">
+    <div class="container-fluid">
+        <div class="row" id="info-customer">
+            @using (Html.BeginForm("Edit", "InstallmentBills"))
+            {
+                @Html.AntiForgeryToken()
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="sparkline16-list shadow-reset mg-t-30">
+                        <div class="sparkline16-hd">
+                            <div class="main-sparkline16-hd">
+                                <h1>Thông tin khách hàng</h1>
+                                <div class="sparkline16-outline-icon">
+                                    <span class="sparkline16-collapse-link"><i class="fa fa-chevron-up"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger pull-left" })
+                        @Html.HiddenFor(model => model.BillCode)
+                        <div class="sparkline16-graph" style="display: block;">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="date-picker-inner">
+                                        <div class="form-group data-custon-pick">
+                                            <label>Customer Name</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                                @Html.HiddenFor(model => model.CustomerID)
+                                                @Html.DropDownList("CustomerID", null, htmlAttributes: new { @class = "form-control", disabled = "true" })
+                                                @Html.ValidationMessageFor(model => model.CustomerID, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="date-picker-inner">
+                                        <div class="form-group data-custon-pick">
+                                            <label>Shipper</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                                @Html.EditorFor(model => model.Shipper, new { htmlAttributes = new { @class = "form-control", id = "shipper" } })
+                                                @Html.ValidationMessageFor(model => model.Shipper, "", new { @class = "pull-left text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="date-picker-inner">
+                                        <div class="form-group data-custon-pick">
+                                            <label>Note</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-comment"></i></span>
+                                                @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control", id = "note" } })
+                                                @Html.ValidationMessageFor(model => model.Note, "", new { @class = "pull-left text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="date-picker-inner">
+                                        <div class="form-group data-custon-pick">
+                                            <label>Period</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
+                                                @Html.EditorFor(model => model.Period, new { htmlAttributes = new { @class = "form-control", id = "address" } })
+                                                @Html.ValidationMessageFor(model => model.Period, "", new { @class = "pull-left text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="date-picker-inner">
+                                        <div class="form-group data-custon-pick">
+                                            <label>Method</label>
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="fa fa-tags"></i></span>
+                                                @Html.EditorFor(model => model.Method, new { htmlAttributes = new { @class = "form-control", id = "phone" } })
+                                                @Html.ValidationMessageFor(model => model.Method, "", new { @class = "pull-left text-danger" })<br />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="date-picker-inner">
+                                        <div class="form-group data-custon-pick">
+                                            <div class="touchspin-inner" style="margin-top:40px">
+                                                <a href="@Url.Action("Cancel", "InstallmentBills")" class="btn btn-custon-four btn-danger" id="btnCancel"><span class="fa fa-remove"></span> Cancel</a>
+                                                <input type="submit" class="btn btn-custon-four btn-success" id="btnShowPopup" value="Create Information">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CustomerID, "CustomerID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("CustomerID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.CustomerID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Shipper, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Shipper, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Shipper, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Note, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Method, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Method, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Method, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Period, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Period, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Period, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.GrandTotal, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.GrandTotal, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.GrandTotal, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Taken, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Taken, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Taken, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Remain, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Remain, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Remain, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+        <div class="row" id="info-cashbill">
+            @Html.Action("Create3", "InstallmentBillDetails")
+            <div class="col-lg-7">
+                <div class="sparkline11-list shadow-reset mg-t-30">
+                    <div class="sparkline11-hd">
+                        <div class="main-sparkline11-hd">
+                            <h1>Đơn hàng</h1>
+                            <div class="sparkline11-outline-icon">
+                                <span class="sparkline11-collapse-link"><i class="fa fa-chevron-up"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sparkline11-graph">
+                        <div class="datatable-dashv1-list custom-datatable-overright">
+                            @Html.Action("Edit", "InstallmentBillDetails", new { @id = Model.ID })
+                        </div>
+                        @using (Html.BeginForm("Edit2", "InstallmentBills"))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="touchspin-inner" style="margin-top:25px">
+                                <a href="@Url.Action("Cancel", "InstallmentBills")" class="btn btn-custon-four btn-danger" id="btnCancel"><span class="fa fa-remove"></span> Cancel</a>
+                                <input type="submit" class="btn btn-custon-four btn-info" value="Save">
+                            </div>
+                        }
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
+@section Scripts {
+    <script>
+        function getInstallmentPrice(ProductID) {
+            var url = '@Url.Action("InstallmentPrice", "InstallmentBillDetails")';
+            url = url + '?ProductID=' + ProductID
+            $.get(url, function (data) {
+                $('#InstallmentPrice').val(data);
+            });
+        }
+        $(document).ready(function () {
+            var ProductID = $("#ProductID").children("option:selected").val();
+            getInstallmentPrice(ProductID);
+        });
+        $('#ProductID').change(function () {
+            getInstallmentPrice($(this).val());
+        });
+
+        $('#taken').change(function () {
+            var taken = $('#taken').val();
+
+            var url = '@Url.Action("setSessionTaken", "InstallmentBills")';
+            url = url + '?taken=' + taken
+            $.get(url, function (data) {
+                $('#remain').val(@Session["total"] - data);
+            });
+        })
+    </script>
+}

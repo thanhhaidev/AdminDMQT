@@ -27,10 +27,16 @@
                 var total = Model.Sum(m => m.InstallmentPrice * m.Quantity);
                 Session["total"] = total;
             }
-            <th colspan="4" style="text-align:right">Total: @String.Format("{0:0,0} VND", total)</th>
-            <th></th>
+            <th colspan="4" style="text-align:right">Total:</th>
+            <th>@String.Format("{0:0,0} VND", total)</th>
+        </tr>
+        <tr>
+            <th colspan="4" style="text-align:right; margin-right:10px;">Taken: </th>
+            <th><input type="text" value="" class="form-control" id="taken"/></th>
+        </tr>
+        <tr>
+            <th colspan="4" style="text-align:right">Remain: </th>
+            <th><input type="text" id="remain" value="" disabled class="form-control" required/></th>
         </tr>
     </tfoot>
 </table>
-
-

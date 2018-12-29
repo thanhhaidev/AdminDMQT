@@ -27,8 +27,8 @@
                 var total = Model.Sum(m => m.SalePrice * m.Quantity);
                 Session["total"] = total;
             }
-            <th colspan="4" style="text-align:right">Total: @String.Format("{0:0,0} VND", total)</th>
-            <th></th>
+            <th colspan="4" style="text-align:right">Total:</th>
+            <th>@String.Format("{0:0,0} VND", total)</th>
         </tr>
     </tfoot>
 </table>

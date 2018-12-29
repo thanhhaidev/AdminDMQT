@@ -34,7 +34,7 @@ namespace DienMayQuyetTien.Areas.Admin.Models
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<ProductType> ProductTypes { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-
-        public System.Data.Entity.DbSet<DienMayQuyetTien.Models.Contact> Contacts { get; set; }
+        public virtual DbSet<Contact> Contacts { get; set; }
+        public virtual DbSet<Promotion> Promotions { get; set; }
     }
 }

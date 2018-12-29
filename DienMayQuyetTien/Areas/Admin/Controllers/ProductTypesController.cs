@@ -143,10 +143,20 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ProductType productType = db.ProductTypes.Find(id);
-            db.ProductTypes.Remove(productType);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (db.Products.Where(c => c.ProductTypeID == id).ToList().Count > 0)
+            {
+                TempData["message"] = "Không thể xóa loại sản phẩm có chứa sản phẩm.";
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ProductType productType = db.ProductTypes.Find(id);
+                db.ProductTypes.Remove(productType);
+                db.SaveChanges();
+                TempData["message"] = "Xóa sản phẩm thành công.";
+                return RedirectToAction("Index");
+            }
+
         }
 
         protected override void Dispose(bool disposing)

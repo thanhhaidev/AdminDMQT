@@ -15,6 +15,12 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
     {
         private DmQT03Entities db = new DmQT03Entities();
 
+        public int setSessionTaken(int taken)
+        {
+            Session["Taken"] = taken;
+            return (int)Session["Taken"];
+        }
+
         // GET: Admin/InstallmentBills
         public ActionResult Index()
         {
@@ -36,6 +42,8 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
             {
                 Session["IBill"] = null;
                 Session["IBillDetail"] = null;
+                Session["Taken"] = null;
+                Session["total"] = null;
                 return RedirectToAction("Index", "InstallmentBills");
             }
             return RedirectToAction("Index", "InstallmentBills");
@@ -81,6 +89,8 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
                     var CTHoaDonTG = Session["IBillDetail"] as List<InstallmentBillDetail>;
                     iBill.Date = DateTime.Now;
                     iBill.GrandTotal = (int)Session["total"];
+                    iBill.Taken = (int)Session["Taken"];
+                    iBill.Remain = ((int)Session["total"] - (int)Session["Taken"]);
 
                     db.InstallmentBills.Add(iBill);
                     db.SaveChanges();
@@ -97,6 +107,7 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
                     Session["IBill"] = null;
                     Session["IBillDetail"] = null;
                     Session["total"] = null;
+                    Session["Taken"] = null;
                     TempData["message"] = "Tạo hóa đơn thành công.";
                     return RedirectToAction("Index");
                 }
@@ -109,19 +120,18 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
 
 
         // GET: Admin/InstallmentBills/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
+            if(Session["UserName"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            InstallmentBill installmentBill = db.InstallmentBills.Find(id);
-            if (installmentBill == null)
+                InstallmentBill installmentBill = db.InstallmentBills.Find(id);
+                Session["IBill"] = installmentBill;
+                ViewBag.CustomerID = new SelectList(db.Customers, "ID", "CustomerCode", installmentBill.CustomerID);
+                return View(installmentBill);
+            } else
             {
-                return HttpNotFound();
+                return RedirectToAction("Login", "Login");
             }
-            ViewBag.CustomerID = new SelectList(db.Customers, "ID", "CustomerCode", installmentBill.CustomerID);
-            return View(installmentBill);
         }
 
         // POST: Admin/InstallmentBills/Edit/5
@@ -129,16 +139,58 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,BillCode,CustomerID,Date,Shipper,Note,Method,Period,GrandTotal,Taken,Remain")] InstallmentBill installmentBill)
+        public ActionResult Edit(InstallmentBill installmentBill)
         {
             if (ModelState.IsValid)
             {
+                installmentBill.Date = DateTime.Now;
                 db.Entry(installmentBill).State = EntityState.Modified;
+                Session["IBill"] = installmentBill;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
             }
             ViewBag.CustomerID = new SelectList(db.Customers, "ID", "CustomerCode", installmentBill.CustomerID);
             return View(installmentBill);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit2()
+        {
+            using (var scope = new TransactionScope())
+                try
+                {
+                    var iBill = Session["IBill"] as InstallmentBill;
+                    var CTHoaDonTG = Session["IBillDetail"] as List<InstallmentBillDetail>;
+                    iBill.Date = DateTime.Now;
+                    iBill.GrandTotal = (int)Session["total"];
+                    iBill.Taken = (int)Session["Taken"];
+                    iBill.Remain = ((int)Session["total"] - (int)Session["Taken"]);
+
+                    db.Entry(iBill).State = EntityState.Modified;
+                    db.SaveChanges();
+
+                    foreach (var chiTiet in CTHoaDonTG)
+                    {
+                        chiTiet.BillID = iBill.ID;
+                        chiTiet.Product = null;
+                        db.InstallmentBillDetails.Add(chiTiet);
+                    }
+                    db.SaveChanges();
+                    scope.Complete();
+
+                    Session["IBill"] = null;
+                    Session["IBillDetail"] = null;
+                    Session["total"] = null;
+                    Session["Taken"] = null;
+                    TempData["message"] = "Chỉnh sửa hóa đơn thành công.";
+                    return RedirectToAction("Index");
+                }
+                catch (Exception e)
+                {
+                    ModelState.AddModelError("", e.Message);
+                }
+            return View("Edit");
         }
 
         // GET: Admin/InstallmentBills/Delete/5

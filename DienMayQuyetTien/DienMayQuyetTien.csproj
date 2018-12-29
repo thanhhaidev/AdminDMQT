@@ -719,16 +719,6 @@
     <Content Include="Assets\Admin\img\notification\Thumbs.db" />
     <Content Include="Assets\Admin\img\profile\Thumbs.db" />
     <Content Include="Assets\Admin\img\Thumbs.db" />
-    <Content Include="Models\Frontend.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Frontend.edmx</DependentUpon>
-      <LastGenOutput>Frontend.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Frontend.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Frontend.edmx</DependentUpon>
-      <LastGenOutput>Frontend.cs</LastGenOutput>
-    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -736,11 +726,13 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\CashBillDetailsController.cs" />
     <Compile Include="Areas\Admin\Controllers\CashBillsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ContactsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\InstallmentBillDetailsController.cs" />
     <Compile Include="Areas\Admin\Controllers\InstallmentBillsController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductTypesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PromotionsController.cs" />
     <Compile Include="Areas\Admin\Models\Account.cs">
       <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
     </Compile>
@@ -748,6 +740,9 @@
       <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Admin\Models\CashBillDetail.cs">
+      <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Admin\Models\Contact.cs">
       <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
     </Compile>
     <Compile Include="Areas\Admin\Models\Customer.cs">
@@ -780,6 +775,9 @@
     <Compile Include="Areas\Admin\Models\ProductType.cs">
       <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
     </Compile>
+    <Compile Include="Areas\Admin\Models\Promotion.cs">
+      <DependentUpon>DienMayQuyetTien.tt</DependentUpon>
+    </Compile>
     <Compile Include="Areas\Admin\Models\ReceiptCBModel.cs" />
     <Compile Include="Areas\Admin\Models\ReceiptIBModel.cs" />
     <Compile Include="Areas\Admin\Models\sysdiagram.cs">
@@ -789,27 +787,6 @@
     <Compile Include="Controllers\ProductTypesFrontEndController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Contact.cs">
-      <DependentUpon>Frontend.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Frontend.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Frontend.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Frontend.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Frontend.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Frontend.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Frontend.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Promotion.cs">
-      <DependentUpon>Frontend.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -854,13 +831,6 @@
     <Content Include="Areas\Admin\Models\DienMayQuyetTien.edmx.diagram">
       <DependentUpon>DienMayQuyetTien.edmx</DependentUpon>
     </Content>
-    <EntityDeploy Include="Models\Frontend.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Frontend.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Frontend.edmx.diagram">
-      <DependentUpon>Frontend.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\ProductTypes\Create.cshtml" />
     <Content Include="Areas\Admin\Views\ProductTypes\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\ProductTypes\Details.cshtml" />
@@ -880,6 +850,16 @@
     <Content Include="Areas\Admin\Views\CashBillDetails\Create3.cshtml" />
     <Content Include="Areas\Admin\Views\InstallmentBills\Print.cshtml" />
     <Content Include="Areas\Admin\Views\InstallmentBillDetails\Create3.cshtml" />
+    <Content Include="Areas\Admin\Views\Contacts\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Contacts\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Contacts\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Contacts\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Contacts\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Promotions\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Promotions\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Promotions\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Promotions\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Promotions\Index.cshtml" />
     <None Include="Properties\PublishProfiles\dmquyettien - Web Deploy.pubxml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -901,6 +881,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Assets\Admin\img\products\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
