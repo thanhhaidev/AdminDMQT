@@ -17,7 +17,16 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
         // GET: Admin/Promotions
         public ActionResult Index()
         {
-            return View(db.Promotions.ToList());
+            //return View(db.Promotions.ToList());
+            if (Session["UserName"] != null)
+            {
+                ViewBag.Message = TempData["message"];
+                return View(db.Promotions.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
 
         // GET: Admin/Promotions/Details/5
@@ -38,7 +47,15 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
         // GET: Admin/Promotions/Create
         public ActionResult Create()
         {
-            return View();
+            if (Session["UserName"] != null)
+            {
+                ViewBag.ProductTypeID = new SelectList(db.ProductTypes, "ID", "ProductTypeName");
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
 
         // POST: Admin/Promotions/Create

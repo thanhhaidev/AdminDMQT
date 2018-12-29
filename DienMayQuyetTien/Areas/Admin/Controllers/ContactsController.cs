@@ -17,7 +17,15 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
         // GET: Admin/Contacts
         public ActionResult Index()
         {
-            return View(db.Contacts.ToList());
+            if (Session["UserName"] != null)
+            {
+                ViewBag.Message = TempData["message"];
+                return View(db.Contacts.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+            }
         }
 
         // GET: Admin/Contacts/Details/5
