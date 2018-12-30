@@ -134,7 +134,7 @@
           <Property Name="Image" Type="varchar" MaxLength="255" />
           <Property Name="Start" Type="date" />
           <Property Name="Stop" Type="date" />
-          <Property Name="Content" Type="text" />
+          <Property Name="Content" Type="nvarchar(max)" />
           <Property Name="Status" Type="bit" />
         </EntityType>
         <Association Name="FK_CashBillDetail_CashBill">
@@ -485,7 +485,7 @@
           <Property Name="Image" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Start" Type="DateTime" Precision="0" />
           <Property Name="Stop" Type="DateTime" Precision="0" />
-          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="Boolean" />
         </EntityType>
         <EntityType Name="Introduction">
