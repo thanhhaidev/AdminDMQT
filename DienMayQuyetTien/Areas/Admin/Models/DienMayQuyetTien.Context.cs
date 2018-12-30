@@ -36,5 +36,6 @@ namespace DienMayQuyetTien.Areas.Admin.Models
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Promotion> Promotions { get; set; }
         public virtual DbSet<Introduction> Introductions { get; set; }
+        public virtual DbSet<News> News { get; set; }
     }
 }
