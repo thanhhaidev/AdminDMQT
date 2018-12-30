@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DienMayQuyetTien</RootNamespace>
     <AssemblyName>DienMayQuyetTien</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -26,6 +26,7 @@
     </NuGetPackageImportStamp>
     <ApplicationInsightsResourceId>/subscriptions/8151c724-b03c-4e52-8cdd-4173119c8b93/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/DienMayQuyetTien</ApplicationInsightsResourceId>
     <Use64BitIISExpress />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -90,10 +91,6 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
@@ -656,42 +653,30 @@
     <Content Include="Assets\Client\js\owl.carousel.js" />
     <Content Include="Assets\Client\js\slick.js" />
     <Content Include="Assets\Client\js\slick.min.js" />
-    <Content Include="Assets\Client\tintuc\common\scripts.js" />
-    <Content Include="Assets\Client\tintuc\common\styles.css" />
-    <Content Include="Assets\Client\tintuc\images\3g.jpg" />
-    <Content Include="Assets\Client\tintuc\images\applew.jpeg" />
-    <Content Include="Assets\Client\tintuc\images\banner-1-600x450.jpg" />
-    <Content Include="Assets\Client\tintuc\images\crypto-news-1-600x450.jpg" />
-    <Content Include="Assets\Client\tintuc\images\crypto-news-2-600x450.jpg" />
-    <Content Include="Assets\Client\tintuc\images\crypto-news-3-600x450.jpg" />
-    <Content Include="Assets\Client\tintuc\images\crypto-news-4-600x450.jpg" />
-    <Content Include="Assets\Client\tintuc\images\crypto-news-5-600x450.jpg" />
-    <Content Include="Assets\Client\tintuc\images\crypto-news-6-600x450.jpg" />
-    <Content Include="Assets\Client\tintuc\images\fa2_845x476-800-resize.jpg" />
-    <Content Include="Assets\Client\tintuc\images\images.jpeg" />
-    <Content Include="Assets\Client\tintuc\images\iphone-security.jpg" />
-    <Content Include="Assets\Client\tintuc\images\logo-black.png" />
-    <Content Include="Assets\Client\tintuc\images\logo-white.png" />
-    <Content Include="Assets\Client\tintuc\images\map.png" />
-    <Content Include="Assets\Client\tintuc\images\polular-1-100x100.jpg" />
-    <Content Include="Assets\Client\tintuc\images\polular-2-100x100.jpg" />
-    <Content Include="Assets\Client\tintuc\images\polular-3-100x100.jpg" />
-    <Content Include="Assets\Client\tintuc\images\polular-4-100x100.jpg" />
-    <Content Include="Assets\Client\tintuc\images\profile-1-120x120.jpg" />
-    <Content Include="Assets\Client\tintuc\images\profile-2-120x120.jpg" />
-    <Content Include="Assets\Client\tintuc\images\profile-3-120x120.jpg" />
-    <Content Include="Assets\Client\tintuc\images\Realme.jpg" />
-    <Content Include="Assets\Client\tintuc\images\recent-news-1-600x450.jpg" />
-    <Content Include="Assets\Client\tintuc\images\samsung.htm" />
-    <Content Include="Assets\Client\tintuc\images\slider-1-1200x900.jpg" />
-    <Content Include="Assets\Client\tintuc\images\slider-2-450x600.jpg" />
-    <Content Include="Assets\Client\tintuc\images\slider-3-450x600.jpg" />
-    <Content Include="Assets\Client\tintuc\images\slider-4-450x600.jpg" />
-    <Content Include="Assets\Client\tintuc\images\slider-5-450x600.jpg" />
-    <Content Include="Assets\Client\tintuc\images\slider-6-450x600.jpg" />
-    <Content Include="Assets\Client\tintuc\images\tu-lanh.jpg" />
-    <Content Include="Assets\Client\tintuc\images\tải xuống.htm" />
-    <Content Include="Assets\Client\tintuc\images\xiaomi.jpg" />
+    <Content Include="Assets\Client\news\css\style.css" />
+    <Content Include="Assets\Client\news\img\bg_banner.png" />
+    <Content Include="Assets\Client\news\img\bg_goc_hoc_vien.png" />
+    <Content Include="Assets\Client\news\img\chuong_trinh_1.png" />
+    <Content Include="Assets\Client\news\img\chuong_trinh_2.png" />
+    <Content Include="Assets\Client\news\img\chuong_trinh_3.png" />
+    <Content Include="Assets\Client\news\img\chuong_trinh_4.png" />
+    <Content Include="Assets\Client\news\img\fb-post.jpg" />
+    <Content Include="Assets\Client\news\img\hoc_vien.png" />
+    <Content Include="Assets\Client\news\img\icon_thanh_tuu_1.png" />
+    <Content Include="Assets\Client\news\img\icon_thanh_tuu_2.png" />
+    <Content Include="Assets\Client\news\img\icon_thanh_tuu_3.png" />
+    <Content Include="Assets\Client\news\img\icon_vi_tri.png" />
+    <Content Include="Assets\Client\news\img\line.png" />
+    <Content Include="Assets\Client\news\img\logo.png" />
+    <Content Include="Assets\Client\news\img\slider_1.png" />
+    <Content Include="Assets\Client\news\img\slider_2.png" />
+    <Content Include="Assets\Client\news\img\slogan.png" />
+    <Content Include="Assets\Client\news\img\tin_tuc_1.png" />
+    <Content Include="Assets\Client\news\img\tin_tuc_2.png" />
+    <Content Include="Assets\Client\news\img\tin_tuc_3.png" />
+    <Content Include="Assets\Client\news\img\tin_tuc_4.png" />
+    <Content Include="Assets\Client\news\img\tin_tuc_5.png" />
+    <Content Include="Assets\Client\news\img\Untitled.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
     <Content Include="Global.asax" />

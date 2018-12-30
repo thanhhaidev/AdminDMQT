@@ -3,175 +3,76 @@
     ViewBag.Title = "TinTuc";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link href="~/Assets/Client/tintuc/common/styles.css" rel="stylesheet">
+<link href="~/Assets/Client/news/css/style.css" rel="stylesheet" />
 <section>
-    <div class="container">
-        <div class="row">
+    <div class="myCourse">
+        <h1>TIN NỔI BẬT</h1>
+        <div class="myLine">
+            <img src="~/Assets/Client/news/img/line.png" alt="">
+        </div>
+        <div class="myCourse_content">
+            <div class="myCourse_item 1">
+                <img src="~/Assets/Client/news/img/chuong_trinh_1.png" alt="">
+                <h2>Anh Ngữ mẫu Giáo SMARTKIDS</h2>
+                <p>Dành cho học viên trẻ em từ 4 đến 6 tuổi</p>
+            </div>
+            <div class="myCourse_item 2">
+                <img src="~/Assets/Client/news/img/chuong_trinh_2.png" alt="">
+                <h2>Anh Ngữ mẫu Giáo SMARTKIDS</h2>
+                <p>Dành cho học viên trẻ em từ 4 đến 6 tuổi</p>
+            </div>
+            <div class="myCourse_item 3">
+                <img src="~/Assets/Client/news/img/chuong_trinh_3.png" alt="">
+                <h2>Anh Ngữ mẫu Giáo SMARTKIDS</h2>
+                <p>Dành cho học viên trẻ em từ 4 đến 6 tuổi</p>
+            </div>
+            <div class="myCourse_item 4">
+                <img src="~/Assets/Client/news/img/chuong_trinh_4.png" alt="">
+                <h2>Anh Ngữ mẫu Giáo SMARTKIDS</h2>
+                <p>Dành cho học viên trẻ em từ 4 đến 6 tuổi</p>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="news">
+        <h2>TIN TỨC & SỰ KIỆN</h2>
+        <div class="myLine2">
+            <img src="~/Assets/Client/news/img/line.png" alt="">
+        </div>
+        <div class="left">
+            <img src="~/Assets/Client/news/img/tin_tuc_1.png" alt="">
+            <div class="contents">
+                <p>Vui ngày hội trăng rằm cùng vus tại hcm</p>
+            </div>
+        </div>
 
-            <div class="col-md-12 col-lg-8">
-                <h4 class="p-title"><b>TIN MỚI</b></h4>
-                <div class="row">
-
-                    <div class="col-sm-6">
-                        <img src="tintuc/images/xiaomi.jpg" alt="">
-                        <h4 class="pt-20"><a href="#"><b>Xiaomi giới thiệu máy tính bỏ túi MiiiW, màn hình LCD, giá 7 USD </b></a></h4>
-                        <ul class="list-li-mr-20 pt-10 pb-20">
-                            <li class="color-lite-black">
-                                by <a href="#" class="color-black"><b>Olivia Capzallo,</b></a>
-                                Jan 25, 2018
-                            </li>
-                            <li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i><b>30,190</b></li>
-                            <li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i><b>47</b></li>
-                        </ul>
-                        <p>
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                            doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore.
-                        </p>
-                    </div><!-- col-sm-6 -->
-
-                    <div class="col-sm-6">
-                        <a class="oflow-hidden pos-relative mb-20 dplay-block" href="#">
-                            <div class="wh-100x abs-tlr"><img src="tintuc/images/tu-lanh.jpg" alt=""></div>
-                            <div class="ml-120 min-h-100x">
-                                <h5><b>Những cải tiến, nâng cấp đáng giá về mặt tính năng</b></h5>
-                                <h6 class="color-lite-black pt-10">by <span class="color-black"><b>Danile Palmer,</b></span> Jan 25, 2018</h6>
-                            </div>
-                        </a><!-- oflow-hidden -->
-
-                        <a class="oflow-hidden pos-relative mb-20 dplay-block" href="#">
-                            <div class="wh-100x abs-tlr"><img src="tintuc/images/images.jpeg" alt=""></div>
-                            <div class="ml-120 min-h-100x">
-                                <h5><b>Tin tức công nghệ, tương lai </b></h5>
-                                <h6 class="color-lite-black pt-10">by <span class="color-black"><b>Danile Palmer,</b></span> Jan 25, 2018</h6>
-                            </div>
-                        </a><!-- oflow-hidden -->
-
-                        <a class="oflow-hidden pos-relative mb-20 dplay-block" href="#">
-                            <div class="wh-100x abs-tlr"><img src="tintuc/images/polular-3-100x100.jpg" alt=""></div>
-                            <div class="ml-120 min-h-100x">
-                                <h5><b>Camera đã đẹp, nay còn đẹp hơn nhờ trình tối ưu bối cảnh</b></h5>
-                                <h6 class="color-lite-black pt-10">by <span class="color-black"><b>Danile Palmer,</b></span> Jan 25, 2018</h6>
-                            </div>
-                        </a><!-- oflow-hidden -->
-
-                        <a class="oflow-hidden pos-relative mb-20 dplay-block" href="#">
-                            <div class="wh-100x abs-tlr"><img src="tintuc/images/3g.jpg" alt=""></div>
-                            <div class="ml-120 min-h-100x">
-                                <h5><b>33 quốc gia có tốc độ 3G/4G nhanh hơn </b></h5>
-                                <h6 class="color-lite-black pt-10">by <span class="color-black"><b>Danile Palmer,</b></span> Jan 25, 2018</h6>
-                            </div>
-                        </a><!-- oflow-hidden -->
-                    </div><!-- col-sm-6 -->
-
-                </div><!-- row -->
-
-                <h4 class="p-title mt-30"><b>TIN TỨC CÔNG NGHỆ</b></h4>
-                <div class="row">
-
-                    <div class="col-sm-6">
-                        <img src="tintuc/images/crypto-news-6-600x450.jpg" alt="">
-                        <h4 class="pt-20"><a href="#"><b>OpenSignal đã thu thập dữ liệu về tốc độ mạng </b></a></h4>
-                        <ul class="list-li-mr-20 pt-10 mb-30">
-                            <li class="color-lite-black">
-                                by <a href="#" class="color-black"><b>Olivia Capzallo,</b></a>
-                                Jan 25, 2018
-                            </li>
-                            <li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i>30,190</li>
-                            <li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i>47</li>
-                        </ul>
-                    </div><!-- col-sm-6 -->
-
-                    <div class="col-sm-6">
-                        <img src="tintuc/images/crypto-news-5-600x450.jpg" alt="">
-                        <h4 class="pt-20"><a href="#"><b>Thể hiện sự vượt trội và bắt kịp tốc độ phát triển của Wi-Fi</b></a></h4>
-                        <ul class="list-li-mr-20 pt-10 mb-30">
-                            <li class="color-lite-black">
-                                by <a href="#" class="color-black"><b>Olivia Capzallo,</b></a>
-                                Jan 25, 2018
-                            </li>
-                            <li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i>30,190</li>
-                            <li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i>47</li>
-                        </ul>
-                    </div><!-- col-sm-6 -->
-
-                    <div class="col-sm-6">
-                        <img src="tintuc/images/iphone-security.jpg" alt="">
-                        <h4 class="pt-20"><a href="#"><b>Apple đã ngăn chặn các thiết bị bẻ khóa iPhone mà cảnh sát Hoa Kỳ đang sử dụng</b></a></h4>
-                        <ul class="list-li-mr-20 pt-10 mb-30">
-                            <li class="color-lite-black">
-                                by <a href="#" class="color-black"><b>Olivia Capzallo,</b></a>
-                                Jan 25, 2018
-                            </li>
-                            <li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i>30,190</li>
-                            <li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i>47</li>
-                        </ul>
-                    </div><!-- col-sm-6 -->
-
-                    <div class="col-sm-6">
-                        <img src="tintuc/images/crypto-news-3-600x450.jpg" alt="">
-                        <h4 class="pt-20"><a href="#"><b>DriveSavers cung cấp là giải pháp hướng đến người tiêu dùng</b></a></h4>
-                        <ul class="list-li-mr-20 pt-10 mb-30">
-                            <li class="color-lite-black">
-                                by <a href="#" class="color-black"><b>Olivia Capzallo,</b></a>
-                                Jan 25, 2018
-                            </li>
-                            <li><i class="color-primary mr-5 font-12 ion-ios-bolt"></i>30,190</li>
-                            <li><i class="color-primary mr-5 font-12 ion-chatbubbles"></i>47</li>
-                        </ul>
-                    </div><!-- col-sm-6 -->
+        <div class="right">
+            <div class="right_top">
+                <div class="right_top_1">
+                    <img src="~/Assets/Client/news/img/tin_tuc_2.png" alt="">
+                    <div class="contents">Vui ngày hội trăng rằm cùng vus tại hcm</div>
+                </div>
+                <div class="right_top_2">
+                    <img src="~/Assets/Client/news/img/tin_tuc_3.png" alt="">
+                    <div class="contents">Vui ngày hội trăng rằm cùng vus tại hcm</div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="right_bot">
+                <div class="right_bot_1">
+                    <img src="~/Assets/Client/news/img/tin_tuc_1.png" alt="">
+                    <div class="contents">Vui ngày hội trăng rằm cùng vus tại hcm</div>
+                </div>
 
 
+                <div class="right_bot_2">
+                    <img src="~/Assets/Client/news/img/tin_tuc_4.png" alt="">
+                    <div class="contents">Vui ngày hội trăng rằm cùng vus tại hcm</div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
 
 
-
-                </div><!-- row -->
-
-                <a class="dplay-block btn-brdr-primary mt-20 mb-md-50" href="#"><b>VIEW MORE CRYPTO MINING EVENTS</b></a>
-            </div><!-- col-md-9 -->
-
-            <div class="d-none d-md-block d-lg-none col-md-3"></div>
-            <div class="col-md-12 col-lg-4">
-                <div class="pl-20 pl-md-0">
-
-
-                    <div class="mtb-50">
-                        <h4 class="p-title"><b>THẢO LUẬN NHIỀU</b></h4>
-                        <a class="oflow-hidden pos-relative mb-20 dplay-block" href="#">
-                            <div class="wh-100x abs-tlr"><img src="tintuc/images/applew.jpeg" alt=""></div>
-                            <div class="ml-120 min-h-100x">
-                                <h5><b>Chiến thắng cao nhất tại Vietnam HR Awards 2018</b></h5>
-                                <h6 class="color-lite-black pt-10">by <span class="color-black"><b>Danile Palmer,</b></span> Jan 25, 2018</h6>
-                            </div>
-                        </a><!-- oflow-hidden -->
-
-                        <a class="oflow-hidden pos-relative mb-20 dplay-block" href="#">
-                            <div class="wh-100x abs-tlr"><img src="tintuc/images/polular-2-100x100.jpg" alt=""></div>
-                            <div class="ml-120 min-h-100x">
-                                <h5><b>Các chiến lược tuyển dụng phù hợp cho từng vị trí, cách thức xây dựng thương hiệu</b></h5>
-                                <h6 class="color-lite-black pt-10">by <span class="color-black"><b>Danile Palmer,</b></span> Jan 25, 2018</h6>
-                            </div>
-                        </a><!-- oflow-hidden -->
-
-                        <a class="oflow-hidden pos-relative mb-20 dplay-block" href="#">
-                            <div class="wh-100x abs-tlr"><img src="tintuc/images/polular-3-100x100.jpg" alt=""></div>
-                            <div class="ml-120 min-h-100x">
-                                <h5><b> Quyết Tiến đào tạo chuyên môn cho đến văn hóa công ty</b></h5>
-                                <h6 class="color-lite-black pt-10">by <span class="color-black"><b>Danile Palmer,</b></span> Jan 25, 2018</h6>
-                            </div>
-                        </a><!-- oflow-hidden -->
-
-                        <a class="oflow-hidden pos-relative mb-20 dplay-block" href="#">
-                            <div class="wh-100x abs-tlr"><img src="tintuc/images/polular-4-100x100.jpg" alt=""></div>
-                            <div class="ml-120 min-h-100x">
-                                <h5><b>Ban tổ chức Vietnam HR Awards 2018</b></h5>
-                                <h6 class="color-lite-black pt-10">by <span class="color-black"><b>Danile Palmer,</b></span> Jan 25, 2018</h6>
-                            </div>
-                        </a><!-- oflow-hidden -->
-
-                    </div><!-- mtb-50 -->
-                </div><!--  pl-20 -->
-            </div><!-- col-md-3 -->
-
-        </div><!-- row -->
-    </div><!-- container -->
+    </div>
 </section>
