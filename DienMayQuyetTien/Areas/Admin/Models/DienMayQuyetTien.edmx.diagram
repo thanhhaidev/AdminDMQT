@@ -22,6 +22,7 @@
         <EntityTypeShape EntityType="DmQT03Model.Contact" Width="1.5" PointX="8.375" PointY="9.75" />
         <EntityTypeShape EntityType="DmQT03Model.Promotion" Width="1.5" PointX="10.375" PointY="0.75" />
         <EntityTypeShape EntityType="DmQT03Model.Introduction" Width="1.5" PointX="10.375" PointY="4.75" />
+        <EntityTypeShape EntityType="DmQT03Model.News" Width="1.5" PointX="10.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
