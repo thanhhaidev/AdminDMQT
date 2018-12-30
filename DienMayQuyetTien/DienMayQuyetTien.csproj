@@ -653,8 +653,6 @@
     <Content Include="Assets\Client\js\slick.js" />
     <Content Include="Assets\Client\js\slick.min.js" />
     <Content Include="Assets\Client\news\css\style.css" />
-<<<<<<< HEAD
-=======
     <Content Include="Assets\Client\news\img\chuong_trinh_3.png" />
     <Content Include="Assets\Client\news\img\chuong_trinh_4.png" />
     <Content Include="Assets\Client\news\img\fb-post.jpg" />
@@ -671,8 +669,9 @@
     <Content Include="Assets\Client\news\img\tin_tuc_1.png" />
     <Content Include="Assets\Client\news\img\tin_tuc_2.png" />
     <Content Include="Assets\Client\news\img\tin_tuc_3.png" />
->>>>>>> 9857caf7aef3b03aab14af06a84d8a5e104a7500
     <Content Include="Assets\Client\news\img\tin_tuc_4.png" />
+    <Content Include="Assets\Client\news\img\tin_tuc_5.png" />
+    <Content Include="Assets\Client\news\img\Untitled.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
     <Content Include="Global.asax" />
