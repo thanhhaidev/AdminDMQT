@@ -892,6 +892,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Assets\Admin\img\products\" />
+    <Folder Include="Assets\Admin\img\promotions\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

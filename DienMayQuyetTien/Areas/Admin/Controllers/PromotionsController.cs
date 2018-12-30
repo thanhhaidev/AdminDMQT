@@ -52,7 +52,6 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
         {
             if (Session["UserName"] != null)
             {
-                ViewBag.PromotionID = new SelectList(db.Promotions, "ID", "Name");
                 return View();
             }
             else
@@ -70,14 +69,14 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
 
         public ActionResult Create(Promotion promotion)
         {
-            //CheckValidationPromotion(promotion);
+            CheckValidationPromotion(promotion);
             if (ModelState.IsValid)
             {
                 using (var scope = new TransactionScope())
                 {
                     if (Request.Files["ImageFile"] != null && Request.Files["ImageFile"].ContentLength < 2097152)
                     {
-                        //string fileName = Path.GetFileNameWithoutExtension(product.ImageFile.FileName);
+                        
                         string extension = Path.GetExtension(Request.Files["ImageFile"].FileName);
                         string fileName = RandomString(5, true) + DateTime.Now.ToString("yymmssfff") + extension;
                         promotion.Image = "/Assets/Admin/img/promotions/" + fileName;
@@ -93,7 +92,6 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
                         ModelState.AddModelError("Image", "Chưa có hình khuyến mãi hoặc hình ảnh lớn hơn 2MB!");
                 }
             }
-            ViewBag.PromotionID = new SelectList(db.Promotions, "ID", "Name", promotion.ID);
             return View(promotion);
         }
 
@@ -113,12 +111,12 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
 
         }
 
-        //private void CheckValidationPromotion(Promotion model)
-        //{
-        //    if (model.Name == null || model.Name.Equals("") || model.Name.StartsWith(" ") || model.Name.EndsWith(" "))
-        //        ModelState.AddModelError("Name", "Name không được bỏ trống hoặc khoảng trống hoặc khoảng trống");
+        private void CheckValidationPromotion(Promotion model)
+        {
+            if (model.Name == null || model.Name.Equals("") || model.Name.StartsWith(" ") || model.Name.EndsWith(" "))
+                ModelState.AddModelError("Name", "Name không được bỏ trống hoặc khoảng trống hoặc khoảng trống");
 
-        //}
+        }
 
         // GET: Admin/Promotions/Edit/5
         public ActionResult Edit(int? id)
@@ -126,7 +124,6 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
             if (Session["UserName"] != null)
             {
                 Promotion promotion = db.Promotions.Find(id);
-                ViewBag.Promotion = db.Promotions.OrderByDescending(x => x.ID).ToList();
                 return View(promotion);
             }
             else
@@ -144,7 +141,7 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
 
         public ActionResult Edit(Promotion promotion)
         {
-            //CheckValidationPromotion(promotion);
+            CheckValidationPromotion(promotion);
             if (ModelState.IsValid)
             {
                 using (var scope = new TransactionScope())
@@ -170,7 +167,6 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
                     return RedirectToAction("Index");
                 }
             }
-            ViewBag.Promotion = new SelectList(db.Promotions, "ID", "Name", promotion.ID);
             return View(promotion);
         }
 
@@ -194,13 +190,10 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-                Product product = db.Products.Find(id);
-                db.Products.Remove(product);
-
-                
-
+                Promotion promotion = db.Promotions.Find(id);
+                db.Promotions.Remove(promotion);
                 db.SaveChanges();
-                TempData["message"] = "Xóa sản phẩm thành công.";
+                TempData["message"] = "Xóa khuyến mãi thành công.";
                 return RedirectToAction("Index");
             
         }
