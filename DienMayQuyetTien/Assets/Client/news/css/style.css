@@ -1,0 +1,177 @@
+*{
+    margin: 0;
+    padding : 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+ 
+}
+.myHeader{
+    width: 80%;
+    text-align: center;
+    margin:  auto;
+}
+.myHeader .logo{
+    float: left;
+    width: 50%;
+}
+
+.clear{
+    clear: both;
+}
+.myNav{
+    width: 80%;
+   text-align: center;
+   margin: auto; 
+  
+}
+.line{
+    text-align: center;
+    margin: 10px 0;
+    
+}
+.myNav ul li a{
+    text-decoration: none;
+    font-size: 12px; 
+    color: black;
+}
+.myNav ul li{
+    padding-right: 8px;
+    width: 9%;
+    display: inline;
+}
+.myNav ul li:hover a{
+    text-decoration-line: underline;
+    color: red;
+    background-color:none;
+}
+.mySilder{
+    width: 80%;
+    text-align: center;
+    margin: auto;
+}
+.mySilder img{
+    width: 80%;
+    height: 300px;
+}
+.myIntro{
+    width: 80%;
+    margin: auto;
+    
+}
+.myIntro h1{
+    text-align: center;
+  padding: 20px 0;
+  margin-left: 20px;
+}
+.myIntro .myLine{
+    text-align: center;
+    margin: auto;
+    width: 60%;
+    height: 30px;
+    text-align: center;
+    padding-bottom: 10px;
+   
+}
+.myIntro p{
+    text-align: center;
+    margin: 10px 110px;
+    line-height: 25px;
+}
+.myCourse{
+    width: 80%;
+    margin: 10px 230px;
+    text-align: center;
+    padding: 0 50px;
+   
+   
+}
+.myCourse_content{
+    margin:0 auto;
+}
+.myCourse_item{
+    float: left;
+    margin-right: 10px;
+    width: 21%;
+    
+}
+.myCourse_item h2{
+    font-size:13px;
+    color: red;
+    line-height: both;
+}
+.myCourse_item p{
+    font-size:13px;
+    line-height: both;
+    padding-bottom: 20px;
+}
+.myCourse img{
+    height: 100%;
+    width: 100%;
+}
+
+/* end course */
+.news{
+    width: 80%;
+    margin: 10px 250px;
+    border:none;
+  
+}
+.news .left,.news .right{
+    float: left;
+    width: 42%;
+    margin-right: 10px;
+}
+.right .right_top .right_top_1,.right_top_2,.right_bot .right_bot_1,.right_bot_2{
+    float: left;
+    width: 49%;
+    margin: 1px 0;
+ 
+}
+.news img{
+    width: 100%;
+    height: 100%;
+}
+.right .right_top .right_top_1,.right_bot .right_bot_1{
+  margin-right: 9px;
+}
+.news .myLine2{
+    text-align: center;
+    margin: auto;
+    width: 60%;
+    height: 30px;
+    text-align: center;
+    padding-bottom: 10px;
+   
+}
+.news h2{
+ text-align: center;
+  margin-left: 20px;
+  font-size: 2em;
+}
+
+.right .right_top .right_top_1,.right_top_2,.right_bot_1,.right_bot_2{
+    position: relative;
+}
+.right .right_top .contents,.right .right_bot .contents{
+    position: absolute;
+    bottom: 0px;
+    background-color: rgb(0, 0, 0,0.5);
+    color: white;
+    width: 100%;
+    padding: 10px;
+}
+.news .left{
+    position: relative;
+}
+.left .contents{
+    position: absolute;
+    bottom: 0px;
+    background-color: #black;
+    color: white;
+    width: 100%;
+    padding: 1x;
+    
+}
+
