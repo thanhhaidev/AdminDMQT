@@ -1,4 +1,4 @@
-*{
+﻿*{
     margin: 0;
     padding : 0;
     box-sizing: border-box;
@@ -92,8 +92,8 @@ body{
 }
 .myCourse_item{
     float: left;
-    margin-right: 10px;
-    width: 21%;
+    margin-right:40px;
+    width: 19%;
     
 }
 .myCourse_item h2{
@@ -105,6 +105,7 @@ body{
     font-size:13px;
     line-height: both;
     padding-bottom: 20px;
+    color:green;
 }
 .myCourse img{
     height: 100%;
@@ -116,6 +117,7 @@ body{
     width: 80%;
     margin: 10px 250px;
     border:none;
+
   
 }
 .news .left,.news .right{
@@ -147,8 +149,9 @@ body{
 }
 .news h2{
  text-align: center;
-  margin-left: 20px;
-  font-size: 2em;
+  margin-right: 135px;
+  font-size: 40px;
+
 }
 
 .right .right_top .right_top_1,.right_top_2,.right_bot_1,.right_bot_2{
@@ -172,6 +175,109 @@ body{
     color: white;
     width: 100%;
     padding: 1x;
+    
+}
+.myGallery img{
+    width: 100%;
+    height: 100%;
+    display: block; /* hình chiêm 100% */
+
+}
+.myGallery h1{
+    font-size: 50px;
+    text-align: center;
+    margin:10px 0;
+    margin-left:80px;
+   
+}
+.myGallery .gallery_content{
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-column-gap: 30px;  /* khoảng cách giauwx cách cột*/
+    grid-row-gap: 30px;
+    display: -ms-grid; /* sử dụng cho i10*/
+    -ms-grid-columns: 1fr 1fr 1fr 1fr;
+    
+.item_1{
+    grid-column: 1/span 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+}
+.item_2{
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
+}
+.item_2{
+    -ms-grid-column: 4;
+    -ms-grid-column-span: 1;
+}
+.item_6{
+    grid-column: 3/span 2;
+}
+.myGallery .gallery_item{
+    position: relative;
+}
+.gallery_item .item_content{
+    position: absolute;
+    top :20px;
+    left: 15px;
+    width: 80%;
+    text-align: right;
+    top: 60px;
+    left: 10%;
+    height: 80%;
+    
+}
+@media screen and (max-width:992px){
+    .gallery_content{
+        grid-template-columns: 1fr;
+        width: 60%;
+
+    }
+}
+
+.item_content .underline{
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    top: 100px;
+    opacity: 0 ;
+}
+.item_content h2{
+    font-size: 50px;
+    position: absolute;
+    top:20px;
+    right: 0;
+    color:red;
+}
+
+.item_content p:first-child span{
+    font-weight: bold;
+   
+}
+.item_content p:last-child{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    color: red;
+    font-size:10px;
+}
+.gallery_item:hover .item_content p:first-child{
+    top:0px;
+    transition: all 0.5s;
+}
+.gallery_item:hover .item_content .underline{
+    top:40px;
+    transition: all 0.5s;
+    opacity: 1;
+}
+.gallery_item:hover .item_content p:last-child{
+    transition: all 0.5s;
+    opacity: 1;
     
 }
 

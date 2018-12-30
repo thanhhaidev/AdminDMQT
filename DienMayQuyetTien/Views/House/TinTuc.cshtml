@@ -1,78 +1,46 @@
-﻿
+﻿@model IEnumerable<DienMayQuyetTien.Areas.Admin.Models.News>
 @{
     ViewBag.Title = "TinTuc";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link href="~/Assets/Client/news/css/style.css" rel="stylesheet" />
-<section>
-    <div class="myCourse">
-        <h1>TIN NỔI BẬT</h1>
-        <div class="myLine">
-            <img src="~/Assets/Client/news/img/line.png" alt="">
-        </div>
-        <div class="myCourse_content">
-            <div class="myCourse_item 1">
-                <img src="~/Assets/Client/news/img/chuong_trinh_1.png" alt="">
-                <h2>Anh Ngữ mẫu Giáo SMARTKIDS</h2>
-                <p>Dành cho học viên trẻ em từ 4 đến 6 tuổi</p>
+   /* <div class="news">
+    <h2>TIN TỨC & SỰ KIỆN</h2>
+
+    <div class="myCourse_content">
+        @foreach (var item in Model)
+        {
+            if (item.Status == true)
+            {
+                <div class="myCourse_item ">
+                <a href="#"><img src="@item.Image" alt=""></a>
+                <a href="#"><h2>@item.Title</h2></a>
+                <a href="#"><p>@item.Description</p></a>
             </div>
-            <div class="myCourse_item 2">
-                <img src="~/Assets/Client/news/img/chuong_trinh_2.png" alt="">
-                <h2>Anh Ngữ mẫu Giáo SMARTKIDS</h2>
-                <p>Dành cho học viên trẻ em từ 4 đến 6 tuổi</p>
-            </div>
-            <div class="myCourse_item 3">
-                <img src="~/Assets/Client/news/img/chuong_trinh_3.png" alt="">
-                <h2>Anh Ngữ mẫu Giáo SMARTKIDS</h2>
-                <p>Dành cho học viên trẻ em từ 4 đến 6 tuổi</p>
-            </div>
-            <div class="myCourse_item 4">
-                <img src="~/Assets/Client/news/img/chuong_trinh_4.png" alt="">
-                <h2>Anh Ngữ mẫu Giáo SMARTKIDS</h2>
-                <p>Dành cho học viên trẻ em từ 4 đến 6 tuổi</p>
-            </div>
-        </div>
+            }  
+        }
         <div class="clear"></div>
+      
     </div>
-    <div class="news">
-        <h2>TIN TỨC & SỰ KIỆN</h2>
-        <div class="myLine2">
-            <img src="~/Assets/Client/news/img/line.png" alt="">
-        </div>
-        <div class="left">
-            <img src="~/Assets/Client/news/img/tin_tuc_1.png" alt="">
-            <div class="contents">
-                <p>Vui ngày hội trăng rằm cùng vus tại hcm</p>
-            </div>
-        </div>
-
-        <div class="right">
-            <div class="right_top">
-                <div class="right_top_1">
-                    <img src="~/Assets/Client/news/img/tin_tuc_2.png" alt="">
-                    <div class="contents">Vui ngày hội trăng rằm cùng vus tại hcm</div>
+</div>
+</section>
+<div class="line"><img src="~/Assets/Client/news/img/line.png" alt="Alternate Text" /></div>
+<section class="myGallery">
+    <h1>OUR GALLERY</h1>
+    <div class="gallery_content">
+        @foreach (var item in Model)
+        {
+            if (item.Status == false)
+            {
+                <div class="gallery_item ">
+                    <a href="#"><img src="@item.Image" alt=""></a>
+                    <div class="item_content">
+                        <h2>@item.Title</h2>
+                        <div class="underline"></div>
+                        <p>@item.Description</p>
+                    </div>
                 </div>
-                <div class="right_top_2">
-                    <img src="~/Assets/Client/news/img/tin_tuc_3.png" alt="">
-                    <div class="contents">Vui ngày hội trăng rằm cùng vus tại hcm</div>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div class="right_bot">
-                <div class="right_bot_1">
-                    <img src="~/Assets/Client/news/img/tin_tuc_1.png" alt="">
-                    <div class="contents">Vui ngày hội trăng rằm cùng vus tại hcm</div>
-                </div>
+            }
 
-
-                <div class="right_bot_2">
-                    <img src="~/Assets/Client/news/img/tin_tuc_4.png" alt="">
-                    <div class="contents">Vui ngày hội trăng rằm cùng vus tại hcm</div>
-                </div>
-            </div>
-            <div class="clear"></div>
-        </div>
-
-
-    </div>
+        }
 </section>
