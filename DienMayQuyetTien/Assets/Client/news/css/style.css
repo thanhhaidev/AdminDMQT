@@ -186,9 +186,7 @@ body{
 .myGallery h1{
     font-size: 50px;
     text-align: center;
-    margin:10px 0;
-    margin-left:80px;
-   
+    margin:30px 0;
 }
 .myGallery .gallery_content{
     width: 80%;
@@ -199,7 +197,7 @@ body{
     grid-row-gap: 30px;
     display: -ms-grid; /* sử dụng cho i10*/
     -ms-grid-columns: 1fr 1fr 1fr 1fr;
-    
+}
 .item_1{
     grid-column: 1/span 2;
     -ms-grid-column: 1;
@@ -230,14 +228,6 @@ body{
     height: 80%;
     
 }
-@media screen and (max-width:992px){
-    .gallery_content{
-        grid-template-columns: 1fr;
-        width: 60%;
-
-    }
-}
-
 .item_content .underline{
     width: 100%;
     height: 2px;
@@ -246,24 +236,23 @@ body{
     top: 100px;
     opacity: 0 ;
 }
-.item_content h2{
-    font-size: 50px;
+.item_content p:first-child{
+    font-size: 30px;
     position: absolute;
     top:20px;
     right: 0;
-    color:red;
+    color:white;
 }
 
 .item_content p:first-child span{
     font-weight: bold;
-   
 }
 .item_content p:last-child{
     position: absolute;
     bottom: 0;
     right: 0;
     opacity: 0;
-    color: red;
+    color: white;
     font-size:10px;
 }
 .gallery_item:hover .item_content p:first-child{
@@ -280,4 +269,20 @@ body{
     opacity: 1;
     
 }
-
+@media screen and (max-width: 992px){
+    .myGallery h1{
+    font-size: 30px;
+    text-align: center;
+    margin:auto 0;
+    padding-bottom:20px;
+    
+}
+}
+@media screen and (max-width: 768px){
+    .myGallery h1{
+    font-size: 20px;
+    text-align: center;
+    margin:auto 0;
+    padding-bottom:20px;
+}
+}

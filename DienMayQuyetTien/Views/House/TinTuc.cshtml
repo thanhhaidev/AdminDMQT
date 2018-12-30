@@ -1,3 +1,4 @@
+﻿
 ﻿@model IEnumerable<DienMayQuyetTien.Areas.Admin.Models.News>
 @{
     ViewBag.Title = "TinTuc";
@@ -6,7 +7,6 @@
 <link href="~/Assets/Client/news/css/style.css" rel="stylesheet" />
    /* <div class="news">
     <h2>TIN TỨC & SỰ KIỆN</h2>
-
     <div class="myCourse_content">
         @foreach (var item in Model)
         {
@@ -25,22 +25,26 @@
 </div>
 </section>
 <div class="line"><img src="~/Assets/Client/news/img/line.png" alt="Alternate Text" /></div>
+
 <section class="myGallery">
-    <h1>OUR GALLERY</h1>
+    <h1>TIN TỨC TẾT</h1>
     <div class="gallery_content">
         @foreach (var item in Model)
         {
             if (item.Status == false)
             {
                 <div class="gallery_item ">
-                    <a href="#"><img src="@item.Image" alt=""></a>
-                    <div class="item_content">
-                        <h2>@item.Title</h2>
-                        <div class="underline"></div>
-                        <p>@item.Description</p>
-                    </div>
-                </div>
+            <img src="@item.Image" alt="">
+                <div class="item_content">
+                <p>@item.Title</p>
+                <div class="underline"></div>
+                <p>@item.Description</p>
+            </div>
+        </div>           
             }
-
+                 
         }
+     </div>
 </section>
+
+    ﻿

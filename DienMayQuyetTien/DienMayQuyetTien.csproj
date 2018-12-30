@@ -400,18 +400,17 @@
     <Content Include="Assets\Client\images\H2.png" />
     <Content Include="Assets\Client\images\H3.jpg" />
     <Content Include="Assets\Client\images\H4.png" />
-    <Content Include="Assets\Client\images\khuyenmai\khuyenmai1.jpg" />
-    <Content Include="Assets\Client\images\khuyenmai\khuyenmai10.png" />
-    <Content Include="Assets\Client\images\khuyenmai\khuyenmai11.jpg" />
-    <Content Include="Assets\Client\images\khuyenmai\khuyenmai12.jpg" />
-    <Content Include="Assets\Client\images\khuyenmai\khuyenmai2.jpg" />
-    <Content Include="Assets\Client\images\khuyenmai\khuyenmai3.png" />
-    <Content Include="Assets\Client\images\khuyenmai\khuyenmai4.jpg" />
-    <Content Include="Assets\Client\images\khuyenmai\khuyenmai5.jpg" />
-    <Content Include="Assets\Client\images\khuyenmai\khuyenmai6.jpg" />
-    <Content Include="Assets\Client\images\khuyenmai\khuyenmai7.jpg" />
-    <Content Include="Assets\Client\images\khuyenmai\khuyenmai8.jpg" />
-    <Content Include="Assets\Client\images\khuyenmai\khuyenmai9.jpg" />
+    <Content Include="Assets\Admin\img\promotions\khuyenmai1.jpg" />
+    <Content Include="Assets\Admin\img\promotions\khuyenmai10.png" />
+    <Content Include="Assets\Admin\img\promotions\khuyenmai11.jpg" />
+    <Content Include="Assets\Admin\img\promotions\khuyenmai2.jpg" />
+    <Content Include="Assets\Admin\img\promotions\khuyenmai3.png" />
+    <Content Include="Assets\Admin\img\promotions\khuyenmai4.jpg" />
+    <Content Include="Assets\Admin\img\promotions\khuyenmai5.jpg" />
+    <Content Include="Assets\Admin\img\promotions\khuyenmai6.jpg" />
+    <Content Include="Assets\Admin\img\promotions\khuyenmai7.jpg" />
+    <Content Include="Assets\Admin\img\promotions\khuyenmai8.jpg" />
+    <Content Include="Assets\Admin\img\promotions\khuyenmai9.jpg" />
     <Content Include="Assets\Client\images\logo.png" />
     <Content Include="Assets\Client\images\page-not-found-688965_640.png" />
     <Content Include="Assets\Client\images\payment.png" />
@@ -654,6 +653,25 @@
     <Content Include="Assets\Client\js\slick.js" />
     <Content Include="Assets\Client\js\slick.min.js" />
     <Content Include="Assets\Client\news\css\style.css" />
+<<<<<<< HEAD
+=======
+    <Content Include="Assets\Client\news\img\chuong_trinh_3.png" />
+    <Content Include="Assets\Client\news\img\chuong_trinh_4.png" />
+    <Content Include="Assets\Client\news\img\fb-post.jpg" />
+    <Content Include="Assets\Client\news\img\hoc_vien.png" />
+    <Content Include="Assets\Client\news\img\icon_thanh_tuu_1.png" />
+    <Content Include="Assets\Client\news\img\icon_thanh_tuu_2.png" />
+    <Content Include="Assets\Client\news\img\icon_thanh_tuu_3.png" />
+    <Content Include="Assets\Client\news\img\icon_vi_tri.png" />
+    <Content Include="Assets\Client\news\img\line.png" />
+    <Content Include="Assets\Client\news\img\logo.png" />
+    <Content Include="Assets\Client\news\img\slider_1.png" />
+    <Content Include="Assets\Client\news\img\slider_2.png" />
+    <Content Include="Assets\Client\news\img\slogan.png" />
+    <Content Include="Assets\Client\news\img\tin_tuc_1.png" />
+    <Content Include="Assets\Client\news\img\tin_tuc_2.png" />
+    <Content Include="Assets\Client\news\img\tin_tuc_3.png" />
+>>>>>>> 9857caf7aef3b03aab14af06a84d8a5e104a7500
     <Content Include="Assets\Client\news\img\tin_tuc_4.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
@@ -855,6 +873,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Assets\Admin\img\products\" />
+    <Folder Include="Assets\Client\images\khuyenmai\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

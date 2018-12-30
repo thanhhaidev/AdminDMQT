@@ -20,7 +20,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="all-form-element-inner">
-                                        @using (Html.BeginForm("Create", "Home", FormMethod.Post, new { id = "form_create_promotion", enctype = "multipart/form-data" }))
+                                        @using (Html.BeginForm("Create", "Promotions", FormMethod.Post, new { id = "form_create_promotion", enctype = "multipart/form-data" }))
                                         {
                                             @Html.AntiForgeryToken()
                                             @Html.ValidationSummary(true, "", new { @class = "text-danger pull-left" })
@@ -35,22 +35,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <div class="form-group-inner">
-                                                <div class="row">
-                                                    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-                                                        <label class="login2 pull-right pull-right-pro">Image</label>
-                                                    </div>
-                                                    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
-                                                        <div class="file-upload-inner ts-forms">
-                                                            @Html.TextBox("ImageFile", null, new { @type = "file", onChange = "readURL(this);", @class = "form-control", accept = "image/gif, image/jpeg, image/png" })
-                                                            @Html.ValidationMessageFor(model => model.Image, "", new { @class = "pull-left text-danger" })
-                                                            <img id="image" src="" class="pull-left mg-t-10" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
                                             <div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-3">
@@ -84,7 +68,22 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+
+                                            <div class="form-group-inner">
+                                                <div class="row">
+                                                    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                                                        <label class="login2 pull-right pull-right-pro">Image</label>
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                                                        <div class="file-upload-inner ts-forms">
+                                                            @Html.TextBox("ImageFile", null, new { @type = "file", onChange = "readURL(this);", @class = "form-control", accept = "image/gif, image/jpeg, image/png" })
+                                                            @Html.ValidationMessageFor(model => model.Image, "", new { @class = "pull-left text-danger" })
+                                                            <img id="image" src="" class="pull-left mg-t-10" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                             <div class="form-group-inner">
                                                 <div class="login-btn-inner">
                                                     <div class="row">

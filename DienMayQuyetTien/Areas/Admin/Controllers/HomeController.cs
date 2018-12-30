@@ -150,7 +150,7 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
             {
                 using (var scope = new TransactionScope())
                 {
-                    if (Request.Files["ImageFile"] != null && Request.Files["ImageFile"].ContentLength < 2097152)
+                    if (Request.Files["ImageFile"] != null && Request.Files["ImageFile"].ContentLength > 0)
                     {
                         var fileNameOld = Server.MapPath(product.Avatar);
                         if (System.IO.File.Exists(fileNameOld))

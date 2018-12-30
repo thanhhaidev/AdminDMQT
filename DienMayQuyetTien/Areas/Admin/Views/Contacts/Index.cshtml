@@ -28,7 +28,7 @@
                     <div class="sparkline8-graph">
                         <div class="datatable-dashv1-list custom-datatable-overright">
                             <div id="toolbar">
-                                <a href="@Url.Action("Create", "Home")" class="btn btn-custon-four btn-primary"><i class="fa big-icon fa-plus"></i> Add Contact New</a>
+                                <a href="@Url.Action("Create", "Contacts")" class="btn btn-custon-four btn-primary"><i class="fa big-icon fa-plus"></i> Add Contact New</a>
                             </div>
                             <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="false" data-key-events="true" data-show-toggle="false" data-resizable="true" data-cookie="true" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar">
                                 <thead>
@@ -55,10 +55,10 @@
 
                                             <td>
                                                 <div class="btn-group project-list-action">
-                                                    <a style="color: #fff" href="@Url.Action("Edit", "Home", new { id = item.ID })" class="btn btn-white btn-action btn-xs"><i class="fa fa-pencil"></i> Edit</a>
+                                                    
                                                     <a data-toggle="modal" data-target="#@myModal" data-whatever="@item.ID" class="btn btn-white btn-xs" style="color: #fff"><i class="fa fa-trash"></i> Delete</a>
                                                     <!-- Modal -->
-                                                    @using (Html.BeginForm("Delete", "Home", new { id = item.ID }))
+                                                    @using (Html.BeginForm("Delete", "Contacts", new { id = item.ID }))
                                                     {
                                                         @Html.AntiForgeryToken()
                                                         <div class="modal fade" id="@myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
