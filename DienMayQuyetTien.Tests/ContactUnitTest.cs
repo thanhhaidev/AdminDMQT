@@ -1,4 +1,5 @@
 ﻿using System;
+<<<<<<< HEAD
 using System.Linq;
 using DienMayQuyetTien.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -176,6 +177,73 @@ namespace DienMayQuyetTien.Tests
                 Assert.IsNotNull(result2);
                 Assert.AreEqual(count - 1, db.Products.Count());
             }
+=======
+using System.Text;
+using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace DienMayQuyetTien.Tests
+{
+    /// <summary>
+    /// Summary description for ContactUnitTest
+    /// </summary>
+    [TestClass]
+    public class ContactUnitTest
+    {
+        public ContactUnitTest()
+        {
+            //
+            // TODO: Add constructor logic here
+            //
+        }
+
+        private TestContext testContextInstance;
+
+        /// <summary>
+        ///Gets or sets the test context which provides
+        ///information about and functionality for the current test run.
+        ///</summary>
+        public TestContext TestContext
+        {
+            get
+            {
+                return testContextInstance;
+            }
+            set
+            {
+                testContextInstance = value;
+            }
+        }
+
+        #region Additional test attributes
+        //
+        // You can use the following additional attributes as you write your tests:
+        //
+        // Use ClassInitialize to run code before running the first test in the class
+        // [ClassInitialize()]
+        // public static void MyClassInitialize(TestContext testContext) { }
+        //
+        // Use ClassCleanup to run code after all tests in a class have run
+        // [ClassCleanup()]
+        // public static void MyClassCleanup() { }
+        //
+        // Use TestInitialize to run code before running each test 
+        // [TestInitialize()]
+        // public void MyTestInitialize() { }
+        //
+        // Use TestCleanup to run code after each test has run
+        // [TestCleanup()]
+        // public void MyTestCleanup() { }
+        //
+        #endregion
+
+        [TestMethod]
+        public void TestMethod1()
+        {
+            //
+            // TODO: Add test logic here
+            //
+>>>>>>> 2fb75e2e61c4d872c5b746bf1b7ad06b7c016987
         }
     }
 }
