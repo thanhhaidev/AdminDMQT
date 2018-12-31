@@ -53,5 +53,23 @@ namespace DienMayQuyetTien.Tests
 
             Assert.IsNotNull(result);
         }
+
+	 [TestMethod]
+        public void EditGetTest()
+        {
+            var db = new DmQT03Entities();
+            var controller = new ProductTypesController();
+            var context = new Mock<HttpContextBase>();
+            var session = new Mock<HttpSessionStateBase>();
+            context.Setup(c => c.Session).Returns(session.Object);
+            controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
+            session.Setup(s => s["UserName"]).Returns("abc");
+
+            var productTypesID = db.ProductTypes.First().ID;
+
+            var result = controller.Edit(productTypesID) as ViewResult;
+
+            Assert.IsNotNull(result);
+        }
     }
 }
