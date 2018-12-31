@@ -38,5 +38,20 @@ namespace DienMayQuyetTien.Tests
             Assert.AreEqual("Login", redirect.RouteValues["action"]);
             Assert.AreEqual("Login", redirect.RouteValues["controller"]);
         }
+
+        [TestMethod]
+        public void CreateGetTest()
+        {
+            var controller = new ProductTypesController();
+            var context = new Mock<HttpContextBase>();
+            var session = new Mock<HttpSessionStateBase>();
+            context.Setup(c => c.Session).Returns(session.Object);
+            controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
+            session.Setup(s => s["UserName"]).Returns("abc");
+
+            var result = controller.Create() as ViewResult;
+
+            Assert.IsNotNull(result);
+        }
     }
 }
