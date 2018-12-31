@@ -53,6 +53,27 @@ namespace DienMayQuyetTien.Tests
 
             Assert.IsNotNull(result);
         }
+	
+	[TestMethod]
+        public void CreatePostTest()
+        {
+            var controller = new ProductTypesController();
+            var db = new DmQT03Entities();
+            var context = new Mock<HttpContextBase>();
+            var request = new Mock<HttpRequestBase>();
+            var files = new Mock<HttpFileCollectionBase>();
+            var file = new Mock<HttpPostedFileBase>();
+
+            using (var scope = new TransactionScope())
+            {
+
+                var model = new ProductType();
+                model.ProductTypeName = "ProductTypeName";
+                model.ProductTypeCode = "TES";
+                var result0 = controller.Create(model) as RedirectToRouteResult;
+                Assert.IsNotNull(result0);
+            }
+        }
 
 	 [TestMethod]
         public void EditGetTest()
