@@ -84,6 +84,7 @@
   <ItemGroup>
     <Compile Include="ProductUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProductTypesUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DienMayQuyetTien\DienMayQuyetTien.csproj">
