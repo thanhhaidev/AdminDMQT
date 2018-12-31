@@ -92,5 +92,55 @@ namespace DienMayQuyetTien.Tests
 
             Assert.IsNotNull(result);
         }
+   [TestMethod]
+        public void EditPostTest()
+        {
+            var controller = new ProductTypesController();
+            var db = new DmQT03Entities();
+            var context = new Mock<HttpContextBase>();
+            var request = new Mock<HttpRequestBase>();
+            var files = new Mock<HttpFileCollectionBase>();
+            var file = new Mock<HttpPostedFileBase>();
+            
+            var model = db.ProductTypes.AsNoTracking().First();
+
+            using (var scope = new TransactionScope())
+            {
+                model.ProductTypeCode = "TES";
+                model.ProductTypeName = "TEST";
+                
+                var result = controller.Edit(model) as RedirectToRouteResult;
+
+                Assert.IsNotNull(result);
+            }
+        }
+
+        [TestMethod]
+        public void DeleteTest()
+        {
+            var db = new DmQT03Entities();
+            var productType = new ProductType
+            {
+                ProductTypeName = "ProductName",
+                ProductTypeCode = "123",
+            };
+
+            var controller = new ProductTypesController();
+            var context = new Mock<HttpContextBase>();
+            var session = new Mock<HttpSessionStateBase>();
+            session.Setup(s => s["UserName"]).Returns("abc");
+            context.Setup(c => c.Session).Returns(session.Object);
+            controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
+
+            using (var scope = new TransactionScope())
+            {
+                db.ProductTypes.Add(productType);
+                db.SaveChanges();
+                var count = db.ProductTypes.Count();
+                var result2 = controller.DeleteConfirmed(productType.ID) as RedirectToRouteResult;
+                Assert.IsNotNull(result2);
+                Assert.AreEqual(count - 1, db.ProductTypes.Count());
+            }
+        }
     }
 }
