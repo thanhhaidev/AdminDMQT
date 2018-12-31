@@ -152,7 +152,7 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
                 return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
             }
             ViewBag.CustomerID = new SelectList(db.Customers, "ID", "CustomerCode", installmentBill.CustomerID);
-            return View(installmentBill);
+            return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
         }
 
         public void checkValidatorIB(InstallmentBill ib)

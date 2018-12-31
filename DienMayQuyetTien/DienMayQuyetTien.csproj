@@ -871,6 +871,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Assets\Admin\img\news\" />
     <Folder Include="Assets\Admin\img\products\" />
     <Folder Include="Assets\Client\images\khuyenmai\" />
     <Folder Include="Models\" />

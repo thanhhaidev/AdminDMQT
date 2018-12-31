@@ -50,7 +50,7 @@ namespace DienMayQuyetTien.Controllers
 
         public ActionResult TinTuc()
         {
-            return View();
+            return View(db.News.ToList());
         }
     }
 }

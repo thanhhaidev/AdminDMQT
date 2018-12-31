@@ -138,6 +138,13 @@
                                 <a href="@Url.Action("Index", "Introductions")" class="dropdown-item"><i class="fa big-icon fa-pencil"></i> Edit</a>
                             </div>
                         </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "News")" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-newspaper-o"></i> <span class="mini-dn">News</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                            <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                <a href="@Url.Action("Index", "News")" class="dropdown-item"><i class="fa big-icon fa-list"></i> List</a>
+                                <a href="@Url.Action("Create", "News")" class="dropdown-item"><i class="fa big-icon fa-plus"></i> Create</a>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -267,6 +274,17 @@
                                             <ul id="others" class="collapse dropdown-header-top">
                                                 <li>
                                                     <a href="@Url.Action("Index", "Introductions")"><i class="fa big-icon fa-pencil"></i> Edit</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a data-toggle="collapse" data-target="#others" href="@Url.Action("Index", "News")"><i class="fa big-icon fa-newspaper-o"></i> News <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                            <ul id="others" class="collapse dropdown-header-top">
+                                                <li>
+                                                    <a href="@Url.Action("Index", "News")"><i class="fa big-icon fa-list"></i> List</a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("Create", "News")"><i class="fa big-icon fa-plus"></i> Create</a>
                                                 </li>
                                             </ul>
                                         </li>

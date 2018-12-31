@@ -1,78 +1,85 @@
-﻿
+﻿﻿@model IEnumerable<DienMayQuyetTien.Areas.Admin.Models.News>
 @{
-    ViewBag.Title = "TinTuc";
+    ViewBag.Title = "Tin tức";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link href="~/Assets/Client/news/css/style.css" rel="stylesheet" />
-<section>
-    <div class="myCourse">
-        <h1>TIN NỔI BẬT</h1>
-        <div class="myLine">
-            <img src="~/Assets/Client/news/img/line.png" alt="">
+<div class="container">
+    <div class="list-product">
+        <div class="list-header-z">
+            <h2><a href="laptop" style="color: #f00">Tin Tức nổi bật</a></h2>
         </div>
-        <div class="myCourse_content">
-            <div class="myCourse_item 1">
-                <img src="~/Assets/Client/news/img/chuong_trinh_1.png" alt="">
-                <h2>Anh Ngữ mẫu Giáo SMARTKIDS</h2>
-                <p>Dành cho học viên trẻ em từ 4 đến 6 tuổi</p>
-            </div>
-            <div class="myCourse_item 2">
-                <img src="~/Assets/Client/news/img/chuong_trinh_2.png" alt="">
-                <h2>Anh Ngữ mẫu Giáo SMARTKIDS</h2>
-                <p>Dành cho học viên trẻ em từ 4 đến 6 tuổi</p>
-            </div>
-            <div class="myCourse_item 3">
-                <img src="~/Assets/Client/news/img/chuong_trinh_3.png" alt="">
-                <h2>Anh Ngữ mẫu Giáo SMARTKIDS</h2>
-                <p>Dành cho học viên trẻ em từ 4 đến 6 tuổi</p>
-            </div>
-            <div class="myCourse_item 4">
-                <img src="~/Assets/Client/news/img/chuong_trinh_4.png" alt="">
-                <h2>Anh Ngữ mẫu Giáo SMARTKIDS</h2>
-                <p>Dành cho học viên trẻ em từ 4 đến 6 tuổi</p>
-            </div>
+        <div class="list-product-content">
+            @foreach (var item in Model)
+            {
+                if (item.Status == true)
+                {
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 product-one">
+                        <div class="image-product">
+                            <a href="" title="@item.Title">
+                                <img src="@item.Image" class="img-bg">
+                            </a>
+                            <h3>
+                                <a href="" title="@item.Title" class="ws-nw overflow ellipsis">
+                                    <strong>@item.Title</strong>
+                                </a>
+                            </h3>
+                        </div>
+                        <div class="price-product-item">
+                            @item.Description
+                        </div>
+                        <div class="btn-action">
+                            <button type="button" class="fa fa-facebook"></button>
+                            <button type="button" class="fa fa-eye"></button>
+                        </div>
+                    </div>
+                }
+            }
         </div>
-        <div class="clear"></div>
+        <div class="footer-load-more">
+            <a href="san-pham/dien-thoai">
+                <p class="text-center">
+                    Xem thêm
+                </p>
+            </a>
+        </div>
     </div>
-    <div class="news">
-        <h2>TIN TỨC & SỰ KIỆN</h2>
-        <div class="myLine2">
-            <img src="~/Assets/Client/news/img/line.png" alt="">
+    <div class="list-product">
+        <div class="list-header-z">
+            <h2><a href="laptop" style="color: #3c8dbc">Tin Tức</a></h2>
         </div>
-        <div class="left">
-            <img src="~/Assets/Client/news/img/tin_tuc_1.png" alt="">
-            <div class="contents">
-                <p>Vui ngày hội trăng rằm cùng vus tại hcm</p>
-            </div>
+        <div class="list-product-content">
+            @foreach (var item in Model)
+            {
+                if (item.Status == false)
+                {
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 product-one">
+                        <div class="image-product">
+                            <a href="" title="@item.Title">
+                                <img src="@item.Image" class="img-bg">
+                            </a>
+                            <h3>
+                                <a href="" title="@item.Title" class="ws-nw overflow ellipsis">
+                                    <strong>@item.Title</strong>
+                                </a>
+                            </h3>
+                        </div>
+                        <div class="price-product-item">
+                            @item.Description
+                        </div>
+                        <div class="btn-action">
+                            <button type="button" class="fa fa-facebook"></button>
+                            <button type="button" class="fa fa-eye"></button>
+                        </div>
+                    </div>
+                }
+            }
         </div>
-
-        <div class="right">
-            <div class="right_top">
-                <div class="right_top_1">
-                    <img src="~/Assets/Client/news/img/tin_tuc_2.png" alt="">
-                    <div class="contents">Vui ngày hội trăng rằm cùng vus tại hcm</div>
-                </div>
-                <div class="right_top_2">
-                    <img src="~/Assets/Client/news/img/tin_tuc_3.png" alt="">
-                    <div class="contents">Vui ngày hội trăng rằm cùng vus tại hcm</div>
-                </div>
-                <div class="clear"></div>
-            </div>
-            <div class="right_bot">
-                <div class="right_bot_1">
-                    <img src="~/Assets/Client/news/img/tin_tuc_1.png" alt="">
-                    <div class="contents">Vui ngày hội trăng rằm cùng vus tại hcm</div>
-                </div>
-
-
-                <div class="right_bot_2">
-                    <img src="~/Assets/Client/news/img/tin_tuc_4.png" alt="">
-                    <div class="contents">Vui ngày hội trăng rằm cùng vus tại hcm</div>
-                </div>
-            </div>
-            <div class="clear"></div>
+        <div class="footer-load-more">
+            <a href="san-pham/dien-thoai">
+                <p class="text-center">
+                    Xem thêm
+                </p>
+            </a>
         </div>
-
-
     </div>
-</section>
+</div>

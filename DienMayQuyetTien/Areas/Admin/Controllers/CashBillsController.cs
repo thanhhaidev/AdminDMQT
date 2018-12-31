@@ -20,6 +20,9 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
         {
             if (Session["UserName"] != null)
             {
+                Session["CashBill"] = null;
+                Session["CashBillDetail"] = null;
+                Session["total"] = null;
                 ViewBag.Message = TempData["message"];
                 return View(db.CashBills.ToList());
             }
@@ -73,11 +76,11 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
 
         private void checkValidator(CashBill cashBill)
         {
-            if (cashBill.CustomerName == null || cashBill.CustomerName.Equals(""))
+            if (cashBill.CustomerName == null || cashBill.CustomerName.Equals(" ") || cashBill.CustomerName.StartsWith(" "))
                 ModelState.AddModelError("CustomerName", "Tên khách hàng không được bỏ trống");
-            if (cashBill.Address == null || cashBill.Address.Equals(""))
+            if (cashBill.Address == null || cashBill.Address.Equals(" ") || cashBill.Address.StartsWith(" "))
                 ModelState.AddModelError("Address", "Địa chỉ không được bỏ trống");
-            if (cashBill.PhoneNumber == null || cashBill.PhoneNumber.Equals(""))
+            if (cashBill.PhoneNumber == null || cashBill.PhoneNumber.Equals(" ") || cashBill.PhoneNumber.StartsWith(" "))
                 ModelState.AddModelError("PhoneNumber", "Số điện thoại không được bỏ trống");
         }
 
@@ -138,6 +141,7 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(CashBill cashBill)
         {
+            checkValidator(cashBill);
             if (ModelState.IsValid)
             {
                 cashBill.Date = DateTime.Now;
@@ -146,7 +150,7 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
                 db.SaveChanges();
                 return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
             }
-            return View(cashBill);
+            return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
         }
 
         [HttpPost]

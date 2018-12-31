@@ -22,6 +22,7 @@
                         </div>
                         @Html.ValidationSummary(true, "", new { @class = "text-danger pull-left" })
                         @Html.HiddenFor(model => model.BillCode)
+                        @Html.HiddenFor(model => model.ID)
                         <div class="sparkline16-graph" style="display: block;">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -81,7 +82,7 @@
                                         <div class="form-group data-custon-pick">
                                             <div class="touchspin-inner" style="margin-top:40px">
                                                 <a href="@Url.Action("Cancel", "CashBills")" class="btn btn-custon-four btn-danger" id="btnCancel"><span class="fa fa-remove"></span> Cancel</a>
-                                                <input type="submit" class="btn btn-custon-four btn-success" id="btnShowPopup" value="Create Information">
+                                                <input type="submit" class="btn btn-custon-four btn-success" id="btnShowPopup" value="Edit Info">
                                             </div>
                                         </div>
                                     </div>
