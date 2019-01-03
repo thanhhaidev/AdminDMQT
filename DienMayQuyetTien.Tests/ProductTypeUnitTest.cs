@@ -28,16 +28,9 @@ namespace DienMayQuyetTien.Tests
 
             var result = controller.Index() as ViewResult;
             var db = new DmQT03Entities();
-<<<<<<< HEAD
-            
+
             Assert.IsInstanceOfType(result.Model, typeof(List<ProductType>));
             Assert.AreEqual(db.ProductTypes.Count(), (result.Model as List<ProductType>).Count);
-=======
-
-            //Assert.IsNotNull(result.ViewBag.Message);
-            Assert.IsInstanceOfType(result.Model, typeof(List<ProductType>));
-            Assert.AreEqual(db.Products.Count(), (result.Model as List<ProductType>).Count);
->>>>>>> 2fb75e2e61c4d872c5b746bf1b7ad06b7c016987
 
             session.Setup(s => s["UserName"]).Returns(null);
             var redirect = controller.Index() as RedirectToRouteResult;
@@ -59,13 +52,8 @@ namespace DienMayQuyetTien.Tests
 
             Assert.IsNotNull(result);
         }
-<<<<<<< HEAD
 
         [TestMethod]
-=======
-	
-	[TestMethod]
->>>>>>> 2fb75e2e61c4d872c5b746bf1b7ad06b7c016987
         public void CreatePostTest()
         {
             var controller = new ProductTypesController();
@@ -86,11 +74,7 @@ namespace DienMayQuyetTien.Tests
             }
         }
 
-<<<<<<< HEAD
         [TestMethod]
-=======
-	 [TestMethod]
->>>>>>> 2fb75e2e61c4d872c5b746bf1b7ad06b7c016987
         public void EditGetTest()
         {
             var db = new DmQT03Entities();
@@ -107,11 +91,7 @@ namespace DienMayQuyetTien.Tests
 
             Assert.IsNotNull(result);
         }
-<<<<<<< HEAD
         [TestMethod]
-=======
-   [TestMethod]
->>>>>>> 2fb75e2e61c4d872c5b746bf1b7ad06b7c016987
         public void EditPostTest()
         {
             var controller = new ProductTypesController();
@@ -120,14 +100,14 @@ namespace DienMayQuyetTien.Tests
             var request = new Mock<HttpRequestBase>();
             var files = new Mock<HttpFileCollectionBase>();
             var file = new Mock<HttpPostedFileBase>();
-            
+
             var model = db.ProductTypes.AsNoTracking().First();
 
             using (var scope = new TransactionScope())
             {
                 model.ProductTypeCode = "TES";
                 model.ProductTypeName = "TEST";
-                
+
                 var result = controller.Edit(model) as RedirectToRouteResult;
 
                 Assert.IsNotNull(result);

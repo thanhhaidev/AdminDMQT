@@ -70,6 +70,7 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(InstallmentBill installmentBill)
         {
+            checkValidatorIB(installmentBill);
             if (ModelState.IsValid)
             {
                 Session["IBill"] = installmentBill;
@@ -141,6 +142,7 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(InstallmentBill installmentBill)
         {
+            checkValidatorIB(installmentBill);
             if (ModelState.IsValid)
             {
                 installmentBill.Date = DateTime.Now;
@@ -151,6 +153,16 @@ namespace DienMayQuyetTien.Areas.Admin.Controllers
             }
             ViewBag.CustomerID = new SelectList(db.Customers, "ID", "CustomerCode", installmentBill.CustomerID);
             return Redirect(ControllerContext.HttpContext.Request.UrlReferrer.ToString());
+        }
+
+        public void checkValidatorIB(InstallmentBill ib)
+        {
+            if (ib.Method.Length <= 0)
+                ModelState.AddModelError("Method", "Độ dài lớn hơn 0");
+            if (ib.Period <= 0)
+                ModelState.AddModelError("Period", "Thời gian giai hạn lớn hơn ");
+            if (ib.Shipper != null && !ib.Shipper.StartsWith(" "))
+                ModelState.AddModelError("Shipper", "Không nhập kí tự khoảng trắng hoặc để trống");
         }
 
         [HttpPost]

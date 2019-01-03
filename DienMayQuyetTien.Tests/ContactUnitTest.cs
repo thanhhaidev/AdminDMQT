@@ -1,5 +1,4 @@
 ﻿using System;
-<<<<<<< HEAD
 using System.Linq;
 using DienMayQuyetTien.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -14,13 +13,16 @@ using DienMayQuyetTien.Areas.Admin.Controllers;
 
 namespace DienMayQuyetTien.Tests
 {
+    /// <summary>
+    /// Summary description for ProductUnitTest
+    /// </summary>
     [TestClass]
     public class ContactUnitTest
     {
         [TestMethod]
         public void IndexTest()
         {
-            var controller = new HomeController();
+            var controller = new ContactsController();
             var context = new Mock<HttpContextBase>();
             var session = new Mock<HttpSessionStateBase>();
             context.Setup(c => c.Session).Returns(session.Object);
@@ -30,9 +32,8 @@ namespace DienMayQuyetTien.Tests
             var result = controller.Index() as ViewResult;
             var db = new DmQT03Entities();
 
-            //Assert.IsNotNull(result.ViewBag.Message);
-            Assert.IsInstanceOfType(result.Model, typeof(List<Product>));
-            Assert.AreEqual(db.Products.Count(), (result.Model as List<Product>).Count);
+            Assert.IsInstanceOfType(result.Model, typeof(List<Contact>));
+            Assert.AreEqual(db.ProductTypes.Count(), (result.Model as List<Contact>).Count);
 
             session.Setup(s => s["UserName"]).Returns(null);
             var redirect = controller.Index() as RedirectToRouteResult;
@@ -43,7 +44,7 @@ namespace DienMayQuyetTien.Tests
         [TestMethod]
         public void CreateGetTest()
         {
-            var controller = new HomeController();
+            var controller = new ContactsController();
             var context = new Mock<HttpContextBase>();
             var session = new Mock<HttpSessionStateBase>();
             context.Setup(c => c.Session).Returns(session.Object);
@@ -53,43 +54,26 @@ namespace DienMayQuyetTien.Tests
             var result = controller.Create() as ViewResult;
 
             Assert.IsNotNull(result);
-            Assert.IsInstanceOfType(result.ViewData["ProductTypeID"], typeof(SelectList));
         }
 
         [TestMethod]
         public void CreatePostTest()
         {
-            var controller = new HomeController();
+            var controller = new ContactsController();
             var db = new DmQT03Entities();
             var context = new Mock<HttpContextBase>();
-            var request = new Mock<HttpRequestBase>();
-            var files = new Mock<HttpFileCollectionBase>();
-            var file = new Mock<HttpPostedFileBase>();
-            context.Setup(c => c.Request).Returns(request.Object);
-            request.Setup(r => r.Files).Returns(files.Object);
-            files.Setup(f => f["ImageFile"]).Returns(file.Object);
-            file.Setup(f => f.ContentLength).Returns(1);
-            file.Setup(c => c.FileName).Returns("image.png");
-            context.Setup(c => c.Server.MapPath("/Assets/Admin/img/products/")).Returns("/Assets/Admin/img/products/");
-            controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
 
             using (var scope = new TransactionScope())
             {
 
-                var model = new Product();
-                model.ProductTypeID = db.ProductTypes.First().ID;
-                model.ProductName = "ProductName";
-                model.OriginPrice = 123;
-                model.SalePrice = 456;
-                model.InstallmentPrice = 789;
-                model.Quantity = 10;
-
+                var model = new Contact();
+                model.Title = "Title";
+                model.Email = "test@gmail.com";
+                model.Fullname = "Nguyen Van A";
+                model.Phone = 013456789;
+                model.Comment = "Hello";
                 var result0 = controller.Create(model) as RedirectToRouteResult;
                 Assert.IsNotNull(result0);
-                file.Verify(f => f.SaveAs(It.Is<string>(s => s.StartsWith("/Assets/Admin/img/products/"))));
-                Assert.AreEqual("Index", result0.RouteValues["action"]);
-
-                file.Setup(f => f.ContentLength).Returns(0);
             }
         }
 
@@ -97,53 +81,42 @@ namespace DienMayQuyetTien.Tests
         public void EditGetTest()
         {
             var db = new DmQT03Entities();
-            var controller = new HomeController();
+            var controller = new ProductTypesController();
             var context = new Mock<HttpContextBase>();
             var session = new Mock<HttpSessionStateBase>();
             context.Setup(c => c.Session).Returns(session.Object);
             controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
             session.Setup(s => s["UserName"]).Returns("abc");
 
-            var productID = db.Products.First().ID;
+            var productTypesID = db.ProductTypes.First().ID;
 
-            var result = controller.Edit(productID) as ViewResult;
+            var result = controller.Edit(productTypesID) as ViewResult;
 
             Assert.IsNotNull(result);
-            Assert.IsInstanceOfType(result.ViewData["ProductType"], typeof(List<ProductType>));
         }
-
         [TestMethod]
         public void EditPostTest()
         {
-            var controller = new HomeController();
+            var controller = new ContactsController();
             var db = new DmQT03Entities();
             var context = new Mock<HttpContextBase>();
             var request = new Mock<HttpRequestBase>();
             var files = new Mock<HttpFileCollectionBase>();
             var file = new Mock<HttpPostedFileBase>();
-            context.Setup(c => c.Request).Returns(request.Object);
-            request.Setup(r => r.Files).Returns(files.Object);
-            files.Setup(f => f["ImageFile"]).Returns(file.Object);
-            file.Setup(f => f.ContentLength).Returns(1);
-            file.Setup(c => c.FileName).Returns("image.png");
-            context.Setup(c => c.Server.MapPath("/Assets/Admin/img/products/")).Returns("/Assets/Admin/img/products/");
-            controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
 
-            var model = db.Products.AsNoTracking().First();
+            var model = db.Contacts.AsNoTracking().First();
 
             using (var scope = new TransactionScope())
             {
-                model.Quantity = 100;
-                model.SalePrice = 20000000;
-                model.OriginPrice = 10000000;
-                model.InstallmentPrice = 30000000;
-                model.ProductName = "TEST1";
-                model.ProductTypeID = 2;
+                model.Title = "Title";
+                model.Email = "test@gmail.com";
+                model.Fullname = "Nguyen Van A";
+                model.Phone = 013456789;
+                model.Comment = "Hello";
 
                 var result = controller.Edit(model) as RedirectToRouteResult;
 
                 Assert.IsNotNull(result);
-
             }
         }
 
@@ -151,17 +124,16 @@ namespace DienMayQuyetTien.Tests
         public void DeleteTest()
         {
             var db = new DmQT03Entities();
-            var product = new Product
+            var contact = new Contact
             {
-                ProductName = "ProductName",
-                ProductTypeID = db.ProductTypes.First().ID,
-                SalePrice = 123,
-                OriginPrice = 123,
-                InstallmentPrice = 123,
-                Quantity = 123,
+                Title = "Title",
+                Email = "test@gmail.com",
+                Fullname = "Nguyen Van A",
+                Phone = 013456789,
+                Comment = "Hello"
             };
 
-            var controller = new HomeController();
+            var controller = new ContactsController();
             var context = new Mock<HttpContextBase>();
             var session = new Mock<HttpSessionStateBase>();
             session.Setup(s => s["UserName"]).Returns("abc");
@@ -170,80 +142,13 @@ namespace DienMayQuyetTien.Tests
 
             using (var scope = new TransactionScope())
             {
-                db.Products.Add(product);
+                db.Contacts.Add(contact);
                 db.SaveChanges();
-                var count = db.Products.Count();
-                var result2 = controller.DeleteConfirmed(product.ID) as RedirectToRouteResult;
+                var count = db.Contacts.Count();
+                var result2 = controller.DeleteConfirmed(contact.ID) as RedirectToRouteResult;
                 Assert.IsNotNull(result2);
-                Assert.AreEqual(count - 1, db.Products.Count());
+                Assert.AreEqual(count - 1, db.Contacts.Count());
             }
-=======
-using System.Text;
-using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace DienMayQuyetTien.Tests
-{
-    /// <summary>
-    /// Summary description for ContactUnitTest
-    /// </summary>
-    [TestClass]
-    public class ContactUnitTest
-    {
-        public ContactUnitTest()
-        {
-            //
-            // TODO: Add constructor logic here
-            //
-        }
-
-        private TestContext testContextInstance;
-
-        /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext
-        {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
-
-        #region Additional test attributes
-        //
-        // You can use the following additional attributes as you write your tests:
-        //
-        // Use ClassInitialize to run code before running the first test in the class
-        // [ClassInitialize()]
-        // public static void MyClassInitialize(TestContext testContext) { }
-        //
-        // Use ClassCleanup to run code after all tests in a class have run
-        // [ClassCleanup()]
-        // public static void MyClassCleanup() { }
-        //
-        // Use TestInitialize to run code before running each test 
-        // [TestInitialize()]
-        // public void MyTestInitialize() { }
-        //
-        // Use TestCleanup to run code after each test has run
-        // [TestCleanup()]
-        // public void MyTestCleanup() { }
-        //
-        #endregion
-
-        [TestMethod]
-        public void TestMethod1()
-        {
-            //
-            // TODO: Add test logic here
-            //
->>>>>>> 2fb75e2e61c4d872c5b746bf1b7ad06b7c016987
         }
     }
 }
